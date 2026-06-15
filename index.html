@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,42 +6,70 @@
     <title>995 Studio</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f8f8f8;
-            color: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+            color: #222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
         }
 
         .container {
-            padding: 40px;
-            max-width: 600px;
+            padding: 40px 20px;
+            max-width: 800px;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 12px;
+            margin: 0;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        p {
-            font-size: 1.1rem;
+        .subtitle {
+            margin-top: 24px;
+            font-size: 1.6rem;
             color: #666;
-            margin: 8px 0;
+            line-height: 1.4;
         }
 
-        a {
+        .contact {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            color: #555;
+        }
+
+        .contact a {
             color: #222;
             text-decoration: none;
             font-weight: 600;
         }
 
-        a:hover {
+        .contact a:hover {
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .contact {
+                font-size: 1.15rem;
+            }
         }
     </style>
 </head>
@@ -50,17 +77,16 @@
     <div class="container">
         <h1>995 Studio</h1>
 
-        <p>
+        <div class="subtitle">
             Building simple, thoughtful, and useful digital experiences.
-        </p>
+        </div>
 
-        <p>
+        <div class="contact">
             Contact:
             <a href="mailto:support@995studio.com">
                 support@995studio.com
             </a>
-        </p>
+        </div>
     </div>
 </body>
 </html>
-```
