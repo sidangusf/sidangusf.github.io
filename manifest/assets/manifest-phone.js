@@ -53,6 +53,7 @@
     heartBlinkTimer: null,
     isCurrentCharBlinkVisible: true,
     mindCopyToastTimer: null,
+    tabAnimationTimer: null,
     pendingSendMode: null
   };
 
@@ -83,6 +84,7 @@
   var panels = root.querySelectorAll('[data-panel]');
   var views = root.querySelectorAll('[data-view]');
   var tabs = root.querySelectorAll('[data-tab]');
+  var tabBar = root.querySelector('[data-tab-bar]');
 
   function toDateKey(date) {
     var year = date.getFullYear();
@@ -409,6 +411,8 @@
   }
 
   function switchView(viewName) {
+    var previousViewName = tabBar ? tabBar.getAttribute('data-active-tab') : null;
+
     closePanels();
     setSendMenuOpen(false);
 
@@ -423,9 +427,35 @@
       tab.setAttribute('aria-pressed', String(isActive));
     });
 
+    updateTabBarSelection(viewName, previousViewName !== viewName);
+
     if (viewName === 'profile') {
       updateProfileGreeting();
     }
+  }
+
+  function updateTabBarSelection(viewName, shouldAnimate) {
+    if (!tabBar) {
+      return;
+    }
+
+    tabBar.setAttribute('data-active-tab', viewName);
+
+    if (!shouldAnimate) {
+      return;
+    }
+
+    if (state.tabAnimationTimer) {
+      clearTimeout(state.tabAnimationTimer);
+    }
+
+    tabBar.classList.remove('is-animating');
+    void tabBar.offsetWidth;
+    tabBar.classList.add('is-animating');
+    state.tabAnimationTimer = setTimeout(function () {
+      tabBar.classList.remove('is-animating');
+      state.tabAnimationTimer = null;
+    }, 440);
   }
 
   function syncDailyMessage() {
