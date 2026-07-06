@@ -58,6 +58,25 @@
             text-decoration: underline;
         }
 
+        .manifest-link {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            background-color: #222;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .manifest-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
@@ -80,6 +99,10 @@
         <div class="subtitle">
             Building simple, thoughtful, and useful digital experiences.
         </div>
+
+        <a class="manifest-link" href="manifest/">
+            Open Manifest
+        </a>
 
         <div class="contact">
             Contact:
