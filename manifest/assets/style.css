@@ -217,7 +217,7 @@ h3{font-size:26px; color:#0b1528}
   background:#f8fafc; color:#0f172a; font-size:15px; line-height:17px; font-weight:850; cursor:pointer;
 }
 .app-modal-copy{margin:0 0 12px; color:#475569; font-size:13px; line-height:1.45; font-weight:700}
-.app-heart-modal{background:#fef3e1; backdrop-filter:none; flex-direction:column; gap:12px; padding:36px 20px 70px}
+.app-heart-modal{background:#fef3e1; backdrop-filter:none; flex-direction:column; gap:12px; padding:4px 20px 114px}
 .app-heart-modal:before{
   content:""; position:absolute; inset:0; pointer-events:none; opacity:.30;
   background-image:repeating-linear-gradient(0deg, rgba(15,59,48,.06) 0, rgba(15,59,48,.06) 1px, transparent 1px, transparent 5px);
