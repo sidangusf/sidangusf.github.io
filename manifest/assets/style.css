@@ -47,10 +47,9 @@ a:hover{text-decoration:underline}
 .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 0}
 .brand{display:flex; align-items:center; gap:12px; font-weight:800; color:var(--green)}
 .brand img{width:46px; height:46px; border-radius:14px}
-.brand-title{font-family:Georgia, serif; font-size:30px; line-height:1}
-.brand-sub{display:block; font-family:ui-sans-serif, system-ui; font-size:11px; letter-spacing:.08em; margin-top:2px}
-.nav .brand-sub{transform:translateX(24px)}
-.footer .brand-sub{transform:translateX(32px)}
+.brand > span{display:inline-block}
+.brand-title{display:block; font-family:Georgia, serif; font-size:30px; line-height:1}
+.brand-sub{display:block; font-family:ui-sans-serif, system-ui; font-size:11px; letter-spacing:.08em; margin-top:2px; text-align:right}
 .links{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
 .links a{font-weight:750; color:#27354a}
 .hero{padding:72px 0 36px}
@@ -58,6 +57,9 @@ a:hover{text-decoration:underline}
 .kicker{color:var(--green); font-weight:850; letter-spacing:.08em; text-transform:uppercase; font-size:13px}
 h1,h2,h3{line-height:1.12; margin:0 0 16px}
 h1{font-size:clamp(46px, 7vw, 86px); font-family:Georgia, serif; color:var(--green)}
+.hero-brand{display:inline-block}
+.hero-brand-main{display:block}
+.hero-brand-sub{display:block; margin-top:4px; font-family:ui-sans-serif, system-ui; font-size:clamp(18px, 2vw, 28px); font-weight:850; letter-spacing:.08em; line-height:1.2; text-align:right}
 h2{font-size:clamp(32px, 4vw, 54px); font-family:Georgia, serif; color:var(--green)}
 h3{font-size:26px; color:#0b1528}
 .lead{font-size:clamp(19px, 2vw, 25px); color:var(--muted); max-width:760px}
@@ -86,8 +88,9 @@ h3{font-size:26px; color:#0b1528}
 }
 .phone-card:after{content:none}
 .mock-icon{width:96px; height:96px; border-radius:24px; display:block; margin:0 auto}
-.mock-logo{font-family:Georgia, serif; color:var(--green); font-size:54px; font-weight:800; line-height:1; margin-top:16px}
-.mock-small{color:var(--green); font-weight:850; margin-top:0; text-align:center; transform:translateX(52px)}
+.mock-brand{display:inline-block; margin-top:16px}
+.mock-logo{display:block; font-family:Georgia, serif; color:var(--green); font-size:54px; font-weight:800; line-height:1}
+.mock-small{display:block; color:var(--green); font-weight:850; text-align:right}
 .signal{
   margin:36px 0 20px; background:#fff; border:1px solid var(--line); border-radius:28px;
   padding:26px; color:#071226; font-weight:850; font-size:24px; text-align:left;
