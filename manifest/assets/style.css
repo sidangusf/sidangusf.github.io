@@ -97,7 +97,9 @@ h3{font-size:26px; color:#0b1528}
 }
 .signal small{display:block; color:var(--muted); font-size:15px; margin-bottom:12px}
 .section{padding:58px 0}
+.section-lead-single-line{max-width:none; font-size:clamp(16px, 1.6vw, 20px); white-space:nowrap}
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.cards .card h3{font-size:clamp(20px, 2vw, 23px); white-space:nowrap}
 .card{
   background:rgba(255,253,247,.92); border:1px solid var(--line); border-radius:var(--radius);
   padding:28px; box-shadow:0 10px 34px rgba(15,59,48,.06);
@@ -105,6 +107,7 @@ h3{font-size:26px; color:#0b1528}
 .card.icon:before{font-size:34px; display:block; margin-bottom:12px}
 .card p{color:var(--muted); margin:0}
 .grid-two{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+.grid-two .card h2{font-size:clamp(24px, 3vw, 36px); white-space:nowrap}
 .article-list{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
 .article-tile{background:#fffdf7; border:1px solid var(--line); border-radius:26px; padding:22px}
 .article-tile p{color:var(--muted); margin-bottom:0}
@@ -135,6 +138,7 @@ h3{font-size:26px; color:#0b1528}
   .hero-grid,.grid-two,.article-wrap{grid-template-columns:1fr}
   .cards,.article-list{grid-template-columns:1fr 1fr}
   .sidebar{position:static}
+  .section-lead-single-line{white-space:normal}
 }
 @media(max-width:640px){
   .container{width:min(100% - 28px, 1120px)}
@@ -142,5 +146,7 @@ h3{font-size:26px; color:#0b1528}
   .hero{padding-top:42px}
   .cards,.article-list{grid-template-columns:1fr}
   .article{padding:28px}
+  .cards .card h3{font-size:20px}
+  .grid-two .card h2{font-size:clamp(20px, 6vw, 28px)}
   .mock-logo{font-size:46px}
 }
