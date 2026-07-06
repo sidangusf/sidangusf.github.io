@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="manifest daisy logo">
+  <rect width="220" height="220" rx="44" fill="#fbf4e6"/>
+  <g transform="translate(110 78)">
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(0) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(45) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(90) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(135) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(180) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(225) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(270) translate(0 -38)"/>
+    <ellipse rx="17" ry="37" fill="#fffaf0" stroke="#79532b" stroke-width="5" transform="rotate(315) translate(0 -38)"/>
+    <circle r="26" fill="#f4b21f" stroke="#79532b" stroke-width="5"/>
+  </g>
+  <text x="110" y="165" text-anchor="middle" font-size="34" font-family="Georgia, serif" font-weight="700" fill="#0f3b30">manifest.</text>
+  <text x="110" y="188" text-anchor="middle" font-size="12" font-family="Arial, sans-serif" font-weight="700" fill="#0f3b30">made with love</text>
+</svg>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://995studio.com/manifest/sitemap.xml
