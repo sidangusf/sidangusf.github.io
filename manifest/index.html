@@ -107,18 +107,41 @@
               </div>
             </div>
           </div>
-          <div class="app-modal" data-panel="mind" hidden>
-            <div class="app-modal-card" role="dialog" aria-modal="true" aria-labelledby="mind-title">
-              <div class="app-modal-top">
-                <h3 id="mind-title">My Own Mind</h3>
-                <button type="button" class="app-modal-close" data-action="close-modal" aria-label="Close send with my own mind">×</button>
+          <div class="app-modal app-mind-modal" data-panel="mind" hidden>
+            <div class="app-heart-brand app-mind-brand">
+              <div class="app-wordmark app-heart-wordmark">manifest.</div>
+              <div class="app-made app-heart-made">made with love</div>
+            </div>
+            <div class="app-modal-card app-mind-card" role="dialog" aria-modal="true" aria-labelledby="mind-title">
+              <div class="app-modal-scroll">
+                <div class="app-modal-top">
+                  <h3 id="mind-title">My Own Mind</h3>
+                  <button type="button" class="app-modal-close app-mind-close" data-action="close-modal" aria-label="Close send with my own mind">×</button>
+                </div>
+                <p class="app-modal-copy app-heart-instruction">Send your own message from your mind to the Universe anytime you want!</p>
+                <div class="app-mind-input-frame">
+                  <textarea class="app-mind-input" data-mind-input rows="4" maxlength="3000" aria-label="Write your own message to the Universe"></textarea>
+                  <div class="app-mind-copy-toast" data-mind-copy-toast hidden>
+                    <span>Content is copied to the clipboard</span>
+                    <strong>✓</strong>
+                  </div>
+                </div>
+                <div class="app-mind-action-row">
+                  <div class="app-mind-side-actions" data-mind-side-actions hidden>
+                    <button type="button" class="app-modal-button app-mind-icon-action" data-action="mind-clear" aria-label="Clear typed mind message">⌫</button>
+                    <button type="button" class="app-modal-button app-mind-icon-action" data-action="mind-copy" aria-label="Copy typed mind message">⧉</button>
+                  </div>
+                  <button type="button" class="app-modal-button primary app-mind-send-button" data-action="mind-send" disabled>Send to Universe</button>
+                </div>
               </div>
-              <p class="app-modal-copy">Write your own message from your mind to the Universe anytime you want.</p>
-              <textarea data-mind-input rows="5" maxlength="3000" aria-label="Write your own message to the Universe"></textarea>
-              <div class="app-modal-help"><span data-mind-count>0</span>/3000</div>
-              <div class="app-modal-actions">
-                <button type="button" class="app-modal-button" data-action="close-modal">Cancel</button>
-                <button type="button" class="app-modal-button primary" data-action="mind-send" disabled>Send to Universe</button>
+              <div class="app-clear-confirm" data-mind-clear-confirm hidden>
+                <div class="app-clear-confirm-card">
+                  <p>Clear what you typed?</p>
+                  <div class="app-clear-confirm-actions">
+                    <button type="button" class="app-modal-button" data-action="mind-clear-no">No</button>
+                    <button type="button" class="app-modal-button primary" data-action="mind-clear-yes">Yes</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

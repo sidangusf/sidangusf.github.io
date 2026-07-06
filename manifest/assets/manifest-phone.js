@@ -51,7 +51,8 @@
     dotsTimer: null,
     dotsIndex: 0,
     heartBlinkTimer: null,
-    isCurrentCharBlinkVisible: true
+    isCurrentCharBlinkVisible: true,
+    mindCopyToastTimer: null
   };
 
   var SEND_DURATION_MS = 5000;
@@ -67,6 +68,9 @@
   var mindInput = root.querySelector('[data-mind-input]');
   var mindCount = root.querySelector('[data-mind-count]');
   var mindSendButton = root.querySelector('[data-action="mind-send"]');
+  var mindSideActions = root.querySelector('[data-mind-side-actions]');
+  var mindCopyToast = root.querySelector('[data-mind-copy-toast]');
+  var mindClearConfirm = root.querySelector('[data-mind-clear-confirm]');
   var sendMenu = root.querySelector('[data-send-menu]');
   var menuToggle = root.querySelector('[data-action="toggle-menu"]');
   var quickSendButton = root.querySelector('[data-action="quick-send"]');
@@ -118,6 +122,8 @@
       panel.hidden = true;
     });
     clearHeartBlinkTimer();
+    closeMindClearConfirm();
+    hideMindCopyToast();
   }
 
   function clearSendTimers() {
@@ -303,6 +309,81 @@
     if (mindSendButton) {
       mindSendButton.disabled = value.trim().length === 0;
     }
+
+    if (mindSideActions) {
+      mindSideActions.hidden = value.length === 0;
+    }
+  }
+
+  function openMindClearConfirm() {
+    if (mindClearConfirm) {
+      mindClearConfirm.hidden = false;
+    }
+  }
+
+  function closeMindClearConfirm() {
+    if (mindClearConfirm) {
+      mindClearConfirm.hidden = true;
+    }
+  }
+
+  function confirmClearMindDraft() {
+    if (mindInput) {
+      mindInput.value = '';
+      updateMindState();
+      mindInput.focus();
+    }
+
+    closeMindClearConfirm();
+  }
+
+  function hideMindCopyToast() {
+    if (state.mindCopyToastTimer) {
+      clearTimeout(state.mindCopyToastTimer);
+      state.mindCopyToastTimer = null;
+    }
+
+    if (mindCopyToast) {
+      mindCopyToast.hidden = true;
+    }
+  }
+
+  function showMindCopyToast() {
+    if (!mindCopyToast) {
+      return;
+    }
+
+    hideMindCopyToast();
+    mindCopyToast.hidden = false;
+    state.mindCopyToastTimer = setTimeout(function () {
+      mindCopyToast.hidden = true;
+      state.mindCopyToastTimer = null;
+    }, 2000);
+  }
+
+  function copyMindMessage() {
+    var value = mindInput ? mindInput.value : '';
+
+    if (!value) {
+      return;
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(showMindCopyToast).catch(function () {
+        showToast('Unable to copy right now');
+      });
+      return;
+    }
+
+    mindInput.focus();
+    mindInput.select();
+
+    try {
+      document.execCommand('copy');
+      showMindCopyToast();
+    } catch (error) {
+      showToast('Unable to copy right now');
+    }
   }
 
   function updateProfileGreeting() {
@@ -415,6 +496,26 @@
         updateMindState();
       }
 
+      return;
+    }
+
+    if (action === 'mind-clear') {
+      openMindClearConfirm();
+      return;
+    }
+
+    if (action === 'mind-copy') {
+      copyMindMessage();
+      return;
+    }
+
+    if (action === 'mind-clear-no') {
+      closeMindClearConfirm();
+      return;
+    }
+
+    if (action === 'mind-clear-yes') {
+      confirmClearMindDraft();
       return;
     }
 
