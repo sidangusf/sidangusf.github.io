@@ -1,3 +1,10 @@
+@font-face{
+  font-family:"MaterialSymbols_600SemiBold";
+  src:url("MaterialSymbols_600SemiBold.ttf") format("truetype");
+  font-weight:600;
+  font-style:normal;
+  font-display:block;
+}
 
 :root{
   --bg:#fbf4e6;
@@ -329,29 +336,28 @@ h3{font-size:26px; color:#0b1528}
 .app-tab-indicator{
   position:absolute; left:var(--app-tab-padding); top:var(--app-tab-padding);
   width:var(--app-tab-width); height:var(--app-tab-height);
-  transform:translateX(0); transition:transform 420ms cubic-bezier(.2,.95,.2,1.05);
+  transform:translateX(var(--app-tab-indicator-x, 0px)) scaleX(var(--app-tab-indicator-scale, 1)) scaleY(calc(2 - var(--app-tab-indicator-scale, 1)));
   pointer-events:none; transform-origin:center;
+  will-change:transform;
 }
 .app-tab-indicator-shape{
   position:absolute; inset:0; border-radius:32px; background:rgba(29,53,45,.12);
 }
-.app-tab-bar[data-active-tab="profile"] .app-tab-indicator{transform:translateX(calc(var(--app-tab-width) + var(--app-tab-gap)))}
-.app-tab-bar.is-animating .app-tab-indicator-shape{animation:manifest-tab-drop 420ms cubic-bezier(.2,.95,.2,1)}
 .app-tab-bar button{
   position:relative; z-index:1; display:grid; place-items:center; width:var(--app-tab-width); height:var(--app-tab-height); border-radius:32px;
   color:#475569; border:0; background:transparent; cursor:pointer; padding:0;
 }
 .app-tab-bar button:active{opacity:.85}
 .app-tab-bar .active{color:#1d352d}
-.app-tab-icon{grid-area:1 / 1; width:18px; height:18px; display:block; fill:none; stroke:currentColor; stroke-width:2.1; stroke-linecap:round; stroke-linejoin:round}
-.app-tab-icon-filled{display:none; fill:currentColor; stroke:none}
-.app-tab-bar .active .app-tab-icon-outline{display:none}
-.app-tab-bar .active .app-tab-icon-filled{display:block}
-@keyframes manifest-tab-drop{
-  0%{transform:scaleX(.9) scaleY(1.1)}
-  58%{transform:scaleX(1.04) scaleY(.96)}
-  100%{transform:scaleX(1) scaleY(1)}
+.app-tab-symbol{
+  grid-area:1 / 1; width:18px; height:18px; display:grid; place-items:center;
+  font-family:"MaterialSymbols_600SemiBold"; font-weight:600; font-style:normal;
+  font-size:18px; line-height:18px; color:currentColor;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
+.app-tab-symbol-selected{display:none}
+.app-tab-bar .active .app-tab-symbol-default{display:none}
+.app-tab-bar .active .app-tab-symbol-selected{display:grid}
 .section{padding:58px 0}
 .section-lead-single-line{max-width:none; font-size:clamp(16px, 1.6vw, 20px); white-space:nowrap}
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}

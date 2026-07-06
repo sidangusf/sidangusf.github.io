@@ -53,12 +53,18 @@
     heartBlinkTimer: null,
     isCurrentCharBlinkVisible: true,
     mindCopyToastTimer: null,
-    tabAnimationTimer: null,
+    tabAnimationFrame: null,
+    tabIndicatorPosition: 0,
+    tabIndicatorScale: 1,
     pendingSendMode: null
   };
 
   var SEND_DURATION_MS = 5000;
   var DOT_SUFFIXES = ['.\u00A0\u00A0', '..\u00A0', '...', '\u00A0\u00A0\u00A0'];
+  var TAB_TRANSLATE_SPRING = { damping: 15, stiffness: 220, mass: 0.8 };
+  var TAB_DROP_SPRING = { damping: 9, stiffness: 260, mass: 0.55 };
+  var TAB_REST_SPEED = 0.02;
+  var TAB_REST_DISPLACEMENT = 0.02;
 
   var headingEl = root.querySelector('[data-daily-heading]');
   var sentenceEl = root.querySelector('[data-daily-sentence]');
@@ -434,28 +440,122 @@
     }
   }
 
-  function updateTabBarSelection(viewName, shouldAnimate) {
+  function getTabTravelDistance() {
+    var style;
+    var tabWidth;
+    var tabGap;
+
+    if (!tabBar || !window.getComputedStyle) {
+      return 118;
+    }
+
+    style = window.getComputedStyle(tabBar);
+    tabWidth = parseFloat(style.getPropertyValue('--app-tab-width'));
+    tabGap = parseFloat(style.getPropertyValue('--app-tab-gap'));
+
+    return (Number.isNaN(tabWidth) ? 116 : tabWidth) + (Number.isNaN(tabGap) ? 2 : tabGap);
+  }
+
+  function getTabTargetPosition(viewName) {
+    return viewName === 'profile' ? getTabTravelDistance() : 0;
+  }
+
+  function setTabIndicatorTransform(position, scale) {
+    state.tabIndicatorPosition = position;
+    state.tabIndicatorScale = scale;
+
     if (!tabBar) {
       return;
     }
 
-    tabBar.setAttribute('data-active-tab', viewName);
+    tabBar.style.setProperty('--app-tab-indicator-x', position.toFixed(3) + 'px');
+    tabBar.style.setProperty('--app-tab-indicator-scale', String(Math.round(scale * 1000) / 1000));
+  }
 
-    if (!shouldAnimate) {
+  function cancelTabAnimation() {
+    if (!state.tabAnimationFrame) {
       return;
     }
 
-    if (state.tabAnimationTimer) {
-      clearTimeout(state.tabAnimationTimer);
+    cancelAnimationFrame(state.tabAnimationFrame);
+    state.tabAnimationFrame = null;
+  }
+
+  function advanceSpring(position, velocity, target, elapsedSeconds, spring) {
+    var displacement = position - target;
+    var acceleration = (-spring.stiffness * displacement - spring.damping * velocity) / spring.mass;
+    var nextVelocity = velocity + acceleration * elapsedSeconds;
+
+    return {
+      position: position + nextVelocity * elapsedSeconds,
+      velocity: nextVelocity
+    };
+  }
+
+  function isSpringAtRest(position, velocity, target) {
+    return Math.abs(velocity) < TAB_REST_SPEED && Math.abs(target - position) < TAB_REST_DISPLACEMENT;
+  }
+
+  function animateTabIndicatorTo(targetPosition) {
+    var position = state.tabIndicatorPosition;
+    var velocity = 0;
+    var scale = 0.9;
+    var scaleVelocity = 0;
+    var lastTimestamp = null;
+
+    cancelTabAnimation();
+    setTabIndicatorTransform(position, scale);
+
+    function animate(timestamp) {
+      var elapsedSeconds;
+      var translation;
+      var drop;
+
+      if (lastTimestamp === null) {
+        lastTimestamp = timestamp;
+      }
+
+      elapsedSeconds = Math.min((timestamp - lastTimestamp) / 1000, 1 / 30);
+      lastTimestamp = timestamp;
+
+      translation = advanceSpring(position, velocity, targetPosition, elapsedSeconds, TAB_TRANSLATE_SPRING);
+      drop = advanceSpring(scale, scaleVelocity, 1, elapsedSeconds, TAB_DROP_SPRING);
+      position = translation.position;
+      velocity = translation.velocity;
+      scale = drop.position;
+      scaleVelocity = drop.velocity;
+
+      setTabIndicatorTransform(position, scale);
+
+      if (isSpringAtRest(position, velocity, targetPosition) && isSpringAtRest(scale, scaleVelocity, 1)) {
+        setTabIndicatorTransform(targetPosition, 1);
+        state.tabAnimationFrame = null;
+        return;
+      }
+
+      state.tabAnimationFrame = requestAnimationFrame(animate);
     }
 
-    tabBar.classList.remove('is-animating');
-    void tabBar.offsetWidth;
-    tabBar.classList.add('is-animating');
-    state.tabAnimationTimer = setTimeout(function () {
-      tabBar.classList.remove('is-animating');
-      state.tabAnimationTimer = null;
-    }, 440);
+    state.tabAnimationFrame = requestAnimationFrame(animate);
+  }
+
+  function updateTabBarSelection(viewName, shouldAnimate) {
+    var targetPosition;
+
+    if (!tabBar) {
+      return;
+    }
+
+    targetPosition = getTabTargetPosition(viewName);
+    tabBar.setAttribute('data-active-tab', viewName);
+
+    if (!shouldAnimate || !window.requestAnimationFrame) {
+      cancelTabAnimation();
+      setTabIndicatorTransform(targetPosition, 1);
+      return;
+    }
+
+    animateTabIndicatorTo(targetPosition);
   }
 
   function syncDailyMessage() {
