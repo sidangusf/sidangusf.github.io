@@ -138,6 +138,7 @@ h3{font-size:26px; color:#0b1528}
   background:#fffdf7; border:1px solid #e2e8f0;
   box-shadow:0 6px 16px rgba(15,23,42,.08); font-size:13px;
 }
+.app-streak-icon{width:20px; height:20px; display:block; object-fit:contain}
 .app-content{
   position:relative; z-index:1; min-height:100%; display:flex; flex-direction:column;
   justify-content:center; gap:18px; padding:70px 22px 92px;
