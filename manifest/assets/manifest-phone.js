@@ -29,17 +29,7 @@
     { id: 'web-007', content: 'I listen before I react, and my ambition stays human.' },
     { id: 'web-008', content: 'I let today be simple, honest, and enough.' },
     { id: 'web-009', content: 'I am allowed to begin again with softness.' },
-    { id: 'web-010', content: 'I send my attention where my future can grow.' },
-    { id: 'web-011', content: 'I choose the next kind action available to me.' },
-    { id: 'web-012', content: 'I return to myself with patience and care.' },
-    { id: 'web-013', content: 'I am building trust through small proof.' },
-    { id: 'web-014', content: 'I can be ambitious without abandoning my peace.' },
-    { id: 'web-015', content: 'I let one clear thought guide my next step.' },
-    { id: 'web-016', content: 'I am safe to want more and move slowly.' },
-    { id: 'web-017', content: 'I honor my energy and still welcome change.' },
-    { id: 'web-018', content: 'I release pressure and keep the promise softly.' },
-    { id: 'web-019', content: 'I am present enough to receive the sign.' },
-    { id: 'web-020', content: 'I trust the quiet work I am doing.' }
+    { id: 'web-010', content: 'I send my attention where my future can grow.' }
   ];
 
   var state = {
@@ -94,28 +84,8 @@
   var tabs = root.querySelectorAll('[data-tab]');
   var tabBar = root.querySelector('[data-tab-bar]');
 
-  function toDateKey(date) {
-    var year = date.getFullYear();
-    var month = String(date.getMonth() + 1).padStart(2, '0');
-    var day = String(date.getDate()).padStart(2, '0');
-
-    return year + '-' + month + '-' + day;
-  }
-
-  function hashString(input) {
-    var hash = 2166136261;
-    var index;
-
-    for (index = 0; index < input.length; index += 1) {
-      hash ^= input.charCodeAt(index);
-      hash = Math.imul(hash, 16777619);
-    }
-
-    return hash >>> 0;
-  }
-
-  function pickDailyItem(items, dateKey, salt) {
-    return items[hashString(salt + ':' + dateKey) % items.length];
+  function pickRandomItem(items) {
+    return items[Math.floor(Math.random() * items.length)];
   }
 
   function formatSentenceForDisplay(sentence) {
@@ -568,15 +538,9 @@
 
   function syncDailyMessage() {
     var now = new Date();
-    var dateKey = toDateKey(now);
-    var heading = pickDailyItem(headings, dateKey, 'heading');
-    var sentence = pickDailyItem(sentences, dateKey, 'sentence');
+    var heading = pickRandomItem(headings);
+    var sentence = pickRandomItem(sentences);
 
-    if (dateKey === state.dateKey && sentence.id === state.sentence.id) {
-      return;
-    }
-
-    state.dateKey = dateKey;
     state.sentence = sentence;
     state.displaySentence = formatSentenceForDisplay(sentence.content);
 
@@ -717,5 +681,4 @@
   syncDailyMessage();
   updateMindState();
   updateProfileGreeting();
-  setInterval(syncDailyMessage, 60000);
 }());
