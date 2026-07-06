@@ -49,7 +49,9 @@
     toastTimer: null,
     sendTimer: null,
     dotsTimer: null,
-    dotsIndex: 0
+    dotsIndex: 0,
+    heartBlinkTimer: null,
+    isCurrentCharBlinkVisible: true
   };
 
   var SEND_DURATION_MS = 5000;
@@ -59,8 +61,8 @@
   var sentenceEl = root.querySelector('[data-daily-sentence]');
   var dateEl = root.querySelector('[data-daily-date]');
   var heartTargetEl = root.querySelector('[data-heart-target]');
+  var heartSurface = root.querySelector('[data-heart-surface]');
   var heartInput = root.querySelector('[data-heart-input]');
-  var heartHelp = root.querySelector('[data-heart-help]');
   var heartSendButton = root.querySelector('[data-action="heart-send"]');
   var mindInput = root.querySelector('[data-mind-input]');
   var mindCount = root.querySelector('[data-mind-count]');
@@ -115,6 +117,7 @@
     panels.forEach(function (panel) {
       panel.hidden = true;
     });
+    clearHeartBlinkTimer();
   }
 
   function clearSendTimers() {
@@ -127,6 +130,22 @@
       clearInterval(state.dotsTimer);
       state.dotsTimer = null;
     }
+  }
+
+  function clearHeartBlinkTimer() {
+    if (state.heartBlinkTimer) {
+      clearInterval(state.heartBlinkTimer);
+      state.heartBlinkTimer = null;
+    }
+    state.isCurrentCharBlinkVisible = true;
+  }
+
+  function startHeartBlinkTimer() {
+    clearHeartBlinkTimer();
+    state.heartBlinkTimer = setInterval(function () {
+      state.isCurrentCharBlinkVisible = !state.isCurrentCharBlinkVisible;
+      updateHeartState();
+    }, 500);
   }
 
   function openPanel(name) {
@@ -143,7 +162,9 @@
 
     if (name === 'heart' && heartInput) {
       heartInput.value = '';
+      heartInput.setAttribute('maxlength', String(state.displaySentence.length));
       updateHeartState();
+      startHeartBlinkTimer();
       heartInput.focus();
     }
 
@@ -220,21 +241,56 @@
   }
 
   function updateHeartState() {
-    var typed = heartInput ? heartInput.value.trim() : '';
+    var typed = heartInput ? heartInput.value.slice(0, state.displaySentence.length) : '';
     var isReady = typed === state.displaySentence;
 
+    if (heartInput && heartInput.value !== typed) {
+      heartInput.value = typed;
+    }
+
     if (heartTargetEl) {
-      heartTargetEl.textContent = '“' + state.displaySentence + '”';
+      renderHeartTemplate(heartTargetEl, state.displaySentence, typed);
     }
 
     if (heartSendButton) {
       heartSendButton.disabled = !isReady;
     }
 
-    if (heartHelp) {
-      heartHelp.textContent = isReady ? 'Perfect. Ready to send.' : 'Type the sentence exactly as shown.';
-      heartHelp.classList.toggle('ready', isReady);
-    }
+  }
+
+  function renderHeartTemplate(container, template, typed) {
+    container.textContent = '';
+
+    template.split('').forEach(function (templateChar, index) {
+      var typedChar = typed[index];
+      var isSpace = templateChar === ' ';
+      var stateName = index === typed.length
+        ? 'current'
+        : index < typed.length
+          ? typedChar === templateChar
+            ? 'correct'
+            : 'wrong'
+          : 'pending';
+      var span = document.createElement('span');
+
+      span.className = 'app-heart-char ' + stateName;
+
+      if (isSpace) {
+        span.textContent = '\u00A0\u200B';
+      } else {
+        span.textContent = templateChar;
+      }
+
+      if (isSpace && stateName === 'wrong') {
+        span.className += ' wrong-space';
+      }
+
+      if (stateName === 'current' && !state.isCurrentCharBlinkVisible) {
+        span.className += ' current-hidden';
+      }
+
+      container.appendChild(span);
+    });
   }
 
   function updateMindState() {
@@ -375,6 +431,12 @@
 
   if (heartInput) {
     heartInput.addEventListener('input', updateHeartState);
+  }
+
+  if (heartSurface && heartInput) {
+    heartSurface.addEventListener('click', function () {
+      heartInput.focus();
+    });
   }
 
   if (mindInput) {

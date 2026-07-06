@@ -192,17 +192,43 @@ h3{font-size:26px; color:#0b1528}
   background:#fffdf7; border:1px solid #dbe4ef; border-radius:26px;
   padding:18px; box-shadow:0 18px 45px rgba(15,23,42,.18);
 }
-.app-modal-top{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px}
+.app-modal-scroll{display:grid; gap:8px; padding-bottom:4px}
+.app-modal-top{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:0}
 .app-modal-top h3,.app-success-card h3{font-size:21px; margin:0; color:#0f172a; font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif}
 .app-modal-close{
-  width:34px; height:34px; border-radius:50%; border:1px solid #cbd5e1;
-  background:#f8fafc; color:#0f172a; font-size:22px; line-height:1; cursor:pointer;
+  flex-shrink:0; width:24px; height:24px; border-radius:12px; border:1px solid #cbd5e1;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#f8fafc; color:#0f172a; font-size:15px; line-height:17px; font-weight:850; cursor:pointer;
 }
 .app-modal-copy{margin:0 0 12px; color:#475569; font-size:13px; line-height:1.45; font-weight:700}
-.app-heart-target{
-  margin-bottom:10px; padding:12px; border-radius:18px; background:#f8fafc;
-  border:1px solid #e2e8f0; color:#0f172a; font-size:13px; line-height:1.42; font-weight:850;
+.app-heart-modal{background:#fef3e1; backdrop-filter:none; flex-direction:column; gap:12px; padding:36px 20px 70px}
+.app-heart-modal:before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.30;
+  background-image:repeating-linear-gradient(0deg, rgba(15,59,48,.06) 0, rgba(15,59,48,.06) 1px, transparent 1px, transparent 5px);
+  mix-blend-mode:multiply;
 }
+.app-heart-brand{position:relative; z-index:1; width:220px; max-width:100%; margin:0 auto; text-align:center}
+.app-heart-wordmark{font-size:42px}
+.app-heart-made{width:100%; margin-top:-1px}
+.app-heart-card{position:relative; z-index:1; border-radius:24px; padding:16px; box-shadow:0 10px 28px rgba(15,23,42,.12)}
+.app-heart-instruction{margin-bottom:4px}
+.app-heart-typing-surface{
+  min-height:120px; width:100%; border:1px solid #cbd5e1; border-radius:8px;
+  background:#ffffff; padding:8px; position:relative; display:block;
+  text-align:left; cursor:text; appearance:none; color:#0f172a;
+}
+.app-heart-template-text{display:block; color:#94a3b8; font-size:16px; line-height:24px; font-weight:500; white-space:pre-wrap}
+.app-heart-char{color:#94a3b8; font-weight:500}
+.app-heart-char.correct{color:#1f9d55}
+.app-heart-char.wrong{color:#dc2626}
+.app-heart-char.wrong-space{background:#fee2e2}
+.app-heart-char.current{background:#e2e8f0}
+.app-heart-char.current-hidden{background:transparent}
+.app-heart-hidden-input{
+  position:absolute; right:0; bottom:0; width:1px; height:1px; opacity:0;
+  color:transparent; padding:0; margin:0; font-size:16px; line-height:24px; background:transparent; border:0;
+}
+.app-heart-send-button{align-self:center; min-height:46px; margin-top:4px}
 .app-modal textarea{
   width:100%; resize:none; border:1px solid #cbd5e1; border-radius:18px;
   background:#ffffff; color:#0f172a; padding:12px; min-height:96px;

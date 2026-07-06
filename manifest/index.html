@@ -87,19 +87,23 @@
               <p data-profile-greeting>Hi there.</p>
             </div>
           </div>
-          <div class="app-modal" data-panel="heart" hidden>
-            <div class="app-modal-card" role="dialog" aria-modal="true" aria-labelledby="heart-title">
-              <div class="app-modal-top">
-                <h3 id="heart-title">Send by Heart</h3>
-                <button type="button" class="app-modal-close" data-action="close-modal" aria-label="Close send by heart">×</button>
-              </div>
-              <p class="app-modal-copy">Type today’s message exactly, then send it with your heart in it.</p>
-              <div class="app-heart-target" data-heart-target></div>
-              <textarea data-heart-input rows="4" spellcheck="false" aria-label="Type today’s message exactly"></textarea>
-              <div class="app-modal-help" data-heart-help>Keep going gently.</div>
-              <div class="app-modal-actions">
-                <button type="button" class="app-modal-button" data-action="close-modal">Cancel</button>
-                <button type="button" class="app-modal-button primary" data-action="heart-send" disabled>Send to Universe</button>
+          <div class="app-modal app-heart-modal" data-panel="heart" hidden>
+            <div class="app-heart-brand">
+              <div class="app-wordmark app-heart-wordmark">manifest.</div>
+              <div class="app-made app-heart-made">made with love</div>
+            </div>
+            <div class="app-modal-card app-heart-card" role="dialog" aria-modal="true" aria-labelledby="heart-title">
+              <div class="app-modal-scroll">
+                <div class="app-modal-top">
+                  <h3 id="heart-title">Send by Heart</h3>
+                  <button type="button" class="app-modal-close" data-action="close-modal" aria-label="Close send with my heart">×</button>
+                </div>
+                <p class="app-modal-copy app-heart-instruction">Type today’s message exactly to send it with your heart to the Universe.</p>
+                <button type="button" class="app-heart-typing-surface" data-heart-surface aria-label="Type daily message template">
+                  <span class="app-heart-template-text" data-heart-target></span>
+                </button>
+                <input class="app-heart-hidden-input" data-heart-input type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" aria-label="Type today’s message exactly">
+                <button type="button" class="app-modal-button primary app-heart-send-button" data-action="heart-send" disabled>Send to Universe</button>
               </div>
             </div>
           </div>
