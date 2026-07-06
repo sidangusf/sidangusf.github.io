@@ -89,21 +89,93 @@ h3{font-size:26px; color:#0b1528}
 .store strong{display:block; font-size:20px; line-height:1}
 .store.disabled{background:#dfe6ee; color:#6b7483}
 .phone-card{
-  background:var(--paper); border:1px solid var(--line); border-radius:42px;
-  padding:34px; box-shadow:var(--shadow); position:relative; overflow:hidden;
-  text-align:center;
+  background:
+    radial-gradient(circle at 20% 16%, rgba(255,255,255,.95), transparent 30%),
+    radial-gradient(circle at 82% 82%, rgba(184,224,210,.58), transparent 34%),
+    rgba(255,253,247,.88);
+  border:1px solid rgba(216,225,236,.82); border-radius:42px;
+  padding:26px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  text-align:left;
 }
 .phone-card:after{content:none}
-.mock-icon{width:96px; height:96px; border-radius:24px; display:block; margin:0 auto}
-.mock-brand{display:inline-block; margin-top:16px}
-.mock-logo{display:block; font-family:Georgia, serif; color:var(--green); font-size:54px; font-weight:800; line-height:1}
-.mock-small{display:block; color:var(--green); font-weight:850; text-align:right}
-.signal{
-  margin:36px 0 20px; background:#fff; border:1px solid var(--line); border-radius:28px;
-  padding:26px; color:#071226; font-weight:850; font-size:24px; text-align:left;
-  overflow-wrap:anywhere;
+.phone-shell{
+  width:min(100%, 340px); aspect-ratio:9 / 19.2; margin:0 auto;
+  background:linear-gradient(145deg, #0b1220, #263244 58%, #071226);
+  border-radius:48px; padding:12px; position:relative;
+  box-shadow:0 28px 70px rgba(7,18,38,.25), inset 0 0 0 1px rgba(255,255,255,.08);
 }
-.signal small{display:block; color:var(--muted); font-size:15px; margin-bottom:12px}
+.phone-sensor{
+  position:absolute; z-index:3; top:18px; left:50%; width:82px; height:23px;
+  border-radius:999px; transform:translateX(-50%); background:#080d16;
+  box-shadow:inset 0 -1px 0 rgba(255,255,255,.08);
+}
+.phone-screen{
+  position:relative; height:100%; overflow:hidden; border-radius:38px;
+  background:#fef3e1; color:#0f172a;
+}
+.phone-screen:before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.34;
+  background-image:repeating-linear-gradient(0deg, rgba(15,59,48,.06) 0, rgba(15,59,48,.06) 1px, transparent 1px, transparent 5px);
+  mix-blend-mode:multiply;
+}
+.app-status{
+  position:absolute; z-index:2; top:14px; left:22px; right:22px;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:12px; font-weight:850; color:#1f2b3c;
+}
+.app-streak{
+  position:absolute; z-index:2; top:54px; right:20px;
+  display:inline-flex; align-items:center; gap:5px;
+  min-height:30px; padding:5px 9px; border-radius:999px;
+  background:#fffdf7; border:1px solid #e2e8f0;
+  box-shadow:0 6px 16px rgba(15,23,42,.08); font-size:13px;
+}
+.app-content{
+  position:relative; z-index:1; min-height:100%; display:flex; flex-direction:column;
+  justify-content:center; gap:18px; padding:70px 22px 92px;
+}
+.app-brand-stack{width:220px; max-width:100%; margin:0 auto 4px; text-align:center}
+.app-brand-icon{width:104px; height:104px; display:block; margin:0 auto -6px; border-radius:26px}
+.app-wordmark{
+  width:100%; font-family:Georgia, serif; font-size:42px; line-height:1.05;
+  letter-spacing:1px; color:#1d352d; font-weight:800; text-align:center;
+}
+.app-made{
+  margin-top:-1px; color:#1d352d; font-size:12px; line-height:1.2;
+  letter-spacing:.03em; font-weight:850; text-align:right;
+}
+.app-message-card{
+  align-self:stretch; background:#fffdf7; border:1px solid #e2e8f0;
+  border-radius:24px; padding:17px 16px;
+  box-shadow:0 10px 24px rgba(15,23,42,.08);
+}
+.app-message-card small{display:block; color:#475569; font-size:12px; font-weight:850; margin-bottom:8px}
+.app-message-card p{margin:0; color:#0f172a; font-size:17px; line-height:1.45; font-weight:750}
+.app-actions-preview{display:grid; gap:8px; justify-items:center}
+.app-send-menu{display:grid; gap:7px; width:min(100%, 222px)}
+.app-send-menu span,
+.app-send-button,
+.app-more-button{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:39px; padding:8px 14px; border-radius:999px;
+  border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a;
+  box-shadow:0 5px 14px rgba(15,23,42,.07); font-size:13px; font-weight:850;
+}
+.app-send-menu span:last-child{justify-self:center; min-width:82px; min-height:34px; font-size:18px}
+.app-send-row{display:flex; justify-content:center; gap:6px; width:100%}
+.app-send-button{min-height:44px; min-width:176px; border-radius:16px; font-size:14px}
+.app-more-button{width:46px; min-height:44px; border-radius:16px; padding:0; font-size:20px}
+.app-tab-bar{
+  position:absolute; z-index:2; left:50%; bottom:13px; transform:translateX(-50%);
+  display:flex; gap:3px; padding:4px; border-radius:22px;
+  background:rgba(255,253,247,.78); border:1px solid rgba(203,213,225,.85);
+  box-shadow:0 10px 24px rgba(15,23,42,.11); backdrop-filter:blur(12px);
+}
+.app-tab-bar span{
+  display:grid; place-items:center; width:76px; height:36px; border-radius:18px;
+  color:#475569; font-size:20px; font-weight:900;
+}
+.app-tab-bar .active{background:#f8fafc; color:#1d352d; box-shadow:inset 0 0 0 1px rgba(203,213,225,.65)}
 .section{padding:58px 0}
 .section-lead-single-line{max-width:none; font-size:clamp(16px, 1.6vw, 20px); white-space:nowrap}
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
@@ -155,7 +227,7 @@ h3{font-size:26px; color:#0b1528}
 .pill{border:1px solid var(--line); background:#fffdf7; border-radius:999px; padding:8px 12px; color:var(--muted); font-weight:750}
 .faq-item{background:#fffdf7; border:1px solid var(--line); border-radius:24px; padding:22px; margin-bottom:14px; min-width:0}
 .breadcrumbs{font-weight:750; color:var(--muted); margin-bottom:18px}
-p,li,blockquote,.kicker,.pill,.signal,.article-tile{overflow-wrap:anywhere}
+p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anywhere}
 @media(max-width:900px){
   .nav-inner{align-items:flex-start; flex-direction:column}
   .links{justify-content:flex-start; width:100%}
@@ -189,8 +261,17 @@ p,li,blockquote,.kicker,.pill,.signal,.article-tile{overflow-wrap:anywhere}
   .grid-two .card h2{font-size:clamp(24px, 8vw, 32px)}
   .actions,.store-badges{align-items:stretch; flex-direction:column}
   .btn,.store{width:100%}
-  .phone-card{padding:24px; border-radius:30px}
-  .signal{margin:28px 0 8px; padding:20px; border-radius:22px; font-size:20px}
+  .phone-card{padding:18px; border-radius:30px}
+  .phone-shell{width:min(100%, 312px); border-radius:42px; padding:10px}
+  .phone-screen{border-radius:34px}
+  .app-content{padding:64px 18px 84px; gap:15px}
+  .app-brand-stack{width:200px}
+  .app-brand-icon{width:88px; height:88px}
+  .app-wordmark{font-size:38px}
+  .app-message-card{border-radius:22px; padding:15px}
+  .app-message-card p{font-size:16px}
+  .app-send-menu{width:min(100%, 208px)}
+  .app-send-button{min-width:160px}
   .article-page{padding:36px 0}
   .article{padding:24px; border-radius:26px}
   .article h1{font-size:clamp(32px, 11vw, 44px)}
@@ -202,7 +283,6 @@ p,li,blockquote,.kicker,.pill,.signal,.article-tile{overflow-wrap:anywhere}
   .footer-grid{flex-direction:column}
   .footer .links{align-items:flex-start; flex-direction:column; gap:8px}
   .footer .links a{width:100%}
-  .mock-logo{font-size:46px}
 }
 @media(max-width:380px){
   .container{width:min(100% - 20px, 1120px)}
@@ -211,5 +291,7 @@ p,li,blockquote,.kicker,.pill,.signal,.article-tile{overflow-wrap:anywhere}
   .links a{font-size:13px; padding:5px 8px}
   .card,.article-tile,.faq-item,.cta{padding:18px}
   .article{padding:20px}
-  .phone-card{padding:20px}
+  .phone-card{padding:14px}
+  .phone-shell{width:min(100%, 292px)}
+  .app-content{padding-left:16px; padding-right:16px}
 }
