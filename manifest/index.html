@@ -70,14 +70,25 @@
               <div class="app-message-meta" data-daily-date>Today</div>
             </div>
 
-            <div class="app-actions-preview" aria-label="Manifest send actions">
+            <button type="button" class="app-send-dismiss" data-send-dismiss data-action="close-menu" aria-label="Close send mode options" hidden></button>
+            <div class="app-actions-preview" data-send-actions aria-label="Manifest send actions">
               <div class="app-send-menu" data-send-menu hidden>
                 <button type="button" data-action="open-heart">Send by Heart</button>
                 <button type="button" data-action="open-mind">Send with My Own Mind</button>
+                <button type="button" class="app-send-menu-camera" data-action="capture-home" aria-label="Camera">
+                  <svg class="app-camera-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+                    <path d="M350.54 148.68 323.92 106.62C318.31 100.08 310.62 96 302.2 96h-92.4c-8.42 0-16.11 4.08-21.72 10.62l-26.62 42.06C155.85 155.22 148.16 160 139.74 160H88c-22.09 0-40 17.91-40 40v192c0 22.09 17.91 40 40 40h336c22.09 0 40-17.91 40-40V200c0-22.09-17.91-40-40-40h-51.74c-8.42 0-16.11-4.78-21.72-11.32Z"></path>
+                    <circle cx="256" cy="296" r="80"></circle>
+                  </svg>
+                </button>
               </div>
               <div class="app-send-row">
                 <button type="button" class="app-send-button" data-action="quick-send">Send to Universe</button>
-                <button type="button" class="app-more-button" data-action="toggle-menu" aria-label="Open send options" aria-expanded="false">⌄</button>
+                <button type="button" class="app-more-button" data-action="toggle-menu" aria-label="Open send mode options" aria-expanded="false">
+                  <svg class="app-chevron-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+                    <path d="m112 184 144 144 144-144"></path>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>

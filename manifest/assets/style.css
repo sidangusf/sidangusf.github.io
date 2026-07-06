@@ -161,28 +161,37 @@ h3{font-size:26px; color:#0b1528}
 .app-message-card small{display:block; color:#475569; font-size:12px; font-weight:850; margin-bottom:8px}
 .app-message-card p{margin:0; color:#0f172a; font-size:17px; line-height:1.45; font-weight:750}
 .app-message-meta{margin-top:10px; color:#64748b; font-size:11px; font-weight:800; letter-spacing:.04em; text-transform:uppercase}
-.app-actions-preview{display:grid; gap:8px; justify-items:center}
-.app-send-menu{display:grid; gap:7px; width:min(100%, 222px)}
+.app-actions-preview{position:relative; z-index:3; display:grid; min-height:52px; justify-items:center; background:transparent}
+.app-send-dismiss{position:absolute; z-index:2; inset:0; border:0; background:transparent; padding:0; cursor:default}
+.app-send-menu{
+  position:absolute; z-index:4; top:0; display:grid; gap:4px; align-items:stretch;
+  width:max-content; max-width:100%; background:transparent; transform:translateY(10px);
+}
 .app-send-menu button,
 .app-send-button,
 .app-more-button{
   display:inline-flex; align-items:center; justify-content:center;
-  min-height:39px; padding:8px 14px; border-radius:999px;
+  min-height:44px; padding:8px 16px; border-radius:16px;
   border:1px solid #cbd5e1; background:#f8fafc; color:#0f172a;
-  box-shadow:0 5px 14px rgba(15,23,42,.07); font-size:13px; font-weight:850;
+  box-shadow:0 4px 10px rgba(15,23,42,.08); font-size:15px; font-weight:850; letter-spacing:.4px;
   cursor:pointer;
 }
+.app-send-menu button{min-height:40px; padding:8px 16px; border-radius:999px; font-size:14px; letter-spacing:0; box-shadow:0 2px 8px rgba(15,23,42,.06)}
+.app-send-menu-camera{align-self:center; min-width:96px; min-height:36px}
 .app-send-menu button:hover,
 .app-send-button:hover,
 .app-more-button:hover{text-decoration:none; transform:translateY(-1px)}
 .app-send-menu button:disabled,
 .app-send-button:disabled,
 .app-modal-button:disabled{cursor:not-allowed; opacity:.52; transform:none}
-.app-send-row{display:flex; justify-content:center; gap:6px; width:100%}
-.app-send-button{min-height:44px; min-width:176px; border-radius:16px; font-size:14px}
-.app-more-button{width:46px; min-height:44px; border-radius:16px; padding:0; font-size:20px}
-.app-more-button[aria-expanded="true"]{background:#e4e9f2}
-.app-view[hidden],.app-modal[hidden],.app-send-menu[hidden],.app-toast[hidden],.app-mind-side-actions[hidden],.app-mind-copy-toast[hidden],.app-clear-confirm[hidden]{display:none !important}
+.app-send-row{display:flex; align-items:center; justify-content:center; gap:4px; width:100%; background:transparent; transition:opacity 160ms ease}
+.app-actions-preview.is-menu-open .app-send-row{opacity:0; pointer-events:none}
+.app-send-button{min-height:46px; min-width:176px}
+.app-more-button{min-width:50px; min-height:46px; padding:0 8px}
+.app-more-button:active{opacity:.72; transform:scale(.96)}
+.app-chevron-icon{width:18px; height:18px; display:block; fill:none; stroke:currentColor; stroke-width:48; stroke-linecap:round; stroke-linejoin:round}
+.app-camera-icon{width:24px; height:24px; display:block; fill:none; stroke:currentColor; stroke-width:32; stroke-linecap:round; stroke-linejoin:round}
+.app-view[hidden],.app-modal[hidden],.app-send-menu[hidden],.app-send-dismiss[hidden],.app-toast[hidden],.app-mind-side-actions[hidden],.app-mind-copy-toast[hidden],.app-clear-confirm[hidden]{display:none !important}
 .app-profile-view{justify-content:center; text-align:center}
 .app-profile-card{
   background:#fffdf7; border:1px solid #e2e8f0; border-radius:28px;

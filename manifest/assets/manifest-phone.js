@@ -79,6 +79,8 @@
   var mindSideActions = root.querySelector('[data-mind-side-actions]');
   var mindCopyToast = root.querySelector('[data-mind-copy-toast]');
   var mindClearConfirm = root.querySelector('[data-mind-clear-confirm]');
+  var sendActions = root.querySelector('[data-send-actions]');
+  var sendDismiss = root.querySelector('[data-send-dismiss]');
   var sendMenu = root.querySelector('[data-send-menu]');
   var menuToggle = root.querySelector('[data-action="toggle-menu"]');
   var quickSendButton = root.querySelector('[data-action="quick-send"]');
@@ -122,8 +124,14 @@
 
   function setSendMenuOpen(isOpen) {
     sendMenu.hidden = !isOpen;
+    if (sendDismiss) {
+      sendDismiss.hidden = !isOpen;
+    }
+    if (sendActions) {
+      sendActions.classList.toggle('is-menu-open', isOpen);
+    }
     menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.setAttribute('aria-label', isOpen ? 'Close send options' : 'Open send options');
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close send mode options' : 'Open send mode options');
   }
 
   function closePanels() {
@@ -608,6 +616,17 @@
 
     if (action === 'toggle-menu') {
       setSendMenuOpen(sendMenu.hidden);
+      return;
+    }
+
+    if (action === 'close-menu') {
+      setSendMenuOpen(false);
+      return;
+    }
+
+    if (action === 'capture-home') {
+      setSendMenuOpen(false);
+      showToast('Saving the home page image is unavailable in this build');
       return;
     }
 
