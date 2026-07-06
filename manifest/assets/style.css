@@ -195,10 +195,22 @@ h3{font-size:26px; color:#0b1528}
 .app-profile-view{justify-content:center; text-align:center}
 .app-profile-card{
   background:#fffdf7; border:1px solid #e2e8f0; border-radius:28px;
-  padding:28px 20px; box-shadow:0 10px 24px rgba(15,23,42,.08);
+  padding:26px 20px; box-shadow:0 10px 24px rgba(15,23,42,.08);
+  display:grid; gap:12px; justify-items:center;
 }
-.app-profile-icon{font-size:32px; color:#1d352d; margin-bottom:8px}
-.app-profile-card p{margin:0; color:#0f172a; font-size:21px; line-height:1.35; font-weight:850}
+.app-profile-icon{font-size:32px; color:#1d352d; margin-bottom:2px}
+.app-profile-card [data-profile-greeting]{margin:0; color:#0f172a; font-size:21px; line-height:1.35; font-weight:850}
+.app-profile-download-copy{margin:0; color:#475569; font-size:13px; line-height:1.45; font-weight:750}
+.app-profile-store-buttons{display:grid; gap:8px; width:100%; margin-top:2px}
+.app-profile-store-button{
+  display:flex; align-items:center; gap:9px; width:100%; min-height:44px;
+  border-radius:14px; padding:8px 11px; background:#101827; color:#fff;
+  font-weight:850; text-align:left; box-shadow:0 8px 18px rgba(7,18,38,.12);
+}
+.app-profile-store-button:hover{text-decoration:none; transform:translateY(-1px)}
+.app-profile-store-icon{flex:0 0 auto; width:20px; text-align:center; font-size:18px; line-height:1}
+.app-profile-store-button span span{display:block; font-size:9px; line-height:1.15; letter-spacing:.03em; opacity:.84}
+.app-profile-store-button strong{display:block; font-size:15px; line-height:1.05}
 .app-modal{
   position:absolute; z-index:4; inset:0; display:flex; align-items:center; justify-content:center;
   padding:22px; background:rgba(254,243,225,.84); backdrop-filter:blur(9px);
