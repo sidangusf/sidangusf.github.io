@@ -49,6 +49,8 @@ a:hover{text-decoration:underline}
 .brand img{width:46px; height:46px; border-radius:14px}
 .brand-title{font-family:Georgia, serif; font-size:30px; line-height:1}
 .brand-sub{display:block; font-family:ui-sans-serif, system-ui; font-size:11px; letter-spacing:.08em; margin-top:2px}
+.nav .brand-sub{transform:translateX(24px)}
+.footer .brand-sub{transform:translateX(32px)}
 .links{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
 .links a{font-weight:750; color:#27354a}
 .hero{padding:72px 0 36px}
@@ -80,13 +82,15 @@ h3{font-size:26px; color:#0b1528}
 .phone-card{
   background:var(--paper); border:1px solid var(--line); border-radius:42px;
   padding:34px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  text-align:center;
 }
-.phone-card:after{content:"🌼"; position:absolute; right:22px; top:16px; font-size:34px; opacity:.55}
-.mock-logo{font-family:Georgia, serif; color:var(--green); font-size:54px; font-weight:800; margin-top:12px}
-.mock-small{color:var(--green); font-weight:850; margin-top:-16px; padding-left:172px}
+.phone-card:after{content:none}
+.mock-icon{width:96px; height:96px; border-radius:24px; display:block; margin:0 auto}
+.mock-logo{font-family:Georgia, serif; color:var(--green); font-size:54px; font-weight:800; line-height:1; margin-top:16px}
+.mock-small{color:var(--green); font-weight:850; margin-top:0; text-align:center; transform:translateX(52px)}
 .signal{
   margin:36px 0 20px; background:#fff; border:1px solid var(--line); border-radius:28px;
-  padding:26px; color:#071226; font-weight:850; font-size:24px;
+  padding:26px; color:#071226; font-weight:850; font-size:24px; text-align:left;
 }
 .signal small{display:block; color:var(--muted); font-size:15px; margin-bottom:12px}
 .section{padding:58px 0}
