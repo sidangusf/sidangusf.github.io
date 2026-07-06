@@ -267,7 +267,7 @@ h3{font-size:26px; color:#0b1528}
 .app-mind-card{position:relative; z-index:1; border-radius:24px; padding:16px; box-shadow:0 10px 28px rgba(15,23,42,.12); transform:translateY(-92px)}
 .app-mind-close{margin-right:4px}
 .app-mind-input-frame{
-  height:132px; border:1px solid #cbd5e1; border-radius:8px; background:#ffffff;
+  height:132px; border:0; border-radius:8px; background:#ffffff;
   position:relative; padding:8px 8px 28px;
 }
 .app-mind-input{
