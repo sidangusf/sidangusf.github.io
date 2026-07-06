@@ -52,7 +52,8 @@
     dotsIndex: 0,
     heartBlinkTimer: null,
     isCurrentCharBlinkVisible: true,
-    mindCopyToastTimer: null
+    mindCopyToastTimer: null,
+    pendingSendMode: null
   };
 
   var SEND_DURATION_MS = 5000;
@@ -197,27 +198,21 @@
   }
 
   function startSend(mode, message) {
-    var successText = 'Message is sent to the Universe.';
+    var successText = 'Message is sent to the Universe!';
+    var greeting = Math.random() < 0.5 ? 'Hey' : 'Hi';
 
     clearSendTimers();
+    state.pendingSendMode = mode;
 
     closePanels();
     setSendMenuOpen(false);
 
-    if (mode === 'heart') {
-      successText = 'Message is sent to the Universe with your heart in it.';
-    }
-
-    if (mode === 'mind') {
-      successText = 'Your own message is sent to the Universe.';
-    }
-
-    if (mode === 'quick') {
-      successText = 'Today’s message is sent to the Universe.';
+    if (mode === 'heart' || mode === 'mind') {
+      successText = 'Message is sent to the Universe with your heart in it!';
     }
 
     if (sendProgressGreeting) {
-      sendProgressGreeting.textContent = 'Hey there!';
+      sendProgressGreeting.textContent = greeting + ' there!';
     }
 
     state.dotsIndex = 0;
@@ -237,6 +232,12 @@
 
     state.sendTimer = setTimeout(function () {
       clearSendTimers();
+      state.pendingSendMode = null;
+
+      if (mode === 'mind' && mindInput) {
+        mindInput.value = '';
+        updateMindState();
+      }
 
       if (successMessage) {
         successMessage.textContent = successText;
@@ -244,6 +245,18 @@
 
       openPanel('success');
     }, SEND_DURATION_MS);
+  }
+
+  function cancelSend() {
+    var returnMode = state.pendingSendMode;
+
+    clearSendTimers();
+    state.pendingSendMode = null;
+    closePanels();
+
+    if (returnMode === 'mind') {
+      openPanel('mind');
+    }
   }
 
   function updateHeartState() {
@@ -490,12 +503,6 @@
 
     if (action === 'mind-send' && !actionButton.disabled) {
       startSend('mind', mindInput ? mindInput.value.trim() : '');
-
-      if (mindInput) {
-        mindInput.value = '';
-        updateMindState();
-      }
-
       return;
     }
 
@@ -521,12 +528,12 @@
 
     if (action === 'close-modal') {
       clearSendTimers();
+      state.pendingSendMode = null;
       closePanels();
     }
 
     if (action === 'cancel-send') {
-      clearSendTimers();
-      closePanels();
+      cancelSend();
     }
   });
 
@@ -546,7 +553,13 @@
 
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
+      if (state.pendingSendMode) {
+        cancelSend();
+        return;
+      }
+
       clearSendTimers();
+      state.pendingSendMode = null;
       closePanels();
       setSendMenuOpen(false);
     }

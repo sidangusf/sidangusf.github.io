@@ -128,8 +128,19 @@
                 </div>
                 <div class="app-mind-action-row">
                   <div class="app-mind-side-actions" data-mind-side-actions hidden>
-                    <button type="button" class="app-modal-button app-mind-icon-action" data-action="mind-clear" aria-label="Clear typed mind message">⌫</button>
-                    <button type="button" class="app-modal-button app-mind-icon-action" data-action="mind-copy" aria-label="Copy typed mind message">⧉</button>
+                    <button type="button" class="app-modal-button app-mind-icon-action" data-action="mind-clear" aria-label="Clear typed mind message">
+                      <svg class="app-mind-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4.4 14.6 13.5 5.5a2.1 2.1 0 0 1 3 0l2 2a2.1 2.1 0 0 1 0 3L10 19H6.5l-2.1-2.1a1.6 1.6 0 0 1 0-2.3Z"></path>
+                        <path d="M11.8 7.2 16.8 12.2"></path>
+                        <path d="M10 19h10"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="app-modal-button app-mind-icon-action" data-action="mind-copy" aria-label="Copy typed mind message">
+                      <svg class="app-mind-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="8" y="8" width="10" height="10" rx="2"></rect>
+                        <path d="M6 14H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                    </button>
                   </div>
                   <button type="button" class="app-modal-button primary app-mind-send-button" data-action="mind-send" disabled>Send to Universe</button>
                 </div>
@@ -147,7 +158,7 @@
           </div>
           <div class="app-modal app-flow-screen" data-panel="sending" hidden>
             <div class="app-flow-brand">
-              <img class="app-flow-icon app-flow-icon-spinning" src="assets/universe-send-loading-icon.png" alt="">
+              <img class="app-flow-icon app-flow-icon-spinning" src="assets/manifest-confirmation-icon.png" alt="">
               <div class="app-wordmark app-flow-wordmark">manifest.</div>
               <div class="app-made app-flow-made">made with love</div>
             </div>
@@ -159,7 +170,7 @@
           </div>
           <div class="app-modal app-flow-screen" data-panel="success" hidden>
             <div class="app-flow-brand">
-              <img class="app-flow-icon" src="assets/logoApp.png" alt="">
+              <img class="app-flow-icon" src="assets/manifest-confirmation-icon.png" alt="">
               <div class="app-wordmark app-flow-wordmark">manifest.</div>
               <div class="app-made app-flow-made">made with love</div>
             </div>

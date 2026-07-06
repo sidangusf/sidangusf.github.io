@@ -235,8 +235,8 @@ h3{font-size:26px; color:#0b1528}
   background-image:repeating-linear-gradient(0deg, rgba(15,59,48,.06) 0, rgba(15,59,48,.06) 1px, transparent 1px, transparent 5px);
   mix-blend-mode:multiply;
 }
-.app-mind-brand{position:relative; z-index:1}
-.app-mind-card{position:relative; z-index:1; border-radius:24px; padding:16px; box-shadow:0 10px 28px rgba(15,23,42,.12)}
+.app-mind-brand{position:relative; z-index:1; transform:translateY(-92px)}
+.app-mind-card{position:relative; z-index:1; border-radius:24px; padding:16px; box-shadow:0 10px 28px rgba(15,23,42,.12); transform:translateY(-92px)}
 .app-mind-close{margin-right:4px}
 .app-mind-input-frame{
   height:132px; border:1px solid #cbd5e1; border-radius:8px; background:#ffffff;
@@ -261,6 +261,7 @@ h3{font-size:26px; color:#0b1528}
 .app-mind-action-row{display:flex; align-items:center; justify-content:space-between; min-height:52px; margin-top:4px}
 .app-mind-side-actions{display:flex; align-items:center; gap:4px}
 .app-mind-icon-action{min-width:34px; min-height:34px; padding:0; background:#f8fafc}
+.app-mind-action-icon{display:block; width:14px; height:14px; color:#0f172a; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
 .app-mind-send-button{min-height:46px; margin-left:auto; margin-right:4px}
 .app-clear-confirm{
   position:absolute; inset:0; z-index:5; display:flex; align-items:center; justify-content:center;
@@ -285,7 +286,7 @@ h3{font-size:26px; color:#0b1528}
   min-height:40px; border-radius:15px; border:1px solid #cbd5e1; background:#f8fafc;
   color:#0f172a; padding:8px 13px; font-size:13px; font-weight:850; cursor:pointer;
 }
-.app-modal-button.primary{background:#1d352d; border-color:#1d352d; color:#fff}
+.app-modal-button.primary{background:#f8fafc; border-color:#cbd5e1; color:#0f172a}
 .app-flow-screen{
   padding:42px 22px; background:#fef3e1; backdrop-filter:none;
   flex-direction:column; gap:18px;
