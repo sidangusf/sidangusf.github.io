@@ -50,9 +50,9 @@
     }
   }
 
-  function watchAdBanner(wrapper, ad) {
+  function watchAdBanner(wrapper, ad, removeTarget = wrapper) {
     if (!ad) {
-      wrapper.remove();
+      removeTarget.remove();
       return;
     }
 
@@ -71,7 +71,7 @@
       if (isFilled) {
         wrapper.classList.remove("ad-banner-pending");
       } else {
-        wrapper.remove();
+        removeTarget.remove();
       }
     };
 
@@ -182,9 +182,39 @@
     });
   }
 
+  function insertHomeAd() {
+    const phonePreview = document.querySelector("[data-manifest-phone]");
+    const footer = document.querySelector("footer.footer");
+    if (!phonePreview || !footer || document.querySelector(".home-ad-section")) {
+      return;
+    }
+
+    ensureAdsenseScript();
+
+    const section = document.createElement("section");
+    section.className = "home-ad-section";
+
+    const container = document.createElement("div");
+    container.className = "container";
+
+    const banner = createAdBanner("home-ad-banner");
+    const ad = banner.querySelector(".adsbygoogle");
+
+    container.appendChild(banner);
+    section.appendChild(container);
+    footer.insertAdjacentElement("beforebegin", section);
+
+    if (pushAd()) {
+      watchAdBanner(banner, ad, section);
+    } else {
+      section.remove();
+    }
+  }
+
   function insertAds() {
     insertArticleAds();
     insertGalleryAds();
+    insertHomeAd();
   }
 
   if (document.readyState === "loading") {

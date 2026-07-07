@@ -405,6 +405,8 @@ h3{font-size:26px; color:#0b1528}
 .ad-banner-pending .ad-label{display:none}
 .ad-label{margin-bottom:8px; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase}
 .ad-banner .adsbygoogle{min-height:90px}
+.home-ad-section{padding:0 0 58px}
+.home-ad-banner{margin:0}
 .article-ad-banner{margin:34px 0}
 .article-ad-banner .adsbygoogle{min-height:120px}
 .article-page{padding:52px 0}
