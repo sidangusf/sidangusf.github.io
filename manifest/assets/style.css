@@ -396,6 +396,15 @@ h3{font-size:26px; color:#0b1528}
 .article-list{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
 .article-tile{background:#fffdf7; border:1px solid var(--line); border-radius:26px; padding:22px; min-width:0}
 .article-tile p{color:var(--muted); margin-bottom:0}
+.ad-banner{
+  display:block; margin:24px 0 28px; padding:14px;
+  background:rgba(255,253,247,.78); border:1px solid var(--line); border-radius:24px;
+  box-shadow:0 10px 34px rgba(15,59,48,.06); overflow:hidden; min-width:0;
+}
+.ad-label{margin-bottom:8px; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase}
+.ad-banner .adsbygoogle{min-height:90px}
+.article-ad-banner{margin:34px 0}
+.article-ad-banner .adsbygoogle{min-height:120px}
 .article-page{padding:52px 0}
 .article-wrap{display:grid; grid-template-columns:minmax(0, 760px) 290px; gap:36px; align-items:start}
 .article{
@@ -498,6 +507,7 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .article h1{font-size:clamp(32px, 11vw, 44px)}
   .article p,.article li{font-size:17px}
   .article blockquote{margin:24px 0; padding:20px; border-radius:18px}
+  .article-ad-banner{margin:28px 0}
   .breadcrumbs{font-size:14px}
   .cta{padding:22px; border-radius:24px}
   .footer{padding:36px 0}
