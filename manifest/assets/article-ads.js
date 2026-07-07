@@ -2,6 +2,7 @@
   const adClient = "ca-pub-6323069774159564";
   const adSlot = "8670461960";
   const articleAdCount = 2;
+  const adStatusTimeout = 8000;
   const adsenseSrc = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`;
 
   function ensureAdsenseScript() {
@@ -17,9 +18,9 @@
     document.head.appendChild(script);
   }
 
-  function createAdBanner() {
+  function createAdBanner(placementClass) {
     const wrapper = document.createElement("div");
-    wrapper.className = "ad-banner article-ad-banner";
+    wrapper.className = `ad-banner ${placementClass} ad-banner-pending`;
     wrapper.setAttribute("aria-label", "Advertisement");
 
     const label = document.createElement("div");
@@ -42,9 +43,55 @@
   function pushAd() {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
+      return true;
     } catch (error) {
       // Ad blockers or AdSense timing can prevent rendering; keep article content unaffected.
+      return false;
     }
+  }
+
+  function watchAdBanner(wrapper, ad) {
+    if (!ad) {
+      wrapper.remove();
+      return;
+    }
+
+    let isComplete = false;
+    let timeoutId;
+
+    const finish = (isFilled) => {
+      if (isComplete) {
+        return;
+      }
+
+      isComplete = true;
+      observer.disconnect();
+      window.clearTimeout(timeoutId);
+
+      if (isFilled) {
+        wrapper.classList.remove("ad-banner-pending");
+      } else {
+        wrapper.remove();
+      }
+    };
+
+    const checkStatus = () => {
+      const status = ad.getAttribute("data-ad-status");
+      if (status === "filled") {
+        finish(true);
+      } else if (status === "unfilled") {
+        finish(false);
+      }
+    };
+
+    const observer = new MutationObserver(checkStatus);
+    observer.observe(ad, { attributes: true, attributeFilter: ["data-ad-status"] });
+
+    timeoutId = window.setTimeout(() => {
+      finish(ad.getAttribute("data-ad-status") === "filled");
+    }, adStatusTimeout);
+
+    checkStatus();
   }
 
   function getArticleBlocks(article) {
@@ -90,14 +137,59 @@
         return;
       }
 
-      target.insertAdjacentElement("afterend", createAdBanner());
-      pushAd();
+      const banner = createAdBanner("article-ad-banner");
+      const ad = banner.querySelector(".adsbygoogle");
+
+      target.insertAdjacentElement("afterend", banner);
+
+      if (pushAd()) {
+        watchAdBanner(banner, ad);
+      } else {
+        banner.remove();
+      }
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", insertArticleAds);
-  } else {
+  function insertGalleryAds() {
+    const gallery = document.querySelector(".gallery-grid");
+    if (!gallery || gallery.querySelector(".gallery-ad-banner")) {
+      return;
+    }
+
+    const cards = Array.from(gallery.children).filter((child) => child.matches(".gallery-card"));
+    if (cards.length < 4) {
+      return;
+    }
+
+    ensureAdsenseScript();
+
+    getEvenInsertionIndexes(cards).forEach((index) => {
+      const target = cards[index];
+      if (!target) {
+        return;
+      }
+
+      const banner = createAdBanner("gallery-ad-banner");
+      const ad = banner.querySelector(".adsbygoogle");
+
+      target.insertAdjacentElement("afterend", banner);
+
+      if (pushAd()) {
+        watchAdBanner(banner, ad);
+      } else {
+        banner.remove();
+      }
+    });
+  }
+
+  function insertAds() {
     insertArticleAds();
+    insertGalleryAds();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", insertAds);
+  } else {
+    insertAds();
   }
 })();
