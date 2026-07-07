@@ -97,6 +97,8 @@ h3{font-size:26px; color:#0b1528}
 }
 .store span{display:block; font-size:12px; opacity:.86; font-weight:700}
 .store strong{display:block; font-size:20px; line-height:1}
+.store-play-icon{display:block; width:23px; height:23px; fill:currentColor}
+.store-apple-icon{display:block; width:23px; height:23px; fill:currentColor}
 .store.disabled{background:#dfe6ee; color:#6b7483}
 .phone-card{
   background:
@@ -215,6 +217,8 @@ h3{font-size:26px; color:#0b1528}
 }
 .app-profile-store-button:hover{text-decoration:none; transform:translateY(-1px)}
 .app-profile-store-icon{flex:0 0 auto; width:20px; text-align:center; font-size:18px; line-height:1}
+.app-profile-store-icon .store-play-icon{width:18px; height:18px; margin:0 auto}
+.app-profile-store-icon .store-apple-icon{width:18px; height:18px; margin:0 auto}
 .app-profile-store-button span span{display:block; font-size:9px; line-height:1.15; letter-spacing:.03em; opacity:.84}
 .app-profile-store-button strong{display:block; font-size:15px; line-height:1.05}
 .app-modal{
@@ -507,6 +511,9 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .grid-two .card h2{font-size:clamp(24px, 8vw, 32px)}
   .actions,.store-badges{align-items:stretch; flex-direction:column}
   .btn,.store{width:100%}
+  .hero .store-badges{align-items:center}
+  .hero .store{width:auto}
+  .badge-row{flex-wrap:wrap}
   .phone-card{width:min(100%, 356px); margin:0 auto; padding:18px; border-radius:30px}
   .phone-shell{width:min(100%, 312px, calc(100vw - 64px)); border-radius:42px; padding:10px}
   .phone-screen{border-radius:34px}
