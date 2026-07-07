@@ -447,7 +447,14 @@ h3{font-size:26px; color:#0b1528}
 .footer-grid > div{min-width:0}
 .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:16px}
 .pill{border:1px solid var(--line); background:#fffdf7; border-radius:999px; padding:8px 12px; color:var(--muted); font-weight:750}
+.faq-topic-heading{margin-top:34px; margin-bottom:14px; font-size:clamp(28px, 4vw, 42px)}
 .faq-item{background:#fffdf7; border:1px solid var(--line); border-radius:24px; padding:22px; margin-bottom:14px; min-width:0}
+.faq-item summary{cursor:pointer; font-size:22px; font-weight:850; color:#0b1528; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+"; flex-shrink:0; color:var(--green); font-size:26px; line-height:1}
+.faq-item[open] summary:after{content:"−"}
+.faq-item p{margin:.85rem 0 0}
+.faq-ad-banner{margin:34px 0}
 .gallery-intro{max-width:none; width:100%; margin-bottom:28px}
 .gallery-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; align-items:start}
 .gallery-card{

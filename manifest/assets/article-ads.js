@@ -182,6 +182,33 @@
     });
   }
 
+  function insertFaqAds() {
+    const faqItems = Array.from(document.querySelectorAll(".article-page .faq-item"));
+    if (faqItems.length < 6 || document.querySelector(".faq-ad-banner")) {
+      return;
+    }
+
+    ensureAdsenseScript();
+
+    getEvenInsertionIndexes(faqItems).forEach((index) => {
+      const target = faqItems[index];
+      if (!target) {
+        return;
+      }
+
+      const banner = createAdBanner("faq-ad-banner");
+      const ad = banner.querySelector(".adsbygoogle");
+
+      target.insertAdjacentElement("afterend", banner);
+
+      if (pushAd()) {
+        watchAdBanner(banner, ad);
+      } else {
+        banner.remove();
+      }
+    });
+  }
+
   function insertHomeAd() {
     const phonePreview = document.querySelector("[data-manifest-phone]");
     const footer = document.querySelector("footer.footer");
@@ -214,6 +241,7 @@
   function insertAds() {
     insertArticleAds();
     insertGalleryAds();
+    insertFaqAds();
     insertHomeAd();
   }
 
