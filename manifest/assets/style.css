@@ -97,6 +97,8 @@ h3{font-size:26px; color:#0b1528}
 }
 .store span{display:block; font-size:12px; opacity:.86; font-weight:700}
 .store strong{display:block; font-size:20px; line-height:1}
+.store > span[aria-hidden="true"]{display:inline-flex; align-items:center; justify-content:center; flex:0 0 23px; width:23px; opacity:1}
+.store > div{min-width:0}
 .store-play-icon{display:block; width:23px; height:23px; fill:currentColor}
 .store-apple-icon{display:block; width:23px; height:23px; fill:currentColor}
 .store.disabled{background:#dfe6ee; color:#6b7483}
@@ -510,10 +512,12 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .cards .card h3{font-size:20px; white-space:normal}
   .grid-two .card h2{font-size:clamp(24px, 8vw, 32px)}
   .actions,.store-badges{align-items:stretch; flex-direction:column}
+  .store-badges{width:100%; max-width:100%; min-width:0}
   .btn,.store{width:100%}
-  .hero .store-badges{align-items:center}
-  .hero .store{width:auto}
-  .badge-row{flex-wrap:wrap}
+  .store{min-width:0; justify-content:center}
+  .hero .store-badges{align-items:stretch}
+  .hero .store{width:100%}
+  .badge-row{flex-wrap:wrap; justify-content:center}
   .phone-card{width:min(100%, 356px); margin:0 auto; padding:18px; border-radius:30px}
   .phone-shell{width:min(100%, 312px, calc(100vw - 64px)); border-radius:42px; padding:10px}
   .phone-screen{border-radius:34px}
