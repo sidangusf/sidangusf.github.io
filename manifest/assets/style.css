@@ -498,8 +498,8 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .brand img{width:40px; height:40px; border-radius:12px}
   .brand-title{font-size:26px}
   .brand-sub{font-size:10px}
-  .links{gap:8px; font-size:14px}
-  .links a{display:inline-flex; align-items:center; min-height:40px; padding:6px 10px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62)}
+  .nav .links{flex-wrap:nowrap; gap:4px; width:100%; font-size:12px}
+  .nav .links a{display:inline-flex; flex:1 1 0; align-items:center; justify-content:center; min-width:0; min-height:34px; padding:5px 3px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
   .hero{padding:18px 0 28px}
   h1{font-size:clamp(38px, 13vw, 58px)}
   h2{font-size:clamp(28px, 10vw, 42px)}
@@ -515,8 +515,8 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .store-badges{width:100%; max-width:100%; min-width:0}
   .btn,.store{width:100%}
   .store{min-width:0; justify-content:center}
-  .hero .store-badges{align-items:stretch}
-  .hero .store{width:100%}
+  .hero .store-badges{align-items:center}
+  .hero .store{width:min(100%, 280px)}
   .badge-row{flex-wrap:wrap; justify-content:center}
   .phone-card{width:min(100%, 356px); margin:0 auto; padding:18px; border-radius:30px}
   .phone-shell{width:min(100%, 312px, calc(100vw - 64px)); border-radius:42px; padding:10px}
@@ -543,14 +543,16 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .cta{padding:22px; border-radius:24px}
   .footer{padding:36px 0}
   .footer-grid{flex-direction:column}
-  .footer .links{align-items:flex-start; flex-direction:column; gap:8px}
-  .footer .links a{width:100%}
+  .footer .links{align-items:center; flex-direction:row; flex-wrap:nowrap; gap:4px; width:100%; font-size:12px}
+  .footer .links a{display:inline-flex; flex:1 1 0; align-items:center; justify-content:center; min-width:0; width:auto; min-height:34px; padding:5px 3px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
 }
 @media(max-width:380px){
   .container{width:min(100% - 20px, 1120px)}
   .brand-title{font-size:23px}
-  .links{gap:6px}
-  .links a{font-size:13px; padding:5px 8px}
+  .nav .links{gap:3px}
+  .nav .links a{font-size:10px; padding:4px 2px; min-height:32px}
+  .footer .links{gap:3px}
+  .footer .links a{font-size:10px; padding:4px 2px; min-height:32px}
   .card,.article-tile,.faq-item,.cta{padding:18px}
   .article{padding:20px}
   .phone-card{padding:12px}
