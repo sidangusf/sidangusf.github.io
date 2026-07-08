@@ -5,6 +5,47 @@
   const adStatusTimeout = 8000;
   const adsenseSrc = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`;
 
+  function normalizePagePath(pathname) {
+    const path = pathname.replace(/\/+$/, "");
+    if (!path) {
+      return "/index.html";
+    }
+
+    const lastSegment = path.split("/").pop();
+    if (lastSegment && !lastSegment.includes(".")) {
+      return `${path}/index.html`;
+    }
+
+    return path;
+  }
+
+  function isBlogArticlePath(path) {
+    return /\/blog\/[^/]+\.html$/.test(path);
+  }
+
+  function markCurrentNavLinks() {
+    const currentPath = normalizePagePath(window.location.pathname);
+    const isBlogArticle = isBlogArticlePath(currentPath);
+
+    document.querySelectorAll(".nav .links a, .footer .links a").forEach((link) => {
+      const linkUrl = new URL(link.getAttribute("href"), window.location.href);
+      if (linkUrl.origin !== window.location.origin) {
+        return;
+      }
+
+      const linkPath = normalizePagePath(linkUrl.pathname);
+      const isExactPage = linkPath === currentPath;
+      const isCurrentSection = isBlogArticle && /\/blog\.html$/.test(linkPath);
+
+      if (!isExactPage && !isCurrentSection) {
+        return;
+      }
+
+      link.classList.add("is-current");
+      link.setAttribute("aria-current", isExactPage ? "page" : "location");
+    });
+  }
+
   function ensureAdsenseScript() {
     const existingScript = document.querySelector('script[src^="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
     if (existingScript) {
@@ -239,6 +280,7 @@
   }
 
   function insertAds() {
+    markCurrentNavLinks();
     insertArticleAds();
     insertGalleryAds();
     insertFaqAds();
