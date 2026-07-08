@@ -555,6 +555,19 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .article blockquote{margin:24px 0; padding:20px; border-radius:18px}
   .article-ad-banner{margin:28px 0}
   .breadcrumbs{font-size:14px}
+  .story-page{padding:28px 0}
+  .story-page .container{width:min(100% - 22px, 1120px)}
+  .story-page .article{padding:22px 18px 28px; border-radius:28px}
+  .story-top-image{top:16px; right:16px; width:54px; height:54px; opacity:.34}
+  .story-page .breadcrumbs,.story-page .kicker{padding-right:62px}
+  .story-page .breadcrumbs{margin-bottom:14px}
+  .story-lead{font-size:20px; line-height:1.48; margin-top:12px}
+  .story-section{margin-top:28px; padding-top:24px}
+  .story-section-intro{padding-top:14px}
+  .story-section h2{font-size:clamp(25px, 8vw, 32px); margin-bottom:14px}
+  .story-section p{font-size:17px; line-height:1.72; margin:.78rem 0}
+  .story-signoff{align-items:center; gap:10px; margin-top:24px; font-size:clamp(27px, 9vw, 36px) !important; line-height:1.18}
+  .story-end-image{width:46px; height:46px}
   .cta{padding:22px; border-radius:24px}
   .footer{padding:36px 0}
   .footer-grid{flex-direction:column}
@@ -570,6 +583,10 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .footer .links a{font-size:10px; padding:4px 2px; min-height:32px}
   .card,.article-tile,.faq-item,.cta{padding:18px}
   .article{padding:20px}
+  .story-page .article{padding:20px 16px 26px}
+  .story-top-image{top:14px; right:14px; width:46px; height:46px; opacity:.28}
+  .story-page .breadcrumbs,.story-page .kicker{padding-right:54px}
+  .story-section p{font-size:16px; line-height:1.72}
   .phone-card{padding:12px}
   .phone-shell{width:min(100%, calc(100vw - 48px)); border-radius:38px; padding:9px}
   .phone-screen{border-radius:31px}
