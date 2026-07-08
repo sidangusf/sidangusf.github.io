@@ -434,6 +434,7 @@ h3{font-size:26px; color:#0b1528}
 }
 .article h1{font-size:clamp(30px,4.2vw,52px)}
 .article p{font-size:18px; color:#26354a}
+.article .article-meta{margin:.75rem 0 1.15rem; color:var(--muted); font-size:13px; line-height:1.4; font-weight:800; letter-spacing:.04em}
 .article li{margin-bottom:10px; color:#26354a; font-size:18px}
 .article blockquote{
   margin:28px 0; padding:24px; background:#f5fbf7; border-left:6px solid var(--green);
