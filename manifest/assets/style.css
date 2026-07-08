@@ -480,7 +480,7 @@ h3{font-size:26px; color:#0b1528}
 .gallery-card img{display:block; width:100%; border-radius:24px; box-shadow:0 8px 24px rgba(7,18,38,.10)}
 .story-page .article{max-width:880px; margin:0 auto; position:relative; overflow:hidden}
 .story-top-image{
-  position:absolute; top:24px; right:28px; width:78px; height:78px;
+  display:block; position:static; width:78px; height:78px; margin:0 auto 20px;
   object-fit:contain; background:transparent; background-color:transparent; opacity:.86; pointer-events:none; box-shadow:none; border-radius:0;
 }
 .story-page .kicker{margin-bottom:8px}
@@ -558,8 +558,7 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .story-page{padding:28px 0}
   .story-page .container{width:min(100% - 22px, 1120px)}
   .story-page .article{padding:22px 18px 28px; border-radius:28px}
-  .story-top-image{top:16px; right:16px; width:54px; height:54px; opacity:.34}
-  .story-page .breadcrumbs,.story-page .kicker{padding-right:62px}
+  .story-top-image{width:54px; height:54px; margin-bottom:18px; opacity:.86}
   .story-page .breadcrumbs{margin-bottom:14px}
   .story-lead{font-size:20px; line-height:1.48; margin-top:12px}
   .story-section{margin-top:28px; padding-top:24px}
@@ -584,8 +583,7 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .card,.article-tile,.faq-item,.cta{padding:18px}
   .article{padding:20px}
   .story-page .article{padding:20px 16px 26px}
-  .story-top-image{top:14px; right:14px; width:46px; height:46px; opacity:.28}
-  .story-page .breadcrumbs,.story-page .kicker{padding-right:54px}
+  .story-top-image{width:46px; height:46px; margin-bottom:16px; opacity:.86}
   .story-section p{font-size:16px; line-height:1.72}
   .phone-card{padding:12px}
   .phone-shell{width:min(100%, calc(100vw - 48px)); border-radius:38px; padding:9px}
