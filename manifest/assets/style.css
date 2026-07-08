@@ -458,6 +458,9 @@ h3{font-size:26px; color:#0b1528}
 .blog-read-more{width:max-content}
 .sidebar-store-badges{align-items:stretch; flex-direction:column; gap:10px; margin-top:18px}
 .sidebar-store-badges .store{width:100%; min-width:0}
+.footer-downloads{width:100%; display:flex; justify-content:flex-end; margin-top:2px}
+.footer-store-badges{justify-content:flex-end; max-width:100%}
+.footer-store-badges .store{min-width:180px}
 .footer{padding:48px 0; border-top:1px solid var(--line); color:var(--muted)}
 .footer-grid{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap}
 .footer-grid > div{min-width:0}
@@ -591,6 +594,8 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .footer-grid{flex-direction:column}
   .footer .links{align-items:center; flex-direction:row; flex-wrap:wrap; gap:6px; width:100%; font-size:12px}
   .footer .links a{display:inline-flex; flex:1 1 72px; align-items:center; justify-content:center; min-width:0; width:auto; min-height:34px; padding:5px 6px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
+  .footer-downloads{justify-content:flex-start}
+  .footer-store-badges{width:100%}
 }
 @media(max-width:380px){
   .container{width:min(100% - 20px, 1120px)}
