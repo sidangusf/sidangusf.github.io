@@ -464,10 +464,12 @@ h3{font-size:26px; color:#0b1528}
 .footer-meta{margin:.35rem 0 0; font-size:14px; line-height:1.45}
 .footer-meta a{color:inherit; font-weight:750}
 .badge-row{display:flex; gap:8px; flex-wrap:nowrap; margin-top:16px}
-.hero-info-cards{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:16px}
+.hero-info-cards{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:24px}
 .hero-info-card{padding:16px; border-radius:22px; box-shadow:0 8px 24px rgba(15,59,48,.05)}
-.hero-info-card h2{font-size:clamp(17px, 1.7vw, 22px); margin-bottom:7px}
+.hero-info-card h2{font-size:clamp(17px, 1.7vw, 22px); margin-bottom:7px; text-align:center}
 .hero-info-card .hero-info-title-nowrap{font-size:clamp(15px, 1.45vw, 19px); white-space:nowrap; overflow-wrap:normal; word-break:normal}
+.hero-widget-card{grid-column:1 / -1}
+.hero-widget-card h2{font-size:clamp(16px, 1.6vw, 21px)}
 .hero-info-card p{font-size:12px; line-height:1.4}
 .hero-info-card p + p{margin-top:8px}
 .hero-info-card .actions{gap:8px; margin:12px 0 0}
