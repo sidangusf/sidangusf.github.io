@@ -464,6 +464,13 @@ h3{font-size:26px; color:#0b1528}
 .footer-meta{margin:.35rem 0 0; font-size:14px; line-height:1.45}
 .footer-meta a{color:inherit; font-weight:750}
 .badge-row{display:flex; gap:8px; flex-wrap:nowrap; margin-top:16px}
+.hero-info-cards{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:16px}
+.hero-info-card{padding:16px; border-radius:22px; box-shadow:0 8px 24px rgba(15,59,48,.05)}
+.hero-info-card h2{font-size:clamp(17px, 1.7vw, 22px); margin-bottom:7px}
+.hero-info-card p{font-size:12px; line-height:1.4}
+.hero-info-card p + p{margin-top:8px}
+.hero-info-card .actions{gap:8px; margin:12px 0 0}
+.hero-info-card .btn{min-height:34px; padding:6px 9px; border-width:1px; font-size:11px; box-shadow:none}
 .pill{border:1px solid var(--line); background:#fffdf7; border-radius:999px; padding:6px 10px; color:var(--muted); font-size:13px; line-height:1.2; font-weight:750; white-space:nowrap}
 .faq-topic-heading{margin-top:34px; margin-bottom:14px; font-size:clamp(28px, 4vw, 42px)}
 .faq-page .faq-topic-heading:first-child{margin-top:0}
@@ -539,6 +546,8 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .hero .store-badges{align-items:center}
   .hero .store{width:min(100%, 280px)}
   .badge-row{flex-wrap:wrap; justify-content:center}
+  .hero-info-cards{grid-template-columns:1fr}
+  .hero-info-card{padding:16px}
   .phone-card{width:min(100%, 356px); margin:0 auto; padding:18px; border-radius:30px}
   .phone-shell{width:min(100%, 312px, calc(100vw - 64px)); border-radius:42px; padding:10px}
   .phone-screen{border-radius:34px}
