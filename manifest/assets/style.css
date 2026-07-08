@@ -478,6 +478,19 @@ h3{font-size:26px; color:#0b1528}
 .gallery-ad-banner{grid-column:1 / -1; margin:14px 0}
 .gallery-card:hover{text-decoration:none; transform:translateY(-2px)}
 .gallery-card img{display:block; width:100%; border-radius:24px; box-shadow:0 8px 24px rgba(7,18,38,.10)}
+.story-page .article{max-width:880px; margin:0 auto; position:relative; overflow:hidden}
+.story-top-image{
+  position:absolute; top:24px; right:28px; width:78px; height:78px;
+  object-fit:contain; background:transparent; background-color:transparent; opacity:.86; pointer-events:none; box-shadow:none; border-radius:0;
+}
+.story-page .kicker{margin-bottom:8px}
+.story-lead{margin-top:6px; margin-bottom:0}
+.story-brand-text{font-weight:850; color:var(--green)}
+.story-section{margin-top:34px; padding-top:30px; border-top:1px solid rgba(216,225,236,.82)}
+.story-section-intro{border-top:0; padding-top:10px}
+.story-section h2{font-size:clamp(28px, 3.4vw, 42px)}
+.story-signoff{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:28px; font-family:Georgia, serif; font-size:clamp(28px, 4vw, 44px) !important; color:var(--green) !important; font-weight:800}
+.story-end-image{width:52px; height:52px; object-fit:contain; background:transparent; background-color:transparent; box-shadow:none; border-radius:0}
 .breadcrumbs{font-weight:750; color:var(--muted); margin-bottom:18px}
 p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anywhere}
 @media(max-width:900px){
@@ -498,8 +511,8 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .brand img{width:40px; height:40px; border-radius:12px}
   .brand-title{font-size:26px}
   .brand-sub{font-size:10px}
-  .nav .links{flex-wrap:nowrap; gap:4px; width:100%; font-size:12px}
-  .nav .links a{display:inline-flex; flex:1 1 0; align-items:center; justify-content:center; min-width:0; min-height:34px; padding:5px 3px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
+  .nav .links{flex-wrap:wrap; gap:6px; width:100%; font-size:12px}
+  .nav .links a{display:inline-flex; flex:1 1 72px; align-items:center; justify-content:center; min-width:0; min-height:34px; padding:5px 6px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
   .hero{padding:18px 0 28px}
   h1{font-size:clamp(38px, 13vw, 58px)}
   .hero-brand{display:block; width:max-content; max-width:100%; margin-left:auto; margin-right:auto; text-align:left}
@@ -545,15 +558,15 @@ p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anyw
   .cta{padding:22px; border-radius:24px}
   .footer{padding:36px 0}
   .footer-grid{flex-direction:column}
-  .footer .links{align-items:center; flex-direction:row; flex-wrap:nowrap; gap:4px; width:100%; font-size:12px}
-  .footer .links a{display:inline-flex; flex:1 1 0; align-items:center; justify-content:center; min-width:0; width:auto; min-height:34px; padding:5px 3px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
+  .footer .links{align-items:center; flex-direction:row; flex-wrap:wrap; gap:6px; width:100%; font-size:12px}
+  .footer .links a{display:inline-flex; flex:1 1 72px; align-items:center; justify-content:center; min-width:0; width:auto; min-height:34px; padding:5px 6px; border:1px solid rgba(216,225,236,.85); border-radius:999px; background:rgba(255,253,247,.62); white-space:nowrap}
 }
 @media(max-width:380px){
   .container{width:min(100% - 20px, 1120px)}
   .brand-title{font-size:23px}
-  .nav .links{gap:3px}
+  .nav .links{gap:4px}
   .nav .links a{font-size:10px; padding:4px 2px; min-height:32px}
-  .footer .links{gap:3px}
+  .footer .links{gap:4px}
   .footer .links a{font-size:10px; padding:4px 2px; min-height:32px}
   .card,.article-tile,.faq-item,.cta{padding:18px}
   .article{padding:20px}
