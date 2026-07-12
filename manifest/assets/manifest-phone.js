@@ -20,16 +20,26 @@
   ];
 
   var sentences = [
-    { id: 'web-001', content: 'I am aligned with today.' },
-    { id: 'web-002', content: 'I am calm and capable.' },
-    { id: 'web-003', content: 'I choose progress over perfection.' },
-    { id: 'web-004', content: 'I welcome growth and clarity.' },
-    { id: 'web-005', content: 'I trust myself to take the next step.' },
-    { id: 'web-006', content: 'I can move gently and still move forward.' },
-    { id: 'web-007', content: 'I listen before I react, and my ambition stays human.' },
-    { id: 'web-008', content: 'I let today be simple, honest, and enough.' },
-    { id: 'web-009', content: 'I am allowed to begin again with softness.' },
-    { id: 'web-010', content: 'I send my attention where my future can grow.' }
+    { id: 'seed-v3-000001', content: 'Today the universe reminds me to trust the process while honoring my feelings and brighter opportunities will meet me there.' },
+    { id: 'seed-v3-000002', content: 'Even now I choose to lead with integrity and follow through consistently because focused effort turns dreams into lived reality.' },
+    { id: 'seed-v3-000003', content: 'My steady effort invites me to transform pressure into strength and wisdom because this season is preparing me for expansion.' },
+    { id: 'seed-v3-000004', content: 'In this moment, I choose to forgive myself and restart with clearer intention and my courage will inspire people around me.' },
+    { id: 'seed-v3-000005', content: 'When doubt gets loud, I choose to move forward gently and still stay determined and my clarity will guide my next decision.' },
+    { id: 'seed-v3-000006', content: 'I keep centered effort close, and my honest momentum remains available.' },
+    { id: 'seed-v3-000007', content: 'I give myself permission to value my path instead of comparing timelines and my patience protects what matters most.' },
+    { id: 'seed-v3-000008', content: 'One brave decision now helps me to act with courage before certainty arrives and my steady heart can handle what comes next.' },
+    { id: 'seed-v3-000009', content: 'Quiet progress still counts when I choose to celebrate progress and learn from each setback so my life reflects both purpose and compassion.' },
+    { id: 'seed-v3-000010', content: 'My heart already knows how to honor rest and continue my focused momentum and the right doors will open at the right pace.' },
+    { id: 'seed-v3-000011', content: 'I let patience teach me to remain hopeful while handling practical responsibilities because my disciplined hope is changing my future.' },
+    { id: 'seed-v3-000012', content: 'A calmer mind helps me to protect my peace and pursue meaningful goals because my next chapter deserves this version of me.' },
+    { id: 'seed-v3-000013', content: 'I choose the next honest step to return to gratitude and rebuild my confidence and my peace can coexist with healthy ambition.' },
+    { id: 'seed-v3-000014', content: 'My future opens wider when I choose to strengthen my spirit through consistent practice and my belief in myself keeps momentum alive.' },
+    { id: 'seed-v3-000015', content: 'Small consistent actions train me to stay grounded and keep my promise to myself while my wisdom grows through each lived lesson.' },
+    { id: 'seed-v3-000016', content: 'I trust my growth, because I choose to stay disciplined while treating myself with compassion while my gratitude keeps my spirit open.' },
+    { id: 'seed-v3-000017', content: 'I carry both hope and courage to serve others kindly while respecting my limits because consistency quietly creates extraordinary outcomes.' },
+    { id: 'seed-v3-000018', content: 'This challenge helps me to stay brave through change and trust my preparation because my actions are aligning with my values.' },
+    { id: 'seed-v3-000019', content: 'I keep my focus and choose to release old fear and make room for joy so my progress stays real, honest, and sustainable.' },
+    { id: 'seed-v3-000020', content: 'My kindness toward myself helps me to keep showing up with purpose and resilience while each challenge refines my inner strength.' }
   ];
 
   var bottomArtSources = [
