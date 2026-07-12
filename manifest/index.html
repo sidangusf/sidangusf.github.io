@@ -115,6 +115,9 @@
         <div class="phone-screen">
           <div class="app-status" aria-hidden="true"><span>9:41</span><span>●●● 100%</span></div>
           <div class="app-streak" aria-label="Daily streak 7"><img class="app-streak-icon" src="assets/fire.png" alt=""><strong>7</strong></div>
+          <div class="app-bottom-art-layer" aria-hidden="true">
+            <img class="app-bottom-art-image" data-bottom-art src="assets/bottom-screen-art/bottom-art-01.png" alt="">
+          </div>
           <div class="app-content app-view" data-view="home">
             <div class="app-brand-stack">
               <img class="app-brand-icon" src="assets/home-brand-icon.png" alt="">
@@ -140,7 +143,7 @@
                 </button>
               </div>
               <div class="app-send-row">
-                <button type="button" class="app-send-button" data-action="quick-send">Send to Universe</button>
+                <button type="button" class="app-send-button" data-action="quick-send"><span>Send to Universe</span><svg class="app-send-plane" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.27 6.73L13.03 16.86L11.71 13.44L11.39 12.61L10.57 12.29L7.14 10.96L17.27 6.73M21 3L3 10.53V11.5L9.84 14.16L12.5 21H13.46L21 3Z"></path></svg></button>
                 <button type="button" class="app-more-button" data-action="toggle-menu" aria-label="Open send mode options" aria-expanded="false">
                   <svg class="app-chevron-icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false">
                     <path d="m112 184 144 144 144-144"></path>
@@ -167,6 +170,9 @@
             </div>
           </div>
           <div class="app-modal app-heart-modal" data-panel="heart" hidden>
+            <div class="app-bottom-art-layer" aria-hidden="true">
+              <img class="app-bottom-art-image" data-bottom-art src="assets/bottom-screen-art/bottom-art-01.png" alt="">
+            </div>
             <div class="app-heart-brand">
               <div class="app-wordmark app-heart-wordmark">manifest.</div>
               <div class="app-made app-heart-made">made with love</div>
@@ -182,11 +188,14 @@
                   <span class="app-heart-template-text" data-heart-target></span>
                 </button>
                 <input class="app-heart-hidden-input" data-heart-input type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" aria-label="Type today’s message exactly">
-                <button type="button" class="app-modal-button primary app-heart-send-button" data-action="heart-send" disabled>Send to Universe</button>
+                <button type="button" class="app-modal-button primary app-heart-send-button" data-action="heart-send" disabled><span>Send to Universe</span><svg class="app-send-plane" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.27 6.73L13.03 16.86L11.71 13.44L11.39 12.61L10.57 12.29L7.14 10.96L17.27 6.73M21 3L3 10.53V11.5L9.84 14.16L12.5 21H13.46L21 3Z"></path></svg></button>
               </div>
             </div>
           </div>
           <div class="app-modal app-mind-modal" data-panel="mind" hidden>
+            <div class="app-bottom-art-layer" aria-hidden="true">
+              <img class="app-bottom-art-image" data-bottom-art src="assets/bottom-screen-art/bottom-art-01.png" alt="">
+            </div>
             <div class="app-heart-brand app-mind-brand">
               <div class="app-wordmark app-heart-wordmark">manifest.</div>
               <div class="app-made app-heart-made">made with love</div>
@@ -221,7 +230,7 @@
                       </svg>
                     </button>
                   </div>
-                  <button type="button" class="app-modal-button primary app-mind-send-button" data-action="mind-send" disabled>Send to Universe</button>
+                  <button type="button" class="app-modal-button primary app-mind-send-button" data-action="mind-send" disabled><span>Send to Universe</span><svg class="app-send-plane" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.27 6.73L13.03 16.86L11.71 13.44L11.39 12.61L10.57 12.29L7.14 10.96L17.27 6.73M21 3L3 10.53V11.5L9.84 14.16L12.5 21H13.46L21 3Z"></path></svg></button>
                 </div>
               </div>
               <div class="app-clear-confirm" data-mind-clear-confirm hidden>
@@ -236,18 +245,36 @@
             </div>
           </div>
           <div class="app-modal app-flow-screen" data-panel="sending" hidden>
+            <div class="app-bottom-art-layer" aria-hidden="true">
+              <img class="app-bottom-art-image" data-bottom-art src="assets/bottom-screen-art/bottom-art-01.png" alt="">
+            </div>
             <div class="app-flow-brand">
-              <img class="app-flow-icon app-flow-icon-spinning" src="assets/manifest-confirmation-icon.png" alt="">
               <div class="app-wordmark app-flow-wordmark">manifest.</div>
               <div class="app-made app-flow-made">made with love</div>
             </div>
             <div class="app-flow-content" role="dialog" aria-modal="true" aria-labelledby="sending-title">
-              <p class="app-flow-title" data-send-progress-greeting id="sending-title">Hey there!</p>
-              <p class="app-flow-title">We are sending your message to the Universe<span data-send-progress-dots>...</span></p>
+              <div class="app-send-progress-card">
+                <img class="app-send-progress-image" data-send-progress-image src="assets/send-progress/blink-01.png" alt="">
+                <div class="app-send-progress-copy">
+                  <p class="app-send-progress-greeting" data-send-progress-greeting id="sending-title">Hey there!</p>
+                  <p class="app-send-progress-line">We are sending your message</p>
+                  <p class="app-send-progress-line app-send-progress-line-strong">to the Universe</p>
+                </div>
+                <div class="app-send-progress-dots" aria-label="Sending progress">
+                  <span class="active" data-send-progress-dot></span>
+                  <span data-send-progress-dot></span>
+                  <span data-send-progress-dot></span>
+                </div>
+                <p class="app-send-progress-trust">Thank you for trusting the process.</p>
+                <p class="app-send-progress-heart" aria-label="Love">♡</p>
+              </div>
               <button type="button" class="app-modal-button app-flow-cancel" data-action="cancel-send">Cancel</button>
             </div>
           </div>
           <div class="app-modal app-flow-screen" data-panel="success" hidden>
+            <div class="app-bottom-art-layer" aria-hidden="true">
+              <img class="app-bottom-art-image" data-bottom-art src="assets/bottom-screen-art/bottom-art-01.png" alt="">
+            </div>
             <div class="app-flow-brand">
               <img class="app-flow-icon" src="assets/manifest-confirmation-icon.png" alt="">
               <div class="app-wordmark app-flow-wordmark">manifest.</div>
