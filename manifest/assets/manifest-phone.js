@@ -32,6 +32,23 @@
     { id: 'web-010', content: 'I send my attention where my future can grow.' }
   ];
 
+  var bottomArtSources = [
+    'assets/bottom-screen-art/bottom-art-01.png',
+    'assets/bottom-screen-art/bottom-art-02.png',
+    'assets/bottom-screen-art/bottom-art-03.png',
+    'assets/bottom-screen-art/bottom-art-04.png',
+    'assets/bottom-screen-art/bottom-art-05.png',
+    'assets/bottom-screen-art/bottom-art-06.png',
+    'assets/bottom-screen-art/bottom-art-07.png',
+    'assets/bottom-screen-art/bottom-art-08.png'
+  ];
+
+  var sendProgressImageSources = [
+    'assets/send-progress/blink-01.png',
+    'assets/send-progress/blink-02.png',
+    'assets/send-progress/blink-03.png'
+  ];
+
   var state = {
     dateKey: '',
     sentence: sentences[0],
@@ -39,7 +56,7 @@
     toastTimer: null,
     sendTimer: null,
     dotsTimer: null,
-    dotsIndex: 0,
+    sendProgressIndex: 0,
     heartBlinkTimer: null,
     isCurrentCharBlinkVisible: true,
     mindCopyToastTimer: null,
@@ -50,7 +67,6 @@
   };
 
   var SEND_DURATION_MS = 5000;
-  var DOT_SUFFIXES = ['.\u00A0\u00A0', '..\u00A0', '...', '\u00A0\u00A0\u00A0'];
   var TAB_TRANSLATE_SPRING = { damping: 15, stiffness: 220, mass: 0.8 };
   var TAB_DROP_SPRING = { damping: 9, stiffness: 260, mass: 0.55 };
   var TAB_REST_SPEED = 0.02;
@@ -77,7 +93,9 @@
   var toast = root.querySelector('[data-toast]');
   var successMessage = root.querySelector('[data-success-message]');
   var sendProgressGreeting = root.querySelector('[data-send-progress-greeting]');
-  var sendProgressDots = root.querySelector('[data-send-progress-dots]');
+  var sendProgressImage = root.querySelector('[data-send-progress-image]');
+  var sendProgressDots = root.querySelectorAll('[data-send-progress-dot]');
+  var bottomArtImages = root.querySelectorAll('[data-bottom-art]');
   var profileGreeting = root.querySelector('[data-profile-greeting]');
   var panels = root.querySelectorAll('[data-panel]');
   var views = root.querySelectorAll('[data-view]');
@@ -86,6 +104,26 @@
 
   function pickRandomItem(items) {
     return items[Math.floor(Math.random() * items.length)];
+  }
+
+  function setSessionBottomArt() {
+    var artSource = pickRandomItem(bottomArtSources);
+
+    bottomArtImages.forEach(function (image) {
+      image.setAttribute('src', artSource);
+    });
+  }
+
+  function updateSendProgressFrame() {
+    var frameIndex = state.sendProgressIndex % sendProgressImageSources.length;
+
+    if (sendProgressImage) {
+      sendProgressImage.setAttribute('src', sendProgressImageSources[frameIndex]);
+    }
+
+    sendProgressDots.forEach(function (dot, index) {
+      dot.classList.toggle('active', index === frameIndex);
+    });
   }
 
   function formatSentenceForDisplay(sentence) {
@@ -201,19 +239,13 @@
       sendProgressGreeting.textContent = greeting + ' there!';
     }
 
-    state.dotsIndex = 0;
-
-    if (sendProgressDots) {
-      sendProgressDots.textContent = DOT_SUFFIXES[state.dotsIndex];
-    }
+    state.sendProgressIndex = 0;
+    updateSendProgressFrame();
 
     openPanel('sending');
     state.dotsTimer = setInterval(function () {
-      state.dotsIndex = (state.dotsIndex + 1) % DOT_SUFFIXES.length;
-
-      if (sendProgressDots) {
-        sendProgressDots.textContent = DOT_SUFFIXES[state.dotsIndex];
-      }
+      state.sendProgressIndex = (state.sendProgressIndex + 1) % sendProgressImageSources.length;
+      updateSendProgressFrame();
     }, 500);
 
     state.sendTimer = setTimeout(function () {
@@ -678,6 +710,8 @@
     }
   });
 
+  setSessionBottomArt();
+  updateSendProgressFrame();
   syncDailyMessage();
   updateMindState();
   updateProfileGreeting();
