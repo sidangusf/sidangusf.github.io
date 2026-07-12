@@ -304,11 +304,12 @@ h3{font-size:26px; color:#0b1528}
 }
 .app-mind-copy-toast > span{border-left:1px solid #cbd5e1; border-radius:8px 0 0 8px; padding-left:8px}
 .app-mind-copy-toast > strong{border-right:1px solid #cbd5e1; border-radius:0 8px 8px 0; padding:4px 8px; color:#1f9d55; font-size:18px; line-height:18px}
-.app-mind-action-row{display:flex; align-items:center; justify-content:space-between; min-height:52px; margin-top:4px}
+.app-mind-action-row{display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:52px; margin-top:4px}
 .app-mind-side-actions{display:flex; align-items:center; gap:4px}
-.app-mind-icon-action{min-width:34px; min-height:34px; padding:0; background:#e3e4c8}
-.app-mind-action-icon{display:block; width:14px; height:14px; color:#0f172a; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
-.app-mind-send-button{min-height:46px; margin-left:auto; margin-right:4px}
+.app-mind-icon-action{flex:0 0 34px; min-width:34px; width:34px; min-height:34px; padding:0; background:#e3e4c8}
+.app-mind-action-icon{display:block; width:25px; height:25px; color:#0f172a; fill:none; stroke:currentColor; stroke-width:3.2; stroke-linecap:round; stroke-linejoin:round; transform:scale(2)}
+.app-mind-send-button{flex:0 0 158px; min-width:0; min-height:42px; margin-left:auto; margin-right:0; padding:7px 10px; font-size:12px; white-space:nowrap; gap:4px}
+.app-mind-send-button .app-send-plane{width:15px; height:15px; margin-left:0}
 .app-clear-confirm{
   position:absolute; inset:0; z-index:5; display:flex; align-items:center; justify-content:center;
   padding:18px; background:rgba(15,23,42,.22); border-radius:24px;
