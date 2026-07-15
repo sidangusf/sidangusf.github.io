@@ -116,7 +116,7 @@ h3{font-size:26px; color:#0b1528}
 .phone-card:after{content:none}
 .phone-simulator-label{
   margin:0 auto 12px; text-align:center; color:var(--green);
-  font-size:14px; font-weight:850;
+  font-size:14px; font-weight:850; animation:manifest-blink 2.4s ease-in-out infinite;
 }
 .phone-shell{
   width:min(100%, 340px); aspect-ratio:9 / 19.2; margin:0 auto;
@@ -378,6 +378,7 @@ h3{font-size:26px; color:#0b1528}
 }
 .app-flow-success-title{margin:0; color:#0f172a; font-size:18px; line-height:1.45; font-weight:750; text-align:center}
 @keyframes manifest-spin{to{transform:rotate(360deg)}}
+@keyframes manifest-blink{0%,100%{opacity:1}50%{opacity:.28}}
 .app-toast{
   position:absolute; z-index:5; left:50%; bottom:64px; transform:translateX(-50%);
   width:max-content; max-width:calc(100% - 36px); padding:9px 12px; border-radius:999px;
@@ -488,8 +489,6 @@ h3{font-size:26px; color:#0b1528}
 .ad-banner-pending .ad-label{display:none}
 .ad-label{margin-bottom:8px; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase}
 .ad-banner .adsbygoogle{min-height:90px}
-.home-ad-section{padding:0 0 58px}
-.home-ad-banner{margin:0}
 .article-ad-banner{margin:34px 0}
 .article-ad-banner .adsbygoogle{min-height:120px}
 .article-page{padding:52px 0}
@@ -584,6 +583,9 @@ h3{font-size:26px; color:#0b1528}
 .story-end-image{width:52px; height:52px; object-fit:contain; background:transparent; background-color:transparent; box-shadow:none; border-radius:0}
 .breadcrumbs{font-weight:750; color:var(--muted); margin-bottom:18px}
 p,li,blockquote,.kicker,.pill,.app-message-card,.article-tile{overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){
+  .phone-simulator-label{animation:none}
+}
 @media(max-width:900px){
   .nav-inner{align-items:flex-start; flex-direction:column}
   .links{justify-content:flex-start; width:100%}
