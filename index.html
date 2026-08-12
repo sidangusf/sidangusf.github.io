@@ -67,9 +67,17 @@
             text-decoration: underline;
         }
 
+        .project-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
         .manifest-link {
             display: inline-block;
-            margin-top: 28px;
             padding: 14px 28px;
             border-radius: 999px;
             background-color: #222;
@@ -117,6 +125,10 @@
                 margin-top: 18px;
             }
 
+            .project-links {
+                flex-direction: column;
+            }
+
             .manifest-link {
                 width: 100%;
                 max-width: 280px;
@@ -139,9 +151,14 @@
             Building simple, thoughtful, and useful digital experiences.
         </div>
 
-        <a class="manifest-link" href="manifest/">
-            Open Manifest
-        </a>
+        <div class="project-links" aria-label="995 Studio projects">
+            <a class="manifest-link" href="manifest/">
+                Open Manifest
+            </a>
+            <a class="manifest-link" href="nothing-worse/">
+                Open Nothing Worse
+            </a>
+        </div>
 
         <div class="contact">
             Contact:

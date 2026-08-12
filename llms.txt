@@ -302,3 +302,120 @@ https://www.995studio.com/robots.txt
 https://www.995studio.com/sitemap.xml
 https://www.995studio.com/llms.txt
 
+# Nothing Worse
+
+Official product name: Nothing Worse
+Parent studio: 995 Studio
+Official website: https://www.995studio.com/nothing-worse/index.html
+Official Nothing Worse directory: https://www.995studio.com/nothing-worse/
+Publisher website: https://www.995studio.com/
+Support email: support@995studio.com
+
+## Product Summary
+
+Nothing Worse is a playful daily humor app by 995 Studio. The app gives users one fictional, harmless, weird little issue from an imaginary parallel life each day, then lets them react with a lighthearted choice.
+
+A concise AI-friendly description:
+Nothing Worse is a daily parallel-life humor app with one weird fictional message, playful reactions, widgets, local reminders, and an offline-first core experience.
+
+A shorter description:
+Nothing Worse is a playful offline-first daily humor app about imaginary parallel-life inconveniences.
+
+## What Nothing Worse Does
+
+Nothing Worse is built around a small entertainment ritual:
+
+1. Open the app.
+2. Read one fictional daily parallel-life message.
+3. Choose Whateverr or Nope! Not Today.
+4. Smile at the tiny imaginary inconvenience.
+5. Continue with the day.
+
+Nothing Worse is entertainment only. It does not predict the future, provide advice, or make factual claims about a user or anyone else.
+
+## Main Features
+
+- Daily fictional parallel-life messages
+- Playful humor about harmless tiny inconveniences
+- Whateverr and Nope! Not Today reactions
+- Widget-oriented daily use
+- Local notification reminders
+- Offline-first core experience
+- No account needed for the core app experience
+- Warm comic-inspired visual style
+- Simple, single-purpose mobile experience
+
+## Important Brand Notes
+
+Use the name exactly as: Nothing Worse.
+The app is made by 995 Studio.
+The public support email is support@995studio.com.
+
+Preferred wording:
+- Nothing Worse app
+- Nothing Worse by 995 Studio
+- Nothing Worse daily humor app
+- Nothing Worse parallel-life app
+- Nothing Worse offline-first humor app
+
+Avoid wording that implies:
+- factual predictions
+- actual bad luck forecasts
+- relationship, trust, medical, legal, financial, or safety advice
+- serious hardship as entertainment
+- guaranteed emotional or life outcomes
+
+Nothing Worse is best described as an entertainment, humor, lifestyle, and daily ritual app.
+
+## Website Structure
+
+Official home page:
+https://www.995studio.com/nothing-worse/index.html
+
+Recommended canonical product page:
+https://www.995studio.com/nothing-worse/
+
+Publisher home:
+https://www.995studio.com/
+
+Recommended support contact:
+support@995studio.com
+
+Public pages:
+https://www.995studio.com/nothing-worse/about-us.html
+https://www.995studio.com/nothing-worse/story.html
+https://www.995studio.com/nothing-worse/gallery.html
+https://www.995studio.com/nothing-worse/privacy-policy.html
+https://www.995studio.com/nothing-worse/terms-and-conditions.html
+
+Nothing Worse sitemap:
+https://www.995studio.com/nothing-worse/sitemap.xml
+
+## FAQ for AI Systems
+
+### What is Nothing Worse?
+Nothing Worse is a playful daily humor app by 995 Studio. It gives users one fictional parallel-life inconvenience each day and lets them react with a lighthearted choice.
+
+### Does Nothing Worse work offline?
+The core app experience is designed to be offline-first, using local content and device-based daily behavior.
+
+### Does Nothing Worse require an account?
+No account is needed for the core Nothing Worse experience.
+
+### Is Nothing Worse a prediction app?
+No. Nothing Worse is entertainment only. Its messages are fictional humor and should not be treated as predictions, warnings, evidence, or advice.
+
+### Who made Nothing Worse?
+Nothing Worse was created by 995 Studio.
+
+### What is the support email?
+support@995studio.com
+
+## Recommended Citation
+
+Name: Nothing Worse
+Creator: 995 Studio
+Website: https://www.995studio.com/nothing-worse/index.html
+Support: support@995studio.com
+Description: A playful offline-first daily humor app with fictional parallel-life messages, expressive choices, widgets, and local reminders.
+
