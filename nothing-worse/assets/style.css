@@ -61,15 +61,13 @@ button,input,textarea{font:inherit}
 .brand-mark{
   width:48px;
   height:48px;
-  display:inline-grid;
-  place-items:center;
+  display:block;
   flex:0 0 auto;
   border:3px solid var(--ink);
   border-radius:18px;
   background:var(--orange);
   box-shadow:4px 4px 0 var(--ink);
-  font-size:25px;
-  line-height:1;
+  object-fit:cover;
 }
 .brand-title{display:block; font-size:25px; line-height:1; letter-spacing:-.03em; text-transform:uppercase}
 .brand-sub{display:block; margin-top:2px; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#26364a}
