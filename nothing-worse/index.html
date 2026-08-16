@@ -65,7 +65,7 @@
       <div>
         <p class="kicker">A tiny daily ritual for weird little issues</p>
         <h1>Nothing Worse</h1>
-        <p class="lead">Every day, discover one harmless problem happening in your imaginary parallel life. Then choose <strong>Whateverr</strong> or <strong>Nope! Not Today</strong> and continue with a lighter mood.</p>
+        <p class="lead">Every day, discover one harmless problem happening in your imaginary parallel life. Then choose <strong>Whateverrr</strong> or <strong>Nope! Not Today</strong> and continue with a lighter mood.</p>
         <div class="hero-actions">
           <a class="btn primary" href="story.html">Read the Story</a>
           <a class="btn soft" href="about-us.html">About the App</a>
@@ -78,22 +78,71 @@
         </div>
       </div>
 
-      <div class="phone-card" aria-label="Preview of the Nothing Worse daily app experience">
+      <div class="phone-card" aria-label="Interactive preview of the Nothing Worse daily app experience">
+        <div class="phone-simulator-label"><span>Preview</span><span class="phone-simulator-icon" aria-hidden="true">✨</span></div>
         <div class="phone-shell">
-          <div class="phone-screen">
-            <div>
-              <div class="phone-logo">Nothing<br>Worse</div>
-              <div class="phone-stickers" aria-hidden="true"><span>💥</span><span>😵‍💫</span><span>✨</span></div>
+          <div class="phone-screen app-preview" data-nw-preview>
+            <div class="phone-home-screen" data-nw-home>
+              <div class="nw-top-logo" aria-label="Nothing Worse logo and stickers">
+                <img class="nw-logo-main" src="assets/logo-clear-background.png" alt="Nothing Worse">
+                <img class="nw-sticker nw-sticker-top-right" data-nw-sticker="0" alt="">
+                <img class="nw-sticker nw-sticker-left" data-nw-sticker="1" alt="">
+                <img class="nw-sticker nw-sticker-bottom-right" data-nw-sticker="2" alt="">
+              </div>
+
+              <div class="nw-comic-panel nw-sentence-panel">
+                <img class="nw-middle-sticker" data-nw-middle-sticker alt="">
+                <div class="nw-sentence-card">
+                  <div class="nw-sentence-title" aria-hidden="true">
+                    <span></span>
+                    <strong>In your parallel life, you...</strong>
+                    <span></span>
+                  </div>
+                  <p data-nw-daily-text>Locked the keys inside the house, which was a great way to keep them extremely safe.</p>
+                </div>
+              </div>
+
+              <div class="nw-choice-row" data-nw-choice-row>
+                <button class="nw-action-button" type="button" data-nw-choice="fine">Whateverrr</button>
+                <button class="nw-action-button" type="button" data-nw-choice="nope">Nope! not today</button>
+              </div>
+
+              <div class="nw-locked-row" data-nw-locked hidden>
+                <div class="nw-locked-message" data-nw-locked-message></div>
+                <button class="nw-replay-button" type="button" data-nw-replay aria-label="Replay today's fate">↻</button>
+              </div>
+
+              <div class="nw-bottom-panel">
+                <img class="nw-tape" data-nw-tape alt="">
+                <img class="nw-bottom-art" data-nw-bottom-art alt="Daily Nothing Worse reaction">
+              </div>
             </div>
-            <div class="message-panel">
-              <small>Today in your parallel life</small>
-              <p>Locked the keys inside the house, which was a great way to keep them extremely safe.</p>
+
+            <div class="phone-result-screen" data-nw-result hidden>
+              <div class="nw-secondary-logo" aria-label="Nothing Worse logo and sticker">
+                <img class="nw-secondary-logo-mark" src="assets/nothing-worse-logo-transparent.png" alt="Nothing Worse">
+                <img class="nw-secondary-sticker" data-nw-result-sticker alt="">
+              </div>
+
+              <div class="nw-comic-panel nw-warning-panel" data-nw-result-panel>
+                <i class="nw-corner nw-corner-tl" aria-hidden="true"></i>
+                <i class="nw-corner nw-corner-tr" aria-hidden="true"></i>
+                <i class="nw-corner nw-corner-bl" aria-hidden="true"></i>
+                <i class="nw-corner nw-corner-br" aria-hidden="true"></i>
+                <div class="nw-warning-copy">
+                  <p class="nw-warning-title" data-nw-result-title>TODAY’S WARNING</p>
+                  <p class="nw-warning-lead" data-nw-result-lead>Be prepared.</p>
+                  <p class="nw-warning-detail" data-nw-result-detail>Today looks suspiciously pleased with itself.</p>
+                </div>
+              </div>
+
+              <div class="nw-bottom-panel nw-secondary-art-panel">
+                <img class="nw-tape" data-nw-result-tape alt="">
+                <img class="nw-bottom-art" data-nw-result-art alt="Nothing Worse secondary reaction">
+              </div>
+
+              <button class="nw-fine-button" type="button" data-nw-result-done>Fine. Whatever.</button>
             </div>
-            <div class="choice-row">
-              <div class="choice blue">Whateverr</div>
-              <div class="choice warn">Nope! Not Today</div>
-            </div>
-            <div class="meme-block" aria-hidden="true">🫠</div>
           </div>
         </div>
       </div>
@@ -111,7 +160,7 @@
         </div>
         <div class="feature-card">
           <h3>Two playful choices</h3>
-          <p>Choose Whateverr to welcome the silly challenge, or Nope! Not Today to leave that issue with your parallel self.</p>
+          <p>Choose Whateverrr to welcome the silly challenge, or Nope! Not Today to leave that issue with your parallel self.</p>
         </div>
         <div class="feature-card">
           <h3>Widgets and reminders</h3>
@@ -148,5 +197,6 @@
       </div>
     </div>
   </footer>
+  <script src="assets/phone-preview.js"></script>
 </body>
 </html>
