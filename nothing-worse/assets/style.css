@@ -140,13 +140,19 @@ h3{font-size:24px; letter-spacing:-.02em}
 .nw-secondary-sticker{right:0; bottom:4px; width:74px; height:74px; transform:rotate(12deg)}
 .nw-comic-panel{position:relative; min-height:0; border:5px solid var(--ink); border-radius:32px; background:var(--card); box-shadow:5px 5px 0 var(--orange), inset 0 0 0 2px rgba(7,18,38,.88); overflow:hidden}
 .nw-comic-panel:after{content:""; position:absolute; inset:0; pointer-events:none; opacity:.15; background-image:repeating-linear-gradient(0deg, rgba(7,18,38,.14) 0, rgba(7,18,38,.14) 1px, transparent 1px, transparent 11px)}
-.nw-sentence-panel{display:grid; place-items:stretch; padding:10px; background:var(--card)}
+.nw-sentence-panel{display:grid; place-items:stretch; padding:10px; background:#fff0cf; box-shadow:5px 5px 0 #f26b21, inset 0 0 0 2px rgba(7,18,38,.88)}
 .nw-middle-sticker{z-index:1; width:84px; height:84px; right:4px; bottom:8px; transform:rotate(20deg); opacity:.9}
-.nw-sentence-card{position:relative; z-index:2; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:8px 10px; text-align:center}
-.nw-sentence-title{display:flex; align-items:center; justify-content:center; gap:6px; width:100%; color:#fff; text-transform:uppercase; font-size:11px; line-height:1.05; letter-spacing:.02em; text-shadow:1px 1px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink)}
-.nw-sentence-title span{display:block; width:20px; height:22px; border-top:4px solid var(--ink); border-bottom:4px solid var(--ink); transform:skewY(-10deg)}
-.nw-sentence-title span:first-child{transform:skewY(10deg)}
-.nw-sentence-card p{margin:0; color:var(--ink); font-size:17px; line-height:1.12; font-weight:950; text-shadow:1px 1px 0 rgba(255,255,255,.8), -1px -1px 0 rgba(255,255,255,.8)}
+.nw-sentence-card{position:relative; z-index:2; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:6px; padding:8px 8px 22px; text-align:center}
+.nw-sentence-title{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; color:#fff; text-transform:uppercase; font-size:11px; line-height:1.05; letter-spacing:.02em}
+.nw-sentence-title strong{display:block; flex:1 1 auto; max-width:calc(100% - 64px); padding:7px 14px; border:3px solid var(--ink); border-radius:18px; background-color:#8fd9ff; background-image:radial-gradient(circle at 16% 22%, rgba(7,18,38,.08) 0 1px, transparent 1.4px), radial-gradient(circle at 72% 66%, rgba(7,18,38,.08) 0 1.1px, transparent 1.5px), repeating-linear-gradient(0deg, rgba(7,18,38,.08) 0, rgba(7,18,38,.08) 1px, rgba(255,255,255,.28) 1px, rgba(255,255,255,.28) 2px, transparent 2px, transparent 13px); overflow:hidden; white-space:nowrap; text-shadow:1.5px 0 0 var(--ink), -1.5px 0 0 var(--ink), 0 1.5px 0 var(--ink), 0 -1.5px 0 var(--ink), 1.1px 1.1px 0 var(--ink), -1.1px 1.1px 0 var(--ink), 1.1px -1.1px 0 var(--ink), -1.1px -1.1px 0 var(--ink), 1.2px 1.2px 0 rgba(7,18,38,.85)}
+.nw-sentence-title span{position:relative; display:block; flex:0 0 24px; width:24px; height:36px; border:0; transform:none; background:linear-gradient(var(--ink), var(--ink)) center / 18px 5px no-repeat}
+.nw-sentence-title span:before,
+.nw-sentence-title span:after{content:""; position:absolute; left:3px; width:18px; height:5px; border-radius:999px; background:var(--ink)}
+.nw-sentence-title span:before{top:6px; transform:rotate(-16deg)}
+.nw-sentence-title span:after{bottom:5px; transform:rotate(16deg)}
+.nw-sentence-title span:first-child:before{transform:rotate(16deg)}
+.nw-sentence-title span:first-child:after{transform:rotate(-16deg)}
+.nw-sentence-card p{flex:1; display:flex; align-items:center; justify-content:center; width:100%; margin:0; color:var(--ink); font-size:18px; line-height:1.06; font-weight:950; transform:translateY(-6px); -webkit-text-stroke:2.2px #fff; paint-order:stroke fill; text-shadow:2.4px 0 0 #fff, -2.4px 0 0 #fff, 0 2.4px 0 #fff, 0 -2.4px 0 #fff, 1.8px 1.8px 0 #fff, -1.8px 1.8px 0 #fff, 1.8px -1.8px 0 #fff, -1.8px -1.8px 0 #fff}
 .nw-choice-row{display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:0 16px; align-items:center; z-index:2}
 .nw-action-button,
 .nw-fine-button,
