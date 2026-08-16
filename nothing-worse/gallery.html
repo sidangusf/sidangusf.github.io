@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gallery | Nothing Worse</title>
-  <meta name="description" content="Nothing Worse app gallery. Screenshots and artwork will be added here later.">
+  <meta name="description" content="Nothing Worse app gallery featuring stickers, reaction art, and visual assets.">
   <meta name="robots" content="index, follow">
-  <link rel="icon" href="/favicon.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="assets/nothing-worse-logo-golden-background.png" type="image/png" sizes="512x512">
   <link rel="stylesheet" href="assets/style.css">
   <meta property="og:title" content="Gallery | Nothing Worse">
-  <meta property="og:description" content="Nothing Worse app gallery. Screenshots and artwork will be added here later.">
+  <meta property="og:description" content="Nothing Worse app gallery featuring stickers, reaction art, and visual assets.">
   <meta property="og:type" content="website">
 </head>
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">!</span><span><span class="brand-title">Nothing Worse</span><span class="brand-sub">by 995 Studio</span></span></a>
+      <a class="brand" href="index.html"><img class="brand-mark" src="assets/nothing-worse-logo-golden-background.png" alt="" aria-hidden="true"><span><span class="brand-title">Nothing Worse</span><span class="brand-sub">by 995 Studio</span></span></a>
       <div class="links">
         <a href="index.html">Home</a>
         <a href="about-us.html">About Us</a>
@@ -27,24 +27,264 @@
     </div>
   </nav>
 
-  <main class="article-page">
+  <main class="article-page gallery-page">
     <div class="container">
-      <article class="article">
+      <article class="article gallery-article">
         <p class="kicker">Gallery</p>
         <h1>Nothing Worse Gallery</h1>
-        <p class="lead">Screenshots, widgets, artwork, and app-store images will be added here later.</p>
-        <div class="empty-gallery">
-          <h2>Coming soon</h2>
-          <p>The gallery is intentionally blank for now while public screenshots and final store artwork are prepared.</p>
-        </div>
+        <p class="lead">A collection of Nothing Worse stickers, tape accents, reaction art, and parallel-life image sets.</p>
       </article>
+
+      <section class="gallery-section" aria-labelledby="transparent-stickers-title">
+        <div class="gallery-section-header">
+          <p class="kicker">50 images</p>
+          <h2 id="transparent-stickers-title">Transparent Stickers</h2>
+          <p>Transparent PNG stickers for tiny disasters, dramatic reactions, and mildly unfortunate moments.</p>
+        </div>
+        <div class="gallery-grid" id="transparent-stickers-gallery"></div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="tape-stickers-title">
+        <div class="gallery-section-header">
+          <p class="kicker">20 images</p>
+          <h2 id="tape-stickers-title">Tape Stickers</h2>
+          <p>Decorative tape stickers with bold patterns, comic textures, and playful paper styles.</p>
+        </div>
+        <div class="gallery-grid" id="tape-stickers-gallery"></div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="carefree-title">
+        <div class="gallery-section-header">
+          <p class="kicker">100 images</p>
+          <h2 id="carefree-title">Carefree Set</h2>
+          <p>A full image set for lighter, luckier, more carefree Nothing Worse moments.</p>
+        </div>
+        <div class="gallery-grid wallpaper-grid" id="carefree-gallery"></div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="classic-stickers-title">
+        <div class="gallery-section-header">
+          <p class="kicker">39 images</p>
+          <h2 id="classic-stickers-title">Classic Stickers</h2>
+          <p>Classic Nothing Worse sticker phrases for daily reactions and close-call energy.</p>
+        </div>
+        <div class="gallery-grid" id="classic-stickers-gallery"></div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="lucky-escape-title">
+        <div class="gallery-section-header">
+          <p class="kicker">100 images</p>
+          <h2 id="lucky-escape-title">Lucky Escape Set</h2>
+          <p>Parallel-life lucky escape images for moments when the other version of you took the hit.</p>
+        </div>
+        <div class="gallery-grid wallpaper-grid" id="lucky-escape-gallery"></div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="reactions-title">
+        <div class="gallery-section-header">
+          <p class="kicker">96 images</p>
+          <h2 id="reactions-title">Reaction Memes</h2>
+          <p>Bottom reaction memes and expressive artwork from the Nothing Worse image collection.</p>
+        </div>
+        <div class="gallery-grid wallpaper-grid" id="reactions-gallery"></div>
+      </section>
     </div>
   </main>
+
+  <script>
+    (function(){
+      var numberFiles = function(count, skip){
+        var excluded = skip || [];
+        var files = [];
+        for (var index = 1; index <= count; index += 1) {
+          if (excluded.indexOf(index) === -1) {
+            files.push(String(index).padStart(3, "0") + ".png");
+          }
+        }
+        return files;
+      };
+
+      var galleries = [
+        {
+          target: "transparent-stickers-gallery",
+          path: "assets/gallery/transparent-stickers/",
+          label: "Nothing Worse transparent sticker",
+          files: [
+            "01-daily-life-trash.png",
+            "02-tiny-inconvenience-big-impact.png",
+            "03-complain-responsibly.png",
+            "04-not-you-nice.png",
+            "05-for-real.png",
+            "06-oh-no.png",
+            "07-oh-man.png",
+            "08-really.png",
+            "09-come-on-man.png",
+            "10-well-thats-rude.png",
+            "11-absolutely-not.png",
+            "12-of-course.png",
+            "13-why-though.png",
+            "14-very-unfortunate.png",
+            "15-barely-survived.png",
+            "16-mood-dampened.png",
+            "17-minor-tragedy.png",
+            "18-personal-attack.png",
+            "19-this-again.png",
+            "20-im-fine.png",
+            "21-zero-out-of-ten.png",
+            "22-would-not-recommend.png",
+            "23-emotional-damage-tiny.png",
+            "24-today-said-no.png",
+            "25-could-be-worse.png",
+            "26-oh-come-on.png",
+            "27-thats-unfortunate.png",
+            "28-seriously.png",
+            "29-not-today.png",
+            "30-what-now.png",
+            "31-of-all-days.png",
+            "32-just-my-luck.png",
+            "33-this-feels-personal.png",
+            "34-so-close.png",
+            "35-a-little-dramatic.png",
+            "36-incredible-bad-way.png",
+            "37-well-played-universe.png",
+            "38-mildly-devastating.png",
+            "39-tragic-but-manageable.png",
+            "40-no-thanks.png",
+            "41-i-didnt-need-that.png",
+            "42-unbelievable.png",
+            "43-why-is-it-wet.png",
+            "44-perfect-timing.png",
+            "45-could-you-not.png",
+            "46-plot-twist-still-okay.png",
+            "47-parallel-you-took-the-hit.png",
+            "48-thanks-other-me.png",
+            "49-crisis-averted-here.png",
+            "50-nothing-worse-today.png"
+          ]
+        },
+        {
+          target: "tape-stickers-gallery",
+          path: "assets/gallery/tape-stickers/",
+          label: "Nothing Worse tape sticker",
+          files: [
+            "tape-sticker-01-classic-orange.png",
+            "tape-sticker-02-mustard-polka-dot.png",
+            "tape-sticker-03-coral-checker.png",
+            "tape-sticker-04-turquoise-speed-stripe.png",
+            "tape-sticker-05-purple-starburst.png",
+            "tape-sticker-06-hot-pink-confetti.png",
+            "tape-sticker-07-lime-zigzag.png",
+            "tape-sticker-08-hazard-stripe.png",
+            "tape-sticker-09-graph-paper.png",
+            "tape-sticker-10-kraft-paper.png",
+            "tape-sticker-11-pastel-rainbow.png",
+            "tape-sticker-12-midnight-stars.png",
+            "tape-sticker-13-comic-flames.png",
+            "tape-sticker-14-abstract-camouflage.png",
+            "tape-sticker-15-vintage-halftone.png",
+            "tape-sticker-16-retro-racing-stripes.png",
+            "tape-sticker-17-blue-confetti.png",
+            "tape-sticker-18-antique-gold-crinkle.png",
+            "tape-sticker-19-red-tartan.png",
+            "tape-sticker-20-orange-lightning.png"
+          ]
+        },
+        {
+          target: "carefree-gallery",
+          path: "assets/gallery/carefree/",
+          label: "Nothing Worse carefree image",
+          files: numberFiles(100)
+        },
+        {
+          target: "classic-stickers-gallery",
+          path: "assets/gallery/classic-stickers/",
+          label: "Nothing Worse classic sticker",
+          files: [
+            "03-yeah-right.png",
+            "04-oh-come-on.png",
+            "06-big-mood.png",
+            "07-im-fine.png",
+            "08-lets-gooo.png",
+            "09-why-though.png",
+            "11-well-okay.png",
+            "12-cool-i-guess.png",
+            "13-still-alive.png",
+            "14-escaped.png",
+            "15-lucky-me.png",
+            "16-safe-now.png",
+            "17-all-good.png",
+            "18-we-move.png",
+            "19-keep-going.png",
+            "20-i-got-this.png",
+            "21-meh.png",
+            "22-nah.png",
+            "23-absolutely-not.png",
+            "24-good-enough.png",
+            "25-close-enough.png",
+            "26-what-a-day.png",
+            "27-zero-worries.png",
+            "28-cant-even.png",
+            "29-oh-well.png",
+            "32-no-fear-ish.png",
+            "33-okay-then.png",
+            "34-lets-do-this.png",
+            "35-not-my-problem.png",
+            "37-made-it.png",
+            "38-unbothered.png",
+            "39-chill-mode.png",
+            "42-nice-try.png",
+            "43-not-me.png",
+            "45-free-at-last.png",
+            "46-im-out.png",
+            "47-dodged-it.png",
+            "48-awesome.png",
+            "49-good-luck.png"
+          ]
+        },
+        {
+          target: "lucky-escape-gallery",
+          path: "assets/gallery/lucky-escape/",
+          label: "Nothing Worse lucky escape image",
+          files: numberFiles(100)
+        },
+        {
+          target: "reactions-gallery",
+          path: "assets/gallery/reactions/",
+          label: "Nothing Worse reaction meme",
+          files: numberFiles(100, [4, 13, 54, 63])
+        }
+      ];
+
+      galleries.forEach(function(gallery){
+        var grid = document.getElementById(gallery.target);
+        if (!grid) return;
+
+        var fragment = document.createDocumentFragment();
+        gallery.files.forEach(function(file, index){
+          var source = gallery.path + file;
+          var card = document.createElement("a");
+          var image = document.createElement("img");
+
+          card.className = "gallery-card";
+          card.href = source;
+          image.src = source;
+          image.alt = gallery.label + " " + (index + 1);
+          image.loading = "lazy";
+          image.decoding = "async";
+
+          card.appendChild(image);
+          fragment.appendChild(card);
+        });
+
+        grid.appendChild(fragment);
+      });
+    }());
+  </script>
 
   <footer class="footer">
     <div class="container footer-grid">
       <div>
-        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">!</span><span><span class="brand-title">Nothing Worse</span><span class="brand-sub">by 995 Studio</span></span></a>
+        <a class="brand" href="index.html"><img class="brand-mark" src="assets/nothing-worse-logo-golden-background.png" alt="" aria-hidden="true"><span><span class="brand-title">Nothing Worse</span><span class="brand-sub">by 995 Studio</span></span></a>
         <p>A daily parallel-life humor app from 995 Studio.</p>
         <p class="footer-meta">© 2026 995 Studio. All rights reserved.</p>
         <p class="footer-meta">Contact: <a href="mailto:support@995studio.com">support@995studio.com</a></p>
