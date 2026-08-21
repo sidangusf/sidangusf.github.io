@@ -70,28 +70,67 @@
         .project-links {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 28px;
         }
 
-        .manifest-link {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 999px;
-            background-color: #222;
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 700;
+        .project-link {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            min-width: 0;
+            color: #222;
             text-decoration: none;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
-        .manifest-link:hover {
+        .project-link:hover,
+        .project-link:focus-visible {
             transform: translateY(-2px);
+        }
+
+        .project-link:focus-visible {
+            outline: 3px solid rgba(34, 34, 34, 0.35);
+            outline-offset: 8px;
+            border-radius: 32px;
+        }
+
+        .project-link-image {
+            display: block;
+            width: 132px;
+            height: 132px;
+            border-radius: 30px;
+            background-color: #fff;
+            object-fit: contain;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .project-link:hover .project-link-image,
+        .project-link:focus-visible .project-link-image {
             box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        .project-name {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .project-note {
+            margin-top: 4px;
+            color: #777;
+            font-size: 0.82rem;
+            line-height: 1.25;
+        }
+
+        .project-name,
+        .project-note {
+            overflow-wrap: anywhere;
         }
 
         @media (max-width: 768px) {
@@ -114,7 +153,7 @@
             }
 
             .container {
-                padding: 56px 0 32px;
+                padding: 44px 0 32px;
             }
 
             h1 {
@@ -126,13 +165,29 @@
             }
 
             .project-links {
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                align-items: center;
+                gap: 22px 12px;
             }
 
-            .manifest-link {
+            .project-link {
                 width: 100%;
-                max-width: 280px;
-                padding: 14px 20px;
+                max-width: none;
+            }
+
+            .project-link-image {
+                width: min(34vw, 132px);
+                height: min(34vw, 132px);
+                border-radius: 26px;
+            }
+
+            .project-name {
+                font-size: 0.95rem;
+            }
+
+            .project-note {
+                font-size: 0.76rem;
             }
 
             .contact a {
@@ -152,11 +207,23 @@
         </div>
 
         <div class="project-links" aria-label="995 Studio projects">
-            <a class="manifest-link" href="manifest/">
-                Open Manifest
+            <a class="project-link" href="manifest/" aria-label="Open Manifest">
+                <img class="project-link-image" src="manifest/assets/logoApp.png" alt="Manifest app logo">
+                <span class="project-name">Manifest</span>
             </a>
-            <a class="manifest-link" href="nothing-worse/">
-                Open Nothing Worse
+            <a class="project-link" href="nothing-worse/" aria-label="Open Nothing Worse">
+                <img class="project-link-image" src="nothing-worse/assets/nothing-worse-logo-golden-background.png" alt="Nothing Worse app logo">
+                <span class="project-name">Nothing Worse</span>
+            </a>
+            <a class="project-link" href="https://apps.apple.com/us/app/woofy-doggy-endless-run/id6450281076" aria-label="Open Woofy Doogy - Endless Run on the App Store">
+                <img class="project-link-image" src="Logo-Woofy.png" alt="Woofy Doogy - Endless Run app logo">
+                <span class="project-name">Woofy Doogy - Endless Run!</span>
+                <span class="project-note">iOS only · Android not available</span>
+            </a>
+            <a class="project-link" href="https://apps.apple.com/us/app/ole-arcade/id1667406683" aria-label="Open Tap On Red on the App Store">
+                <img class="project-link-image" src="Glogo-Ole.jpg" alt="Tap On Red app logo">
+                <span class="project-name">Tap On Red</span>
+                <span class="project-note">iOS only · Android not available</span>
             </a>
         </div>
 
