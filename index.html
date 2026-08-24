@@ -11,152 +11,271 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --ink: #f8fafc;
+            --muted: #cbd5e1;
+            --line: rgba(255, 255, 255, 0.16);
+            --panel: rgba(15, 23, 42, 0.58);
+            --panel-strong: rgba(15, 23, 42, 0.72);
+            --accent: #7c3aed;
+            --accent-2: #06b6d4;
+        }
+
         html {
             min-height: 100%;
+            background: #0f172a;
         }
 
         body {
             margin: 0;
             min-height: 100vh;
             min-height: 100svh;
-            padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+            padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f8f8f8;
-            color: #222;
+            color: var(--ink);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                          Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.58), transparent 32rem),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.42), transparent 30rem),
+                radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.24), transparent 34rem),
+                linear-gradient(135deg, #020617 0%, #111827 48%, #0f172a 100%);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.58), transparent 75%);
         }
 
         .container {
-            width: 100%;
-            padding: 40px 20px;
-            max-width: 800px;
+            position: relative;
+            width: min(100%, 1100px);
+            padding: clamp(24px, 4vw, 44px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 36px;
+            background: var(--panel);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(28px, 5vw, 56px);
+            align-items: center;
+            justify-items: center;
+        }
+
+        .hero-copy {
+            max-width: 760px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 18px;
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            color: #e0e7ff;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         h1 {
             margin: 0;
-            font-size: clamp(2.75rem, 11vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.05;
+            font-size: clamp(3rem, 8vw, 5.75rem);
+            font-weight: 850;
+            letter-spacing: -0.07em;
+            line-height: 0.95;
         }
 
         .subtitle {
-            margin-top: 24px;
-            font-size: clamp(1.2rem, 4.5vw, 1.6rem);
-            color: #666;
-            line-height: 1.4;
+            max-width: 680px;
+            margin: 22px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.08rem, 2vw, 1.35rem);
+            line-height: 1.55;
+        }
+
+        .hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 28px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .hero-highlights li {
+            padding: 9px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+            font-weight: 650;
         }
 
         .contact {
-            margin-top: 20px;
-            font-size: clamp(1.05rem, 4vw, 1.4rem);
-            color: #555;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 28px;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
         }
 
         .contact a {
-            color: #222;
+            color: #fff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 800;
         }
 
-        .contact a:hover {
-            text-decoration: underline;
+        .contact a:hover,
+        .contact a:focus-visible {
+            color: var(--accent);
         }
 
         .project-links {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 28px;
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+            gap: 20px;
+            justify-items: stretch;
         }
 
         .project-category {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
+            min-width: 0;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            background: var(--panel-strong);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+            text-align: center;
         }
 
         .project-category + .project-category {
-            margin-left: 12px;
-            padding-left: 24px;
-            border-left: 1px solid #ddd;
+            position: relative;
+        }
+
+        .project-category + .project-category::before {
+            content: "";
+            position: absolute;
+            top: 26px;
+            bottom: 26px;
+            left: -11px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.26), transparent);
         }
 
         .project-category-title {
-            margin: 0;
-            color: #555;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 16px;
+            justify-content: center;
+            color: #e2e8f0;
+            font-size: 0.82rem;
+            font-weight: 850;
+            letter-spacing: 0.08em;
             line-height: 1.2;
             text-transform: uppercase;
         }
 
+        .project-category-title::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            box-shadow: 0 0 0 5px rgba(124, 58, 237, 0.09);
+        }
+
         .project-category-items {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+            gap: 14px;
         }
 
         .project-link {
-            display: inline-flex;
+            display: flex;
+            min-width: 0;
+            min-height: 100%;
+            padding: 16px 12px;
             flex-direction: column;
             align-items: center;
-            width: 160px;
-            min-width: 0;
-            color: #222;
+            justify-content: flex-start;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            color: var(--ink);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.07));
+            text-align: center;
             text-decoration: none;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .project-link:hover,
         .project-link:focus-visible {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            border-color: rgba(124, 58, 237, 0.24);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
         }
 
         .project-link:focus-visible {
-            outline: 3px solid rgba(34, 34, 34, 0.35);
-            outline-offset: 8px;
-            border-radius: 32px;
+            outline: 3px solid rgba(124, 58, 237, 0.28);
+            outline-offset: 4px;
         }
 
         .project-link-image {
             display: block;
-            width: 132px;
-            height: 132px;
-            border-radius: 30px;
+            width: clamp(86px, 9vw, 120px);
+            height: clamp(86px, 9vw, 120px);
+            border-radius: 27px;
             background-color: #fff;
             object-fit: contain;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-            transition: box-shadow 0.2s ease;
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+            transition: transform 0.2s ease;
         }
 
         .project-link:hover .project-link-image,
         .project-link:focus-visible .project-link-image {
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+            transform: scale(1.03);
         }
 
         .project-name {
-            margin-top: 10px;
+            margin-top: 13px;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 850;
             line-height: 1.2;
         }
 
         .project-note {
-            margin-top: 4px;
-            color: #777;
-            font-size: 0.82rem;
-            line-height: 1.25;
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            line-height: 1.3;
         }
 
         .project-name,
@@ -164,130 +283,153 @@
             overflow-wrap: anywhere;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            .subtitle {
-                font-size: 1.25rem;
-            }
-
-            .contact {
-                font-size: 1.15rem;
-            }
-        }
-
-        @media (max-width: 480px) {
+        @media (max-width: 900px) {
             body {
                 align-items: flex-start;
             }
 
-            .container {
-                padding: 44px 0 32px;
+            .hero {
+                grid-template-columns: 1fr;
             }
 
-            h1 {
-                font-size: clamp(2.35rem, 14vw, 3rem);
+            .hero-copy {
+                text-align: center;
             }
 
             .subtitle {
-                margin-top: 18px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .hero-highlights {
+                justify-content: center;
+            }
+
+            .contact {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: max(16px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+            }
+
+            .container {
+                padding: 22px;
+                border-radius: 28px;
             }
 
             .project-links {
-                display: grid;
                 grid-template-columns: 1fr;
-                gap: 26px;
             }
 
-            .project-category + .project-category {
-                margin-left: 0;
-                padding-top: 26px;
-                padding-left: 0;
-                border-top: 1px solid #ddd;
-                border-left: 0;
+            .project-category + .project-category::before {
+                top: -11px;
+                right: 26px;
+                bottom: auto;
+                left: 26px;
+                width: auto;
+                height: 1px;
+                background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.26), transparent);
+            }
+
+            .contact {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                width: 100%;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .project-category {
+                padding: 16px;
             }
 
             .project-category-items {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                align-items: start;
-                gap: 22px 12px;
+                gap: 10px;
             }
 
             .project-link {
-                width: 100%;
-                max-width: none;
+                padding: 14px 8px;
+                border-radius: 20px;
             }
 
             .project-link-image {
-                width: min(34vw, 132px);
-                height: min(34vw, 132px);
-                border-radius: 26px;
+                width: min(32vw, 104px);
+                height: min(32vw, 104px);
+                border-radius: 23px;
             }
 
             .project-name {
-                font-size: 0.95rem;
+                font-size: 0.92rem;
             }
 
             .project-note {
-                font-size: 0.76rem;
-            }
-
-            .contact a {
-                display: block;
-                margin-top: 4px;
-                overflow-wrap: anywhere;
+                font-size: 0.72rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>995 Studio</h1>
+        <main class="hero" aria-labelledby="page-title">
+            <section class="hero-copy">
+                <p class="eyebrow">Independent mobile studio</p>
+                <h1 id="page-title">995 Studio</h1>
 
-        <div class="subtitle">
-            Building simple, thoughtful, and useful digital experiences.
-        </div>
+                <p class="subtitle">
+                    Designing focused mobile apps and playful games with simple interactions, clear purpose, and polished everyday experiences.
+                </p>
 
-        <div class="project-links" aria-label="995 Studio projects">
-            <section class="project-category" aria-labelledby="mobile-app-title">
-                <h2 class="project-category-title" id="mobile-app-title">Mobile App</h2>
-                <div class="project-category-items">
-                    <a class="project-link" href="manifest/" aria-label="Open Manifest">
-                        <img class="project-link-image" src="manifest/assets/logoApp.png" alt="Manifest app logo">
-                        <span class="project-name">Manifest</span>
-                    </a>
-                    <a class="project-link" href="nothing-worse/" aria-label="Open Nothing Worse">
-                        <img class="project-link-image" src="nothing-worse/assets/nothing-worse-logo-golden-background.png" alt="Nothing Worse app logo">
-                        <span class="project-name">Nothing Worse</span>
+                <ul class="hero-highlights" aria-label="Studio focus areas">
+                    <li>Mobile Apps</li>
+                    <li>Mobile Games</li>
+                    <li>Thoughtful Design</li>
+                </ul>
+
+                <div class="contact">
+                    <span>Contact</span>
+                    <a href="mailto:support@995studio.com">
+                        support@995studio.com
                     </a>
                 </div>
             </section>
-            <section class="project-category" aria-labelledby="mobile-game-title">
-                <h2 class="project-category-title" id="mobile-game-title">Mobile Game</h2>
-                <div class="project-category-items">
-                    <a class="project-link" href="https://apps.apple.com/us/app/woofy-doggy-endless-run/id6450281076" aria-label="Open Woofy Doogy - Endless Run on the App Store">
-                        <img class="project-link-image" src="Logo-Woofy.png" alt="Woofy Doogy - Endless Run app logo">
-                        <span class="project-name">Woofy Doogy - Endless Run!</span>
-                        <span class="project-note">iOS only · Android not available</span>
-                    </a>
-                    <a class="project-link" href="https://apps.apple.com/us/app/ole-arcade/id1667406683" aria-label="Open Tap On Red on the App Store">
-                        <img class="project-link-image" src="Glogo-Ole.jpg" alt="Tap On Red app logo">
-                        <span class="project-name">Tap On Red</span>
-                        <span class="project-note">iOS only · Android not available</span>
-                    </a>
-                </div>
-            </section>
-        </div>
 
-        <div class="contact">
-            Contact:
-            <a href="mailto:support@995studio.com">
-                support@995studio.com
-            </a>
-        </div>
+            <div class="project-links" aria-label="995 Studio projects">
+                <section class="project-category" aria-labelledby="mobile-app-title">
+                    <h2 class="project-category-title" id="mobile-app-title">Mobile App</h2>
+                    <div class="project-category-items">
+                        <a class="project-link" href="manifest/" aria-label="Open Manifest">
+                            <img class="project-link-image" src="manifest/assets/logoApp.png" alt="Manifest app logo">
+                            <span class="project-name">Manifest</span>
+                        </a>
+                        <a class="project-link" href="nothing-worse/" aria-label="Open Nothing Worse">
+                            <img class="project-link-image" src="nothing-worse/assets/nothing-worse-logo-golden-background.png" alt="Nothing Worse app logo">
+                            <span class="project-name">Nothing Worse</span>
+                        </a>
+                    </div>
+                </section>
+                <section class="project-category" aria-labelledby="mobile-game-title">
+                    <h2 class="project-category-title" id="mobile-game-title">Mobile Game</h2>
+                    <div class="project-category-items">
+                        <a class="project-link" href="https://apps.apple.com/us/app/woofy-doggy-endless-run/id6450281076" aria-label="Open Woofy Doogy - Endless Run on the App Store">
+                            <img class="project-link-image" src="Logo-Woofy.png" alt="Woofy Doogy - Endless Run app logo">
+                            <span class="project-name">Woofy Doogy - Endless Run!</span>
+                            <span class="project-note">iOS only · Android not available</span>
+                        </a>
+                        <a class="project-link" href="https://apps.apple.com/us/app/ole-arcade/id1667406683" aria-label="Open Tap On Red on the App Store">
+                            <img class="project-link-image" src="Glogo-Ole.jpg" alt="Tap On Red app logo">
+                            <span class="project-name">Tap On Red</span>
+                            <span class="project-note">iOS only · Android not available</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
     </div>
     <!-- GitHub Pages deployment refresh. -->
 </body>
