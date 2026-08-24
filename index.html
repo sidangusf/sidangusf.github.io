@@ -76,6 +76,37 @@
             margin-top: 28px;
         }
 
+        .project-category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .project-category + .project-category {
+            margin-left: 12px;
+            padding-left: 24px;
+            border-left: 1px solid #ddd;
+        }
+
+        .project-category-title {
+            margin: 0;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .project-category-items {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         .project-link {
             display: inline-flex;
             flex-direction: column;
@@ -166,8 +197,22 @@
 
             .project-links {
                 display: grid;
+                grid-template-columns: 1fr;
+                gap: 26px;
+            }
+
+            .project-category + .project-category {
+                margin-left: 0;
+                padding-top: 26px;
+                padding-left: 0;
+                border-top: 1px solid #ddd;
+                border-left: 0;
+            }
+
+            .project-category-items {
+                display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-                align-items: center;
+                align-items: start;
                 gap: 22px 12px;
             }
 
@@ -207,24 +252,34 @@
         </div>
 
         <div class="project-links" aria-label="995 Studio projects">
-            <a class="project-link" href="manifest/" aria-label="Open Manifest">
-                <img class="project-link-image" src="manifest/assets/logoApp.png" alt="Manifest app logo">
-                <span class="project-name">Manifest</span>
-            </a>
-            <a class="project-link" href="nothing-worse/" aria-label="Open Nothing Worse">
-                <img class="project-link-image" src="nothing-worse/assets/nothing-worse-logo-golden-background.png" alt="Nothing Worse app logo">
-                <span class="project-name">Nothing Worse</span>
-            </a>
-            <a class="project-link" href="https://apps.apple.com/us/app/woofy-doggy-endless-run/id6450281076" aria-label="Open Woofy Doogy - Endless Run on the App Store">
-                <img class="project-link-image" src="Logo-Woofy.png" alt="Woofy Doogy - Endless Run app logo">
-                <span class="project-name">Woofy Doogy - Endless Run!</span>
-                <span class="project-note">iOS only · Android not available</span>
-            </a>
-            <a class="project-link" href="https://apps.apple.com/us/app/ole-arcade/id1667406683" aria-label="Open Tap On Red on the App Store">
-                <img class="project-link-image" src="Glogo-Ole.jpg" alt="Tap On Red app logo">
-                <span class="project-name">Tap On Red</span>
-                <span class="project-note">iOS only · Android not available</span>
-            </a>
+            <section class="project-category" aria-labelledby="mobile-app-title">
+                <h2 class="project-category-title" id="mobile-app-title">Mobile App</h2>
+                <div class="project-category-items">
+                    <a class="project-link" href="manifest/" aria-label="Open Manifest">
+                        <img class="project-link-image" src="manifest/assets/logoApp.png" alt="Manifest app logo">
+                        <span class="project-name">Manifest</span>
+                    </a>
+                    <a class="project-link" href="nothing-worse/" aria-label="Open Nothing Worse">
+                        <img class="project-link-image" src="nothing-worse/assets/nothing-worse-logo-golden-background.png" alt="Nothing Worse app logo">
+                        <span class="project-name">Nothing Worse</span>
+                    </a>
+                </div>
+            </section>
+            <section class="project-category" aria-labelledby="mobile-game-title">
+                <h2 class="project-category-title" id="mobile-game-title">Mobile Game</h2>
+                <div class="project-category-items">
+                    <a class="project-link" href="https://apps.apple.com/us/app/woofy-doggy-endless-run/id6450281076" aria-label="Open Woofy Doogy - Endless Run on the App Store">
+                        <img class="project-link-image" src="Logo-Woofy.png" alt="Woofy Doogy - Endless Run app logo">
+                        <span class="project-name">Woofy Doogy - Endless Run!</span>
+                        <span class="project-note">iOS only · Android not available</span>
+                    </a>
+                    <a class="project-link" href="https://apps.apple.com/us/app/ole-arcade/id1667406683" aria-label="Open Tap On Red on the App Store">
+                        <img class="project-link-image" src="Glogo-Ole.jpg" alt="Tap On Red app logo">
+                        <span class="project-name">Tap On Red</span>
+                        <span class="project-note">iOS only · Android not available</span>
+                    </a>
+                </div>
+            </section>
         </div>
 
         <div class="contact">
