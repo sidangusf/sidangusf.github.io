@@ -1,7 +1,8 @@
 "use strict";
 (() => {
   const $ = id => document.getElementById(id);
-  let key = "", timer, activeJob, shownJob = "", connected = false, epoch = 0, refreshing = false;
+  let key = "", timer, activeJob, connected = false, epoch = 0, refreshing = false;
+  const shownActions = new Set();
   let origin = "";
   try {
     const url = new URL((window.COURT_CLUB_CONFIG || {}).apiOrigin);
@@ -44,7 +45,7 @@
       copy.append(title,detail); row.append(copy);
       if(job.canAct) {
         const b=document.createElement("button");b.textContent="Review action";b.addEventListener("click",()=>action(job));row.append(b);
-        if (shownJob !== job.id+job.status && !$("action-dialog").open) { shownJob=job.id+job.status; action(job); }
+        if (!shownActions.has(job.id+job.status) && !$("action-dialog").open) { shownActions.add(job.id+job.status); action(job); }
       }
       $("jobs").append(row);
     }
@@ -61,7 +62,7 @@
     catch(err) { key=""; notify(err.message); } finally { $("connect").disabled=false; }
   });
   $("disconnect").addEventListener("click",()=>{
-    ++epoch; clearInterval(timer); key=""; connected=false; shownJob=""; activeJob=null;
+    ++epoch; clearInterval(timer); key=""; connected=false; shownActions.clear(); activeJob=null;
     $("action-dialog").close(); $("live-view").removeAttribute("href"); $("receipt").value="";
     $("identity").hidden=true; $("connect-form").hidden=false; $("member").textContent=""; $("jobs").replaceChildren();
     $("schedule-state").textContent="Not connected"; $("next-release").textContent="—";
