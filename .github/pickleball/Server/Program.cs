@@ -44,7 +44,7 @@ app.MapGet("/api/status",(HttpContext c,Store store,BookingWorker worker)=>{
         schedule=new{state.Schedule.Enabled,ownerName=members.FirstOrDefault(m=>m.Id==state.Schedule.OwnerId)?.Name??""},
         nextRelease=Rules.NextRelease(DateTimeOffset.UtcNow),
         jobs=state.Jobs.OrderByDescending(j=>j.Release).Take(30).Select(j=>new{j.Id,j.PlayDate,j.Status,j.Message,j.Court,
-            canAct=j.OwnerId==me.Id && j.Status is "login_required" or "review_required" or "interrupted" or "unverified",
+            canAct=j.OwnerId==me.Id && (Rules.CanResume(j,DateTimeOffset.UtcNow) || j.Status is "review_required" or "interrupted" or "unverified"),
             liveViewUrl=j.OwnerId==me.Id?me.LiveViewUrl:null})});
 });
 app.MapPost("/api/schedule",(ScheduleInput input,HttpContext c,Store store,BookingWorker worker)=>{
