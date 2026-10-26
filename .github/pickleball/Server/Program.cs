@@ -12,7 +12,7 @@ foreach(var member in members)
     if(!string.IsNullOrEmpty(member.LiveViewUrl) && (!Uri.TryCreate(member.LiveViewUrl,UriKind.Absolute,out var live)||live.Scheme!="https"||!string.IsNullOrEmpty(live.UserInfo)))throw new InvalidOperationException("Live views must use https without userinfo.");
 }
 if(members.Where(m=>!string.IsNullOrEmpty(m.CdpUrl)).GroupBy(m=>m.CdpUrl).Any(g=>g.Count()>1))throw new InvalidOperationException("Each member needs an isolated browser session.");
-var allowedOrigin=Environment.GetEnvironmentVariable("CLUB_WEB_ORIGIN")??"https://995studio.com";
+var allowedOrigin=Environment.GetEnvironmentVariable("CLUB_WEB_ORIGIN")??"https://www.995studio.com";
 builder.Services.AddCors(o=>o.AddDefaultPolicy(p=>p.WithOrigins(allowedOrigin).WithMethods("GET","POST").WithHeaders("Authorization","Content-Type")));
 builder.Services.AddRateLimiter(o=>{o.RejectionStatusCode=429;o.GlobalLimiter=PartitionedRateLimiter.Create<HttpContext,string>(c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"unknown",_=>new(){PermitLimit=120,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));});
 builder.WebHost.ConfigureKestrel(o=>o.Limits.MaxRequestBodySize=4096);
