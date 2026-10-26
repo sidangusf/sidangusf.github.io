@@ -2,7 +2,7 @@
 
 ## Implemented and remaining
 
-`pickleball/index.html` is the dashboard for `https://995studio.com/pickleball/`.
+`pickleball/index.html` is the dashboard for `https://www.995studio.com/pickleball/`.
 This directory contains an ASP.NET Core API, durable weekly scheduler, Playwright selection worker, tests, and container packaging. GitHub Pages cannot run the backend or a browser worker.
 
 Until an HTTPS backend is provisioned and configured in `pickleball/config.js`, connection and scheduling stay disabled. No sample availability or fake confirmations are displayed.
@@ -30,7 +30,7 @@ No server, paid resource, remote browser, or active schedule is created by publi
 
 ## Environment
 
-- `CLUB_WEB_ORIGIN=https://995studio.com`
+- `CLUB_WEB_ORIGIN=https://www.995studio.com`
 - `CLUB_DATA_DIR=/data` — private persistent volume, writable by the container `app` user.
 - `CLUB_MEMBERS_JSON` — secret JSON array using this shape:
 
