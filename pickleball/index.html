@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+  <title>Wednesday Court Club · 995 Studio</title>
+  <link rel="icon" href="/favicon.png"><link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="/">995 <span>STUDIO</span></a><span class="badge">FRIENDS CLUB</span></header>
+<main>
+  <section class="intro"><p class="eyebrow">FREMONT TENNIS CENTER</p><h1>Wednesday nights.<br><em>Meet you on court.</em></h1><p class="lede">One court. Your friends. Two hours of pickleball.<br>A little less planning, a lot more playing.</p></section>
+  <section class="hero" aria-label="Weekly booking plan">
+    <div><p class="eyebrow">THE WEEKLY PLAN</p><h2>Wednesday <span>7–9 PM</span></h2><p>America/Los_Angeles · daylight saving aware</p><div class="courts" aria-label="Court priority A then B then C then D"><span>A</span><span>B</span><span>C</span><span>D</span></div><p>First court available for the full two hours. No split bookings.</p></div>
+    <div class="court-art" aria-hidden="true"><div class="court-inner"><i></i><b></b></div><span class="ball"></span></div>
+  </section>
+  <div id="notice" role="status" class="notice">Setup required. No booking service is connected and no reservations are scheduled.</div>
+  <div class="columns">
+    <section class="panel"><p class="eyebrow">01 / CONNECT</p><h2>Your club access</h2><p>Use the invite key provided by your host. This is not your Fremont password.</p>
+      <form id="connect-form"><label for="invite">Invite key</label><input id="invite" type="password" autocomplete="off" required placeholder="Enter your private invite key"><button id="connect" type="submit">Connect to club <span>↗</span></button></form>
+      <div id="identity" hidden><p id="member"></p><button id="disconnect" class="secondary">Disconnect</button></div><p class="small">Your key stays in this tab’s memory and is cleared when you disconnect or reload.</p>
+    </section>
+    <section class="panel"><p class="eyebrow">02 / SCHEDULE</p><h2>Ready for release day</h2><dl><div><dt>Attempt starts</dt><dd>Wednesday, 7:30 AM PT</dd></div><div><dt>For play on</dt><dd>The following Wednesday</dd></div><div><dt>Schedule status</dt><dd id="schedule-state">Not connected</dd></div><div><dt>Next release</dt><dd id="next-release">—</dd></div></dl>
+      <div class="actions"><button id="enable" disabled>Enable weekly booking</button><button id="pause" class="secondary" disabled>Pause</button></div><p class="small">The host must be a Fremont resident and attend the game. Timing and the two-hour limit must be verified before activation. A reservation is never guaranteed.</p>
+    </section>
+  </div>
+  <section class="panel activity"><div class="section-heading"><div><p class="eyebrow">03 / FOLLOW ALONG</p><h2>Booking activity</h2></div><button id="refresh" class="secondary" disabled>Refresh</button></div><div id="jobs"><p class="empty">No activity loaded. Connect to see your group’s booking attempts.</p></div></section>
+  <section class="footnote"><strong>You stay in control.</strong> If login, a CAPTCHA, signature, or payment needs you, the worker pauses. Open the same booking browser to finish the step. Final checkout currently requires a human; confirmations entered here are reported by the host, not independently verified.</section>
+</main>
+<footer><span>995 Studio / Wednesday Court Club</span><a href="https://anc.apm.activecommunities.com/fremont/reservation/landing/quick?groupId=6" target="_blank" rel="noopener noreferrer">Open Fremont reservations ↗</a></footer>
+<dialog id="action-dialog"><form method="dialog"><button class="close secondary" aria-label="Close action request">×</button></form><p class="eyebrow">ACTION REQUIRED</p><h2>Your booking needs you</h2><p id="action-message"></p><a id="live-view" class="button" target="_blank" rel="noopener noreferrer">Open booking browser ↗</a><p class="small">Complete the step in that browser. Opening Fremont separately will not share its session.</p><div class="actions"><button id="resume">I finished signing in — resume</button></div><form id="receipt-form"><label for="receipt">After completing checkout, enter the confirmation number</label><input id="receipt" maxlength="100" required autocomplete="off"><button type="submit">Record my confirmation</button><p class="small">Only submit after Fremont confirms the reservation.</p></form></dialog>
+</body></html>
