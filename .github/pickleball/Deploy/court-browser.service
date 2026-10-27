@@ -1,0 +1,26 @@
+[Unit]
+Description=Private Court Club browser and interactive desktop
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=court-browser
+Group=court-browser
+Environment=HOME=/var/lib/court-browser
+Environment=DISPLAY=:99
+Environment=XAUTHORITY=/run/court-browser/Xauthority
+RuntimeDirectory=court-browser
+RuntimeDirectoryMode=0700
+UMask=0077
+ExecStart=/usr/local/lib/court-club/browser-session.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+KillMode=control-group
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
