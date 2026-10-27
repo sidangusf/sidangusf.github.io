@@ -54,7 +54,7 @@ if [[ ! -f /etc/court-club/members.json ]]; then
     host_hash=$(printf '%s' "$host_key" | sha256sum | cut -d ' ' -f 1)
     friend_hash=$(printf '%s' "$friend_key" | sha256sum | cut -d ' ' -f 1)
     browser_hash=$(printf '%s\n' "$browser_password" | docker run --rm -i caddy:2-alpine caddy hash-password)
-    [[ "$browser_hash" == '$2'* ]] || { echo 'Password hashing failed.' >&2; exit 1; }
+    [[ "$browser_hash" == "\$2"* ]] || { echo 'Password hashing failed.' >&2; exit 1; }
     jq -n --arg host "$host_hash" --arg friend "$friend_hash" \
         '[{id:"host",name:"Host",tokenHash:$host,cdpUrl:"http://127.0.0.1:9222",liveViewUrl:"https://booking-api.995studio.com/browser/vnc.html?autoconnect=true&resize=scale&path=browser/websockify",canManage:true},{id:"friends",name:"Friends",tokenHash:$friend,cdpUrl:"",liveViewUrl:"",canManage:false}]' \
         > /etc/court-club/members.json
