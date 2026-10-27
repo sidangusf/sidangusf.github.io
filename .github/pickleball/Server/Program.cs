@@ -3,12 +3,14 @@ using System.Text.Json;
 using System.Threading.RateLimiting;
 
 var builder=WebApplication.CreateBuilder(args);
-var members=JsonSerializer.Deserialize<Member[]>(Environment.GetEnvironmentVariable("CLUB_MEMBERS_JSON") ?? "[]", new JsonSerializerOptions {PropertyNameCaseInsensitive=true}) ?? [];
+var membersFile=Environment.GetEnvironmentVariable("CLUB_MEMBERS_FILE");
+var membersJson=membersFile is null ? Environment.GetEnvironmentVariable("CLUB_MEMBERS_JSON") ?? "[]" : File.ReadAllText(membersFile);
+var members=JsonSerializer.Deserialize<Member[]>(membersJson, new JsonSerializerOptions {PropertyNameCaseInsensitive=true}) ?? [];
 if(members.Length==0 || members.Select(m=>m.Id).Distinct().Count()!=members.Length || members.Any(m=>string.IsNullOrWhiteSpace(m.Id)||string.IsNullOrEmpty(m.TokenHash)||m.TokenHash.Length!=64||!m.TokenHash.All(Uri.IsHexDigit)))
     throw new InvalidOperationException("Configure unique members and SHA256 invite-key hashes in CLUB_MEMBERS_JSON.");
 foreach(var member in members)
 {
-    if(!string.IsNullOrEmpty(member.CdpUrl) && (!Uri.TryCreate(member.CdpUrl,UriKind.Absolute,out var cdp)||cdp.Scheme!="wss"))throw new InvalidOperationException("CDP endpoints must use wss.");
+    if(!string.IsNullOrEmpty(member.CdpUrl) && !Rules.ValidCdpEndpoint(member.CdpUrl,Environment.GetEnvironmentVariable("CLUB_ALLOW_LOCAL_BROWSER")=="true"))throw new InvalidOperationException("CDP endpoints must use wss, or explicitly enable the local browser at http://127.0.0.1:9222.");
     if(!string.IsNullOrEmpty(member.LiveViewUrl) && (!Uri.TryCreate(member.LiveViewUrl,UriKind.Absolute,out var live)||live.Scheme!="https"||!string.IsNullOrEmpty(live.UserInfo)))throw new InvalidOperationException("Live views must use https without userinfo.");
 }
 if(members.Where(m=>!string.IsNullOrEmpty(m.CdpUrl)).GroupBy(m=>m.CdpUrl).Any(g=>g.Count()>1))throw new InvalidOperationException("Each member needs an isolated browser session.");

@@ -1,6 +1,10 @@
 using CourtClub;
 
 static void Check(bool condition,string name){if(!condition)throw new Exception(name);Console.WriteLine("PASS "+name);}
+Check(Rules.ValidCdpEndpoint("wss://browser.example/session",false),"Remote browser still requires TLS");
+Check(!Rules.ValidCdpEndpoint("http://127.0.0.1:9222",false),"Local browser is opt-in");
+Check(Rules.ValidCdpEndpoint("http://127.0.0.1:9222",true),"Exact local endpoint allowed when enabled");
+Check(new[]{"http://example.com:9222","http://127.0.0.1:8080","http://localhost:9222","http://127.0.0.1:9222@evil.example","ws://example.com:9222","http://127.0.0.1:9222/other"}.All(s=>!Rules.ValidCdpEndpoint(s,true)),"Local opt-in does not allow arbitrary insecure endpoints");
 Check(Rules.ReleaseOn(new(2026,10,28)).UtcDateTime==new DateTime(2026,10,28,14,30,0,DateTimeKind.Utc),"PDT release");
 Check(Rules.ReleaseOn(new(2026,11,4)).UtcDateTime==new DateTime(2026,11,4,15,30,0,DateTimeKind.Utc),"PST release after fall transition");
 Check(Rules.ReleaseOn(new(2027,3,17)).UtcDateTime==new DateTime(2027,3,17,14,30,0,DateTimeKind.Utc),"Spring transition");

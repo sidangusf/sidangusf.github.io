@@ -13,6 +13,12 @@ public record ConfirmationInput(string Reference);
 
 public static class Rules
 {
+    public static bool ValidCdpEndpoint(string value, bool allowLocal)
+    {
+        if (!Uri.TryCreate(value, UriKind.Absolute, out var uri)) return false;
+        if (uri.Scheme == "wss") return true;
+        return allowLocal && value == "http://127.0.0.1:9222";
+    }
     public static readonly TimeZoneInfo Pacific = TimeZoneInfo.FindSystemTimeZoneById("America/Los_Angeles");
     public static readonly string[] Courts = ["A", "B", "C", "D"];
     public static readonly string[] Slots = ["7:00 PM - 7:30 PM", "7:30 PM - 8:00 PM", "8:00 PM - 8:30 PM", "8:30 PM - 9:00 PM"];

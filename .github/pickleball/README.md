@@ -21,6 +21,8 @@ The worker selects a full two-hour session and opens the waiver dialog. It does 
 
 ## Required hosting
 
+For the selected GCP VM, use [the dedicated deployment guide](Deploy/README.md). It supplies a self-hosted interactive browser, local-only CDP, HTTPS gateway, and persistent profile. External managed browser providers remain optional; the requirements below apply to that alternative.
+
 1. One ASP.NET Core 8 container/service with HTTPS, durable `/data`, synchronized clock, and no automatic sleeping. The scheduler needs to be running around release time. Deploy outside Wednesday 07:28–07:40. Do not rely on GitHub Actions cron for precise release timing.
 2. One isolated, persistent remote Chromium session per host, supporting Playwright over WSS CDP and **interactive human access to that same session**. A read-only video is insufficient. The remote browser provider must preserve the session after CDP disconnect and support login, CAPTCHA, signatures, and checkout.
 3. Provisioned endpoints must remain valid through handoff. If your provider uses expiring URLs, implement its lifecycle/renewal API before production. Provider selection and provisioning are not implemented or guessed here.

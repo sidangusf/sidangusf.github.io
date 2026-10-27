@@ -1,0 +1,29 @@
+booking-api.995studio.com {
+    header {
+        Cache-Control "no-store"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "no-referrer"
+    }
+    redir /browser /browser/ 308
+    handle_path /browser/* {
+        @foreign {
+            header Origin *
+            not header Origin https://booking-api.995studio.com
+        }
+        respond @foreign "Forbidden" 403
+        basic_auth {
+            host {env.BROWSER_PASSWORD_HASH}
+        }
+        reverse_proxy 127.0.0.1:6080
+    }
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8080
+    }
+    handle /health {
+        reverse_proxy 127.0.0.1:8080
+    }
+    handle {
+        respond "Not found" 404
+    }
+}
