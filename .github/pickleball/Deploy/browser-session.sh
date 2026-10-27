@@ -2,6 +2,8 @@
 set -euo pipefail
 umask 077
 children=()
+# Invoked by EXIT/TERM traps, not by the normal execution path.
+# shellcheck disable=SC2317
 cleanup() {
     trap - EXIT TERM INT
     if ((${#children[@]})); then
@@ -16,7 +18,7 @@ xauth -f "$XAUTHORITY" add "$DISPLAY" . "$(mcookie)"
 Xvfb "$DISPLAY" -screen 0 1280x800x24 -nolisten tcp -auth "$XAUTHORITY" &
 children+=("$!")
 ready=false
-for attempt in {1..30}; do
+for _attempt in {1..30}; do
     if xdpyinfo >/dev/null 2>&1; then ready=true; break; fi
     sleep 1
 done
