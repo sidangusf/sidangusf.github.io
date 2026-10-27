@@ -3,7 +3,7 @@ on:
   pull_request:
     paths: ['pickleball/**', '.github/pickleball/**', '.github/workflows/pickleball-checks.yml']
   push:
-    branches: ['feat/pickleball-booking']
+    branches: ['feat/pickleball-booking', 'feat/pickleball-gcp']
     paths: ['pickleball/**', '.github/pickleball/**', '.github/workflows/pickleball-checks.yml']
 permissions:
   contents: read
@@ -17,3 +17,11 @@ jobs:
           dotnet-version: '8.0.x'
       - run: dotnet build .github/pickleball/Server/CourtClub.csproj --configuration Release
       - run: dotnet run --project .github/pickleball/Tests/Tests.csproj --configuration Release
+      - run: bash -n .github/pickleball/Deploy/install.sh .github/pickleball/Deploy/browser-session.sh .github/pickleball/Deploy/check.sh
+      - run: shellcheck .github/pickleball/Deploy/install.sh .github/pickleball/Deploy/browser-session.sh .github/pickleball/Deploy/check.sh
+      - name: Validate gateway and deployment configuration
+        run: |
+          sudo install -d -m 700 /etc/court-club
+          sudo touch /etc/court-club/api.env /etc/court-club/gateway.env
+          sudo docker compose -f .github/pickleball/Deploy/compose.yaml config --quiet
+          docker run --rm -e BROWSER_PASSWORD_HASH='$2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTNmpkT/5qqR7hx4IjWJPDhjvG' -v "$PWD/.github/pickleball/Deploy/Caddyfile:/etc/caddy/Caddyfile:ro" caddy:2-alpine caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
