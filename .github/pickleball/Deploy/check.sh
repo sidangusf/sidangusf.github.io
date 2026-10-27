@@ -3,7 +3,7 @@ set -euo pipefail
 [[ $EUID == 0 ]] || { echo 'Run with sudo bash.' >&2; exit 1; }
 systemctl is-active --quiet court-browser
 ready=false
-for attempt in {1..30}; do
+for _attempt in {1..30}; do
     if curl -fsS --max-time 2 http://127.0.0.1:8080/health >/dev/null 2>&1 &&
        curl -fsS --max-time 2 http://127.0.0.1:9222/json/version >/dev/null 2>&1 &&
        curl -fsS --max-time 2 http://127.0.0.1:6080/vnc.html >/dev/null 2>&1; then
