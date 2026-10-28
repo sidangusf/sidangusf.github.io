@@ -21,6 +21,7 @@ builder.WebHost.ConfigureKestrel(o=>o.Limits.MaxRequestBodySize=4096);
 builder.Services.AddSingleton(members);
 builder.Services.AddSingleton(new Store(Environment.GetEnvironmentVariable("CLUB_DATA_DIR")??"/data"));
 builder.Services.AddSingleton<BookingWorker>();
+builder.Services.AddSingleton<BrowserCheck>();
 builder.Services.AddHostedService<Scheduler>();
 var app=builder.Build();
 app.UseCors();app.UseRateLimiter();
@@ -39,6 +40,12 @@ app.Use(async(context,next)=>{
 });
 Member Current(HttpContext c)=>(Member)c.Items["member"]!;
 app.MapGet("/health",()=>Results.Ok(new{status="ok"}));
+app.MapPost("/api/browser-check",async(HttpContext c,Store store,BrowserCheck check)=>{
+    var me=Current(c);
+    if(!me.CanManage)return Results.Json(new{error="Only the host can inspect the booking browser."},statusCode:403);
+    if(store.Read().Schedule.Enabled)return Results.Conflict(new{error="Pause weekly booking before running a browser check."});
+    return Results.Ok(await check.Run(me));
+});
 app.MapGet("/api/status",(HttpContext c,Store store,BookingWorker worker)=>{
     var me=Current(c);var state=store.Read();var blockers=worker.Blockers(me);
     return Results.Ok(new{
