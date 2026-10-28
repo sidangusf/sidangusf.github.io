@@ -1,5 +1,7 @@
 using CourtClub;
 
+if(args.Contains("--browser-check")){await BrowserChecks.Run();return;}
+
 static void Check(bool condition,string name){if(!condition)throw new Exception(name);Console.WriteLine("PASS "+name);}
 Check(Rules.ValidCdpEndpoint("wss://browser.example/session",false),"Remote browser still requires TLS");
 Check(!Rules.ValidCdpEndpoint("http://127.0.0.1:9222",false),"Local browser is opt-in");

@@ -36,6 +36,14 @@ These commands assume the VM uses the default network; check that before applyin
 
 ## Persistent data and weekly operation
 
+### Read-only browser check
+
+With weekly booking paused, sign in as host on the dashboard and click **Test connection**. Keep exactly one Fremont pickleball quick-reservation tab open in the private Chrome, with the schedule visible. The check attaches to that existing tab and reads its sign-in indicator, date picker and 16 slots for 7–9 PM on A–D. It never navigates, selects slots, submits a form or creates a booking job. It works while automation permission remains unconfirmed. Only hosts can call `POST /api/browser-check`; enabled schedules return 409 and viewers return 403.
+
+PASS means the page structure was recognized, even when no courts are available. Results apply only to the displayed date. It does not validate future release access, checkout, waivers or payment. A failed recognition check must not be treated as sold-out courts. Fixture tests exercise the inspector without contacting Fremont; the actual VM check is still required.
+
+For this API-only upgrade, from a clean checkout of the reviewed version run `sudo docker build -t court-club-api:local .github/pickleball`, then `sudo docker compose -f /etc/court-club/compose.yaml up -d --force-recreate api`. This preserves browser sessions, credentials, policy flags and booking state. Refresh the dashboard to load its matching frontend.
+
 - `/var/lib/court-club`: booking state; owned by API image's non-root UID.
 - `/var/lib/court-browser`: Chrome profile and cookies; private to browser user.
 - `/etc/court-club`: member hashes, configuration, browser password hash.

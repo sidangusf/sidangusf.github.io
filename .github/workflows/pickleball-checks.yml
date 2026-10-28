@@ -17,6 +17,10 @@ jobs:
           dotnet-version: '8.0.x'
       - run: dotnet build .github/pickleball/Server/CourtClub.csproj --configuration Release
       - run: dotnet run --project .github/pickleball/Tests/Tests.csproj --configuration Release
+      - name: Install browser for local fixture tests
+        run: pwsh .github/pickleball/Tests/bin/Release/net8.0/playwright.ps1 install --with-deps chromium
+      - name: Check read-only browser inspection against local fixtures
+        run: dotnet run --project .github/pickleball/Tests/Tests.csproj --configuration Release -- --browser-check
       - run: bash -n .github/pickleball/Deploy/install.sh .github/pickleball/Deploy/browser-session.sh .github/pickleball/Deploy/check.sh
       - run: shellcheck .github/pickleball/Deploy/install.sh .github/pickleball/Deploy/browser-session.sh .github/pickleball/Deploy/check.sh
       - name: Validate gateway and deployment configuration
