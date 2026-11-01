@@ -1,2 +1,7 @@
 .DS_Store
 ._*
+
+# Retired private court-booking project; keep it out of this public repository.
+/pickleball/
+/.github/pickleball/
+/.github/workflows/pickleball-checks.yml

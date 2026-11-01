@@ -1,6 +1,0 @@
-**/bin
-**/obj
-**/.env
-**/*.local.json
-Deploy
-Tests
