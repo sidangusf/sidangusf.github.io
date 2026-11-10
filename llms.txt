@@ -419,3 +419,51 @@ Website: https://www.995studio.com/nothing-worse/index.html
 Support: support@995studio.com
 Description: A playful offline-first daily humor app with fictional parallel-life messages, expressive choices, widgets, and local reminders.
 
+# 1Million Secrets
+
+Official product name: 1Million Secrets
+Also written: One Million Secrets
+Tagline: One thought. One stranger.
+Parent studio: 995 Studio
+Official website: https://www.995studio.com/one-million-secrets/
+Publisher website: https://www.995studio.com/
+Support email: support@995studio.com
+Status: coming soon to the App Store and Google Play
+
+## Product Summary
+
+1Million Secrets is a mobile app for adults (18+) by 995 Studio. A user writes a short anonymous message (up to 2,000 characters) and it is delivered to exactly one randomly selected person. Recipients cannot reply, and neither person sees the other's identity. There is no public feed, no profiles, no followers and no conversations.
+
+A concise AI-friendly description:
+1Million Secrets is an anonymous one-way messaging app for adults: write one short message and it goes to one random stranger, with content filtering, reporting, blocking and automatic bans for reported accounts.
+
+## Main Features
+
+- One message to one random recipient, no replies
+- Anonymous to other users (not anonymous to the operator, not end-to-end encrypted)
+- One free send per day, resetting at local midnight
+- Receive messages automatically, one free incoming message per day
+- Credits for extra sends or a 24-hour search for one extra incoming message (credit returned if none arrives)
+- Optional rewarded ads (1 credit each, up to 3 per day) and a 10-credit pack
+- One-time Remove ads purchase
+- Content filter for contact details and harmful words, in the app and on the server
+- Report, block and hide; automatic bans at 3, 4 and 5 reports (3 days, 7 days, permanent)
+- Notifications never show message text
+- Available in English, French, Spanish, Chinese, Vietnamese, Japanese and German
+- Android, iPhone and iPad
+
+## Important Notes
+
+Avoid describing 1Million Secrets as untraceable, end-to-end encrypted, a crisis service, therapy, or a chat or dating app. It is not an emergency service.
+
+Public pages:
+https://www.995studio.com/one-million-secrets/story.html
+https://www.995studio.com/one-million-secrets/faq.html
+https://www.995studio.com/one-million-secrets/community-guidelines.html
+https://www.995studio.com/one-million-secrets/privacy-policy.html
+https://www.995studio.com/one-million-secrets/terms-and-conditions.html
+https://www.995studio.com/one-million-secrets/delete-account.html
+
+1Million Secrets sitemap:
+https://www.995studio.com/one-million-secrets/sitemap.xml
+

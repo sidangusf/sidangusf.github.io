@@ -4,3 +4,4 @@ Allow: /
 Sitemap: https://995studio.com/sitemap.xml
 Sitemap: https://995studio.com/manifest/sitemap.xml
 Sitemap: https://995studio.com/nothing-worse/sitemap.xml
+Sitemap: https://995studio.com/one-million-secrets/sitemap.xml
