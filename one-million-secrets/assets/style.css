@@ -163,7 +163,8 @@ p{margin:0 0 14px}
 .footer .links{justify-content:flex-start}
 
 @media (max-width: 900px){
-  .hero-grid{grid-template-columns:1fr}
+  /* minmax(0, …) lets the column shrink below the phone preview's width; the preview then scales itself to fit. */
+  .hero-grid{grid-template-columns:minmax(0, 1fr)}
   .hero-logo{margin-left:auto; margin-right:auto}
   .hero-copy{text-align:center}
   .hero-copy .lead{margin-left:auto; margin-right:auto}
@@ -171,13 +172,28 @@ p{margin:0 0 14px}
   .cards{grid-template-columns:1fr 1fr}
 }
 @media (max-width: 720px){
-  .nav-inner{flex-direction:column; align-items:flex-start; gap:8px}
+  /* On phones the header scrolls away instead of covering a fifth of the screen. */
+  .nav{position:static}
+  .nav-inner{flex-direction:column; align-items:flex-start; gap:10px}
   .nav-inner{position:relative}
-  .nav-lang{position:absolute; top:19px; right:0}
-  .nav-lang select{font-size:13px; max-width:118px}
-  .links{justify-content:flex-start; gap:4px 12px; font-size:15px}
+  /* Compact picker: a globe and the language code (e.g. "VI"); the invisible select on top opens the phone's own list. */
+  .brand{max-width:calc(100% - 84px)}
+  .nav-lang{position:absolute; top:15px; right:0; height:40px; padding:0 11px; gap:5px; border:1px solid var(--line); border-radius:999px; background:#fff}
+  .nav-lang::after{content:attr(data-code); font-size:13px; font-weight:900; letter-spacing:.03em}
+  .nav-lang:focus-within{outline:3px solid rgba(185,74,104,.45); outline-offset:2px}
+  .nav-lang select{position:absolute; inset:0; width:100%; height:100%; max-width:none; opacity:0; font-size:16px}
+  .links{justify-content:flex-start; gap:16px 16px; font-size:15px}
+  /* Taller tap targets for the header and footer links, without changing how they look. */
+  .links a{position:relative}
+  .links a::after{content:""; position:absolute; inset:-8px -6px}
   .cards,.cards.two{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .toc{columns:1}
   .phone-card{padding:18px 12px}
+}
+@media (max-width: 380px){
+  .brand{gap:10px}
+  .brand-mark{width:40px; height:40px; border-radius:11px}
+  .brand-title{font-size:18px}
+  .nav-lang{top:12px}
 }

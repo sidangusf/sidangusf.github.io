@@ -92,7 +92,11 @@
     }
     document.documentElement.lang = TAGS[code];
     document.title = (code !== "en" && page[code] && page[code].title) || en.title;
-    if (select) select.value = code;
+    if (select) {
+      select.value = code;
+      // The compact phone picker shows this code next to the globe.
+      select.parentNode.setAttribute("data-code", code.toUpperCase());
+    }
     window.OMS_LANG = code;
     if (save) {
       try { localStorage.setItem(KEY, code); } catch (e) {}
@@ -118,6 +122,7 @@
   if (select) select.addEventListener("change", function () { apply(select.value, true); });
   var start = pick();
   window.OMS_LANG = start;
+  if (select) select.parentNode.setAttribute("data-code", start.toUpperCase());
   if (start !== "en") {
     apply(start, false);
     // The swapped-in text has the same section ids, so a #link still lands in the right place.
