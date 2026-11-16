@@ -10,6 +10,11 @@
   <link rel="icon" href="assets/favicon-96.png" type="image/png" sizes="96x96">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .lang-bar{display:flex; justify-content:flex-end; align-items:center; gap:10px; margin-bottom:8px}
+    .lang-bar label{font-weight:700; color:var(--muted)}
+    .lang-bar select{font:inherit; padding:8px 12px; border-radius:12px; border:1px solid var(--line); background:#fff; color:inherit; max-width:100%}
+  </style>
   <link rel="stylesheet" href="assets/phone.css">
   <meta property="og:title" content="1Million Secrets | One thought. One stranger.">
   <meta property="og:description" content="Write a short anonymous message and it goes to one random person. They can't reply, and neither of you sees who the other is.">
@@ -72,31 +77,43 @@
   <header class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
+        <div class="lang-bar">
+          <label for="page-lang" data-i18n="langLabel">Language</label>
+          <select id="page-lang">
+            <option value="en" lang="en">English</option>
+            <option value="fr" lang="fr">Français</option>
+            <option value="es" lang="es">Español</option>
+            <option value="zh" lang="zh-CN">中文（简体）</option>
+            <option value="vi" lang="vi">Tiếng Việt</option>
+            <option value="ja" lang="ja">日本語</option>
+            <option value="de" lang="de">Deutsch</option>
+          </select>
+        </div>
         <img class="hero-logo" src="assets/one-million-secrets-logo.png" alt="One Million Secrets" width="1200" height="400">
-        <h1 class="visually-tagline">One thought. One stranger.</h1>
-        <p class="lead">Write a short message and it goes to one random person. They can't reply, and neither of you sees who the other is. Then, someday, a message from someone else finds you.</p>
-        <div class="store-badges" aria-label="1Million Secrets mobile app downloads">
-          <span class="store disabled" aria-label="Google Play, coming soon">
-            <span aria-hidden="true"><svg class="store-play-icon" viewBox="0 0 512 512" focusable="false"><path d="M96 52.3v407.4c0 18.1 19.9 29.1 35.2 19.4l322.5-203.7c14.3-9 14.3-29.8 0-38.8L131.2 33C115.9 23.2 96 34.2 96 52.3z"></path></svg></span><div><span>COMING SOON TO</span><strong>Google Play</strong></div>
+        <h1 class="visually-tagline" data-i18n="tagline">One thought. One stranger.</h1>
+        <p class="lead" data-i18n="lead">Write a short message and it goes to one random person. They can't reply, and neither of you sees who the other is. Then, someday, a message from someone else finds you.</p>
+        <div class="store-badges" aria-label="1Million Secrets mobile app downloads" data-i18n-label="badges">
+          <span class="store disabled" aria-label="Google Play, coming soon" data-i18n-label="play">
+            <span aria-hidden="true"><svg class="store-play-icon" viewBox="0 0 512 512" focusable="false"><path d="M96 52.3v407.4c0 18.1 19.9 29.1 35.2 19.4l322.5-203.7c14.3-9 14.3-29.8 0-38.8L131.2 33C115.9 23.2 96 34.2 96 52.3z"></path></svg></span><div><span data-i18n="soon">COMING SOON TO</span><strong>Google Play</strong></div>
           </span>
-          <span class="store disabled" aria-label="App Store, coming soon">
-            <span aria-hidden="true"><svg class="store-apple-icon" viewBox="0 0 384 512" focusable="false"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-81.1-19.2-41.9.6-80.5 24.3-102.1 61.9-43.5 75.5-11.1 187 31.2 248.6 20.8 30.1 45.5 63.9 78 62.7 31.3-1.2 43.2-20.3 81.1-20.3 37.8 0 48.6 20.3 81.5 19.7 33.7-.6 55-30.7 75.5-60.9 23.8-34.9 33.6-68.7 34.2-70.5-.8-.3-65.4-25.1-66.1-99.4zm-58-166.4c17.2-20.8 28.8-49.8 25.6-78.6-24.8 1-54.8 16.5-72.6 37.3-15.9 18.4-29.9 48-26.1 76.3 27.6 2.1 55.9-14 73.1-35z"></path></svg></span><div><span>COMING SOON TO</span><strong>App Store</strong></div>
+          <span class="store disabled" aria-label="App Store, coming soon" data-i18n-label="apple">
+            <span aria-hidden="true"><svg class="store-apple-icon" viewBox="0 0 384 512" focusable="false"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-81.1-19.2-41.9.6-80.5 24.3-102.1 61.9-43.5 75.5-11.1 187 31.2 248.6 20.8 30.1 45.5 63.9 78 62.7 31.3-1.2 43.2-20.3 81.1-20.3 37.8 0 48.6 20.3 81.5 19.7 33.7-.6 55-30.7 75.5-60.9 23.8-34.9 33.6-68.7 34.2-70.5-.8-.3-65.4-25.1-66.1-99.4zm-58-166.4c17.2-20.8 28.8-49.8 25.6-78.6-24.8 1-54.8 16.5-72.6 37.3-15.9 18.4-29.9 48-26.1 76.3 27.6 2.1 55.9-14 73.1-35z"></path></svg></span><div><span data-i18n="soon">COMING SOON TO</span><strong>App Store</strong></div>
           </span>
         </div>
         <div class="badge-row">
-          <span class="pill">Adults 18+</span>
-          <span class="pill">1 free send a day</span>
-          <span class="pill">No replies, no profiles</span>
-          <span class="pill">Report &amp; block built in</span>
+          <span class="pill" data-i18n="pill1">Adults 18+</span>
+          <span class="pill" data-i18n="pill2">1 free send a day</span>
+          <span class="pill" data-i18n="pill3">No replies, no profiles</span>
+          <span class="pill" data-i18n="pill4">Report &amp; block built in</span>
         </div>
       </div>
 
       <div class="phone-card">
-        <div class="phone-label">Try the live preview ✨ Tap the pencil to write</div>
+        <div class="phone-label" data-i18n="phoneLabel">Try the live preview ✨ Tap the pencil to write</div>
         <div class="oms-sim" data-oms-sim aria-label="Interactive preview of the 1Million Secrets iPhone app">
           <noscript><img src="assets/app/send_success.png" alt="1Million Secrets app preview" width="320" height="320"></noscript>
         </div>
-        <p class="store-note" style="text-align:center">Preview only. Nothing you type here is sent or saved.</p>
+        <p class="store-note" style="text-align:center" data-i18n="previewNote">Preview only. Nothing you type here is sent or saved.</p>
       </div>
     </div>
   </header>
@@ -104,14 +121,14 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">How it works</p>
-        <h2>One message, one person, once</h2>
-        <p class="lead">There's no feed to scroll and no conversation to keep up. Just a thought, sent to one person you'll never meet.</p>
+        <p class="kicker" data-i18n="howKicker">How it works</p>
+        <h2 data-i18n="howH2">One message, one person, once</h2>
+        <p class="lead" data-i18n="howLead">There's no feed to scroll and no conversation to keep up. Just a thought, sent to one person you'll never meet.</p>
       </div>
       <div class="cards">
-        <div class="card"><span class="step-num">1</span><h3>Write</h3><p>Up to 2,000 characters. Words that look like contact details or harmful content are highlighted, and you remove them before sending.</p></div>
-        <div class="card"><span class="step-num">2</span><h3>Send to a stranger</h3><p>Your message goes to exactly one randomly selected person. Your Sent list shows it as <em>Sent</em> while it travels, then <em>Received</em> once it lands.</p></div>
-        <div class="card"><span class="step-num">3</span><h3>Receive one back</h3><p>Turn on <em>Receive automatically</em> and a message from someone else can find you. Notifications never show the message text.</p></div>
+        <div class="card"><span class="step-num">1</span><h3 data-i18n="step1H">Write</h3><p data-i18n="step1P">Up to 2,000 characters. Words that look like contact details or harmful content are highlighted, and you remove them before sending.</p></div>
+        <div class="card"><span class="step-num">2</span><h3 data-i18n="step2H">Send to a stranger</h3><p data-i18n="step2P">Your message goes to exactly one randomly selected person. Your Sent list shows it as <em>Sent</em> while it travels, then <em>Received</em> once it lands.</p></div>
+        <div class="card"><span class="step-num">3</span><h3 data-i18n="step3H">Receive one back</h3><p data-i18n="step3P">Turn on <em>Receive automatically</em> and a message from someone else can find you. Notifications never show the message text.</p></div>
       </div>
     </div>
   </section>
@@ -119,16 +136,16 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Safety first</p>
-        <h2>Anonymous to each other, not a free-for-all</h2>
+        <p class="kicker" data-i18n="safeKicker">Safety first</p>
+        <h2 data-i18n="safeH2">Anonymous to each other, not a free-for-all</h2>
       </div>
       <div class="cards">
-        <div class="card"><h3>Filtered before sending</h3><p>Emails, phone numbers, links, social handles and harmful words are caught on your phone and again on our server.</p></div>
-        <div class="card"><h3>Report, block, hide</h3><p>Report a message for a clear reason, block its sender without learning who they are, or hide it from your inbox.</p></div>
-        <div class="card"><h3>Reports have consequences</h3><p>Accounts that collect reports are banned automatically: 3 days, then 7 days, then permanently.</p></div>
+        <div class="card"><h3 data-i18n="safe1H">Filtered before sending</h3><p data-i18n="safe1P">Emails, phone numbers, links, social handles and harmful words are caught on your phone and again on our server.</p></div>
+        <div class="card"><h3 data-i18n="safe2H">Report, block, hide</h3><p data-i18n="safe2P">Report a message for a clear reason, block its sender without learning who they are, or hide it from your inbox.</p></div>
+        <div class="card"><h3 data-i18n="safe3H">Reports have consequences</h3><p data-i18n="safe3P">Accounts that collect reports are banned automatically: 3 days, then 7 days, then permanently.</p></div>
       </div>
       <div class="card note-card" style="margin-top:18px">
-        <p><strong>Honest about anonymity.</strong> Other users never see your name, email or account. 1Million Secrets itself does keep records of who sent what, so we can run the service, handle reports and meet legal duties. The person who receives your message can also copy or share it. Read the <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+        <p data-i18n="honest"><strong>Honest about anonymity.</strong> Other users never see your name, email or account. 1Million Secrets itself does keep records of who sent what, so we can run the service, handle reports and meet legal duties. The person who receives your message can also copy or share it. Read the <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
       </div>
     </div>
   </section>
@@ -136,13 +153,13 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <p class="kicker">Free to use</p>
-        <h2>Simple, fair pricing</h2>
+        <p class="kicker" data-i18n="priceKicker">Free to use</p>
+        <h2 data-i18n="priceH2">Simple, fair pricing</h2>
       </div>
       <div class="cards">
-        <div class="card"><h3>1 free send a day</h3><p>Your free send resets at midnight in your phone's time zone. One free incoming message a day, too.</p></div>
-        <div class="card"><h3>Credits for more</h3><p>One credit buys one extra send, or a 24-hour search for one more incoming message. If nothing arrives in 24 hours, the credit comes back. Credits never expire.</p></div>
-        <div class="card"><h3>Earn or buy</h3><p>Watch up to 3 optional rewarded ads a day for 1 credit each, or buy a 10-credit pack. A one-time purchase removes banner ads.</p></div>
+        <div class="card"><h3 data-i18n="pill2">1 free send a day</h3><p data-i18n="price1P">Your free send resets at midnight in your phone's time zone. One free incoming message a day, too.</p></div>
+        <div class="card"><h3 data-i18n="price2H">Credits for more</h3><p data-i18n="price2P">One credit buys one extra send, or a 24-hour search for one more incoming message. If nothing arrives in 24 hours, the credit comes back. Credits never expire.</p></div>
+        <div class="card"><h3 data-i18n="price3H">Earn or buy</h3><p data-i18n="price3P">Watch up to 3 optional rewarded ads a day for 1 credit each, or buy a 10-credit pack. A one-time purchase removes banner ads.</p></div>
       </div>
     </div>
   </section>
@@ -151,12 +168,12 @@
     <div class="container">
       <div class="cta">
         <div>
-          <h2>Questions before you write?</h2>
-          <p>How delivery works, what we store, and how to stay safe.</p>
+          <h2 data-i18n="ctaH2">Questions before you write?</h2>
+          <p data-i18n="ctaP">How delivery works, what we store, and how to stay safe.</p>
         </div>
         <div class="actions" style="margin:0">
-          <a class="btn primary" href="faq.html">Read the FAQ</a>
-          <a class="btn" href="community-guidelines.html">Community Guidelines</a>
+          <a class="btn primary" href="faq.html" data-i18n="ctaFaq">Read the FAQ</a>
+          <a class="btn" href="community-guidelines.html" data-i18n="ctaCg">Community Guidelines</a>
         </div>
       </div>
     </div>
@@ -181,5 +198,50 @@
     </div>
   </footer>
   <script src="assets/phone-preview.js" defer></script>
+  <script type="application/json" id="page-i18n">{"fr": {"lang": "fr", "title": "1Million Secrets | Une pensée. Un inconnu.", "text": {"tagline": "Une pensée. Un inconnu.", "lead": "Écrivez un court message : il part vers une personne choisie au hasard. Elle ne peut pas répondre, et aucun de vous ne sait qui est l'autre. Puis, un jour, le message de quelqu'un d'autre vous trouve.", "soon": "BIENTÔT SUR", "pill1": "Adultes 18+", "pill2": "1 envoi gratuit par jour", "pill3": "Pas de réponses, pas de profils", "pill4": "Signalement et blocage intégrés", "phoneLabel": "Essayez l'aperçu interactif ✨ Touchez le crayon pour écrire", "previewNote": "Aperçu uniquement. Rien de ce que vous tapez ici n'est envoyé ni enregistré.", "howKicker": "Comment ça marche", "howH2": "Un message, une personne, une seule fois", "howLead": "Pas de fil à faire défiler, pas de conversation à entretenir. Juste une pensée, envoyée à une personne que vous ne rencontrerez jamais.", "step1H": "Écrire", "step1P": "Jusqu'à 2 000 caractères. Les mots qui ressemblent à des coordonnées ou à du contenu nuisible sont surlignés, et vous les retirez avant l'envoi.", "step2H": "Envoyer à un inconnu", "step2P": "Votre message part vers une seule personne choisie au hasard. Votre liste Envoyés l'affiche comme <em>Envoyé<\/em> pendant le trajet, puis <em>Reçu<\/em> une fois arrivé.", "step3H": "En recevoir un en retour", "step3P": "Activez <em>Réception automatique<\/em> et le message de quelqu'un d'autre pourra vous trouver. Les notifications n'affichent jamais le texte du message.", "safeKicker": "La sécurité d'abord", "safeH2": "Anonymes entre vous, mais pas sans règles", "safe1H": "Filtré avant l'envoi", "safe1P": "Les e-mails, numéros de téléphone, liens, pseudos de réseaux sociaux et mots nuisibles sont détectés sur votre téléphone, puis à nouveau sur notre serveur.", "safe2H": "Signaler, bloquer, masquer", "safe2P": "Signalez un message pour un motif précis, bloquez son expéditeur sans savoir qui il est, ou masquez-le de votre boîte de réception.", "safe3H": "Les signalements ont des conséquences", "safe3P": "Les comptes qui cumulent des signalements sont suspendus automatiquement : 3 jours, puis 7 jours, puis définitivement.", "honest": "<strong>Honnêtes sur l'anonymat.<\/strong> Les autres utilisateurs ne voient jamais votre nom, votre e-mail ni votre compte. 1Million Secrets conserve en revanche la trace de qui a envoyé quoi, afin de faire fonctionner le service, de traiter les signalements et de respecter ses obligations légales. La personne qui reçoit votre message peut aussi le copier ou le partager. Lisez la <a href=\"privacy-policy.html\">Politique de confidentialité<\/a> pour en savoir plus.", "priceKicker": "Gratuit", "priceH2": "Des prix simples et justes", "price1H": "1 envoi gratuit par jour", "price1P": "Votre envoi gratuit se réinitialise à minuit, dans le fuseau horaire de votre téléphone. Et un message entrant gratuit par jour, aussi.", "price2H": "Des crédits pour aller plus loin", "price2P": "Un crédit permet un envoi supplémentaire, ou une recherche de 24 heures pour un message entrant de plus. Si rien n'arrive en 24 heures, le crédit vous est rendu. Les crédits n'expirent jamais.", "price3H": "Gagner ou acheter", "price3P": "Regardez jusqu'à 3 publicités récompensées facultatives par jour, pour 1 crédit chacune, ou achetez un pack de 10 crédits. Un achat unique supprime les bannières publicitaires.", "ctaH2": "Des questions avant d'écrire ?", "ctaP": "Comment fonctionne la distribution, ce que nous conservons et comment rester en sécurité.", "ctaFaq": "Lire la FAQ", "ctaCg": "Règles de la communauté", "langLabel": "Langue"}, "label": {"badges": "Téléchargements de l'application 1Million Secrets", "play": "Google Play, bientôt disponible", "apple": "App Store, bientôt disponible"}}, "es": {"lang": "es", "title": "1Million Secrets | Un pensamiento. Un desconocido.", "text": {"tagline": "Un pensamiento. Un desconocido.", "lead": "Escribe un mensaje corto y llegará a una persona al azar. No puede responder, y ninguno de los dos ve quién es el otro. Y algún día, un mensaje de otra persona te encontrará a ti.", "soon": "PRÓXIMAMENTE EN", "pill1": "Mayores de 18", "pill2": "1 envío gratis al día", "pill3": "Sin respuestas ni perfiles", "pill4": "Denuncias y bloqueo integrados", "phoneLabel": "Prueba la vista previa interactiva ✨ Toca el lápiz para escribir", "previewNote": "Solo es una vista previa. Nada de lo que escribas aquí se envía ni se guarda.", "howKicker": "Cómo funciona", "howH2": "Un mensaje, una persona, una sola vez", "howLead": "No hay muro que recorrer ni conversación que mantener. Solo un pensamiento, enviado a una persona que nunca conocerás.", "step1H": "Escribe", "step1P": "Hasta 2000 caracteres. Las palabras que parecen datos de contacto o contenido dañino se resaltan, y las quitas antes de enviar.", "step2H": "Envíalo a un desconocido", "step2P": "Tu mensaje llega a una sola persona elegida al azar. Tu lista de Enviados lo muestra como <em>Enviado<\/em> mientras viaja, y luego como <em>Recibido<\/em> cuando llega.", "step3H": "Recibe uno a cambio", "step3P": "Activa <em>Recibir automáticamente<\/em> y un mensaje de otra persona podrá encontrarte. Las notificaciones nunca muestran el texto del mensaje.", "safeKicker": "La seguridad primero", "safeH2": "Anónimos entre sí, pero no sin reglas", "safe1H": "Filtrado antes de enviar", "safe1P": "Los correos, números de teléfono, enlaces, nombres de usuario de redes sociales y palabras dañinas se detectan en tu teléfono y de nuevo en nuestro servidor.", "safe2H": "Denunciar, bloquear, ocultar", "safe2P": "Denuncia un mensaje por un motivo concreto, bloquea a su remitente sin saber quién es, u ocúltalo de tu bandeja de entrada.", "safe3H": "Las denuncias tienen consecuencias", "safe3P": "Las cuentas que acumulan denuncias se suspenden automáticamente: 3 días, luego 7 días y luego de forma permanente.", "honest": "<strong>Sinceros sobre el anonimato.<\/strong> Los demás usuarios nunca ven tu nombre, tu correo ni tu cuenta. 1Million Secrets sí guarda registros de quién envió qué, para poder hacer funcionar el servicio, gestionar las denuncias y cumplir con sus obligaciones legales. La persona que recibe tu mensaje también puede copiarlo o compartirlo. Lee la <a href=\"privacy-policy.html\">Política de privacidad<\/a> para más detalles.", "priceKicker": "Gratis", "priceH2": "Precios sencillos y justos", "price1H": "1 envío gratis al día", "price1P": "Tu envío gratis se renueva a medianoche en la zona horaria de tu teléfono. Y también un mensaje entrante gratis al día.", "price2H": "Créditos para más", "price2P": "Un crédito te da un envío adicional, o una búsqueda de 24 horas de un mensaje entrante más. Si no llega nada en 24 horas, el crédito se te devuelve. Los créditos nunca caducan.", "price3H": "Gana o compra", "price3P": "Mira hasta 3 anuncios con recompensa opcionales al día, por 1 crédito cada uno, o compra un paquete de 10 créditos. Una compra única quita los anuncios de banner.", "ctaH2": "¿Preguntas antes de escribir?", "ctaP": "Cómo funciona la entrega, qué guardamos y cómo mantenerte seguro.", "ctaFaq": "Leer las preguntas frecuentes", "ctaCg": "Normas de la comunidad", "langLabel": "Idioma"}, "label": {"badges": "Descargas de la aplicación 1Million Secrets", "play": "Google Play, próximamente", "apple": "App Store, próximamente"}}, "zh": {"lang": "zh-CN", "title": "1Million Secrets | 一个念头，一位陌生人。", "text": {"tagline": "一个念头，一位陌生人。", "lead": "写下一条简短的消息，它会被送给一位随机的人。对方无法回复，你们彼此都看不到对方是谁。然后，某一天，另一个人的消息也会找到你。", "soon": "即将登陆", "pill1": "仅限 18 岁以上", "pill2": "每天免费发送 1 条", "pill3": "无回复，无个人主页", "pill4": "内置举报和屏蔽", "phoneLabel": "试试实时预览 ✨ 点按铅笔开始写", "previewNote": "仅为预览。你在这里输入的任何内容都不会被发送或保存。", "howKicker": "使用方式", "howH2": "一条消息，一个人，一次", "howLead": "没有需要刷的动态，也没有需要维持的对话。只有一个念头，送给一位你永远不会见到的人。", "step1H": "写", "step1P": "最多 2000 个字符。看起来像联系方式或有害内容的字词会被标出，你需要在发送前删除它们。", "step2H": "发送给陌生人", "step2P": "你的消息只会送给一位随机选中的人。在“已发送”列表中，消息在途中时显示为<em>已发送<\/em>，送达后显示为<em>已送达<\/em>。", "step3H": "收到一条回赠", "step3P": "开启<em>自动接收<\/em>，另一个人的消息就可能找到你。通知绝不会显示消息文字。", "safeKicker": "安全第一", "safeH2": "彼此匿名，但并非毫无规则", "safe1H": "发送前过滤", "safe1P": "邮箱、电话号码、链接、社交账号和有害字词会在你的手机上被拦截，并在我们的服务器上再次检查。", "safe2H": "举报、屏蔽、隐藏", "safe2P": "按明确的理由举报消息，在不知道对方是谁的情况下屏蔽发送者，或将消息从收件箱中隐藏。", "safe3H": "举报会带来后果", "safe3P": "累积举报的账户会被自动封禁：先封 3 天，再封 7 天，然后永久封禁。", "honest": "<strong>对匿名坦诚相告。<\/strong>其他用户永远看不到你的名字、邮箱或账户。但 1Million Secrets 本身会记录谁发送了什么，以便运营服务、处理举报并履行法律义务。收到你消息的人也可以复制或分享它。详情请阅读<a href=\"privacy-policy.html\">隐私政策<\/a>。", "priceKicker": "免费使用", "priceH2": "简单、公平的价格", "price1H": "每天免费发送 1 条", "price1P": "你的免费发送次数会在手机所在时区的午夜重置。每天还可以免费接收一条消息。", "price2H": "用积分获得更多", "price2P": "1 积分可额外发送一次，或进行一次 24 小时的搜索，多接收一条消息。如果 24 小时内没有消息到达，积分会退还。积分永不过期。", "price3H": "赚取或购买", "price3P": "每天最多可自愿观看 3 次激励广告，每次获得 1 积分；或购买 10 积分礼包。一次性购买即可移除横幅广告。", "ctaH2": "写之前有疑问？", "ctaP": "消息如何投递、我们会保存什么，以及如何保护自己。", "ctaFaq": "阅读常见问题", "ctaCg": "社区准则", "langLabel": "语言"}, "label": {"badges": "1Million Secrets 移动应用下载", "play": "Google Play，即将推出", "apple": "App Store，即将推出"}}, "vi": {"lang": "vi", "title": "1Million Secrets | Một suy nghĩ. Một người lạ.", "text": {"tagline": "Một suy nghĩ. Một người lạ.", "lead": "Viết một tin nhắn ngắn và nó sẽ đến với một người ngẫu nhiên. Họ không thể trả lời, và cả hai đều không biết người kia là ai. Rồi một ngày nào đó, tin nhắn của một người khác sẽ tìm đến bạn.", "soon": "SẮP CÓ TRÊN", "pill1": "Người lớn 18+", "pill2": "1 lượt gửi miễn phí mỗi ngày", "pill3": "Không trả lời, không hồ sơ", "pill4": "Có sẵn báo cáo và chặn", "phoneLabel": "Thử bản xem trước trực tiếp ✨ Chạm vào bút chì để viết", "previewNote": "Chỉ là bản xem trước. Mọi thứ bạn nhập ở đây đều không được gửi hay lưu lại.", "howKicker": "Cách hoạt động", "howH2": "Một tin nhắn, một người, một lần", "howLead": "Không có bảng tin để lướt, cũng không có cuộc trò chuyện nào phải duy trì. Chỉ một suy nghĩ, gửi đến một người bạn sẽ không bao giờ gặp.", "step1H": "Viết", "step1P": "Tối đa 2.000 ký tự. Những từ trông giống thông tin liên lạc hoặc nội dung có hại sẽ được làm nổi bật, và bạn xóa chúng trước khi gửi.", "step2H": "Gửi đến một người lạ", "step2P": "Tin nhắn của bạn đến đúng một người được chọn ngẫu nhiên. Danh sách Đã gửi hiển thị là <em>Đã gửi<\/em> khi tin nhắn đang trên đường, rồi <em>Đã nhận<\/em> khi đã đến nơi.", "step3H": "Nhận lại một tin", "step3P": "Bật <em>Tự động nhận<\/em> và tin nhắn của một người khác có thể tìm đến bạn. Thông báo không bao giờ hiển thị nội dung tin nhắn.", "safeKicker": "An toàn là trên hết", "safeH2": "Ẩn danh với nhau, nhưng không phải muốn làm gì thì làm", "safe1H": "Lọc trước khi gửi", "safe1P": "Email, số điện thoại, đường dẫn, tên tài khoản mạng xã hội và từ ngữ có hại sẽ bị phát hiện ngay trên điện thoại của bạn và được kiểm tra lại trên máy chủ của chúng tôi.", "safe2H": "Báo cáo, chặn, ẩn", "safe2P": "Báo cáo tin nhắn với lý do rõ ràng, chặn người gửi mà không cần biết họ là ai, hoặc ẩn tin nhắn khỏi hộp thư đến.", "safe3H": "Báo cáo có hậu quả", "safe3P": "Tài khoản bị báo cáo nhiều sẽ tự động bị cấm: 3 ngày, rồi 7 ngày, rồi vĩnh viễn.", "honest": "<strong>Thẳng thắn về sự ẩn danh.<\/strong> Người dùng khác không bao giờ thấy tên, email hay tài khoản của bạn. Tuy nhiên, bản thân 1Million Secrets có lưu lại ai đã gửi gì để vận hành dịch vụ, xử lý báo cáo và thực hiện nghĩa vụ pháp lý. Người nhận tin nhắn của bạn cũng có thể sao chép hoặc chia sẻ nó. Đọc <a href=\"privacy-policy.html\">Chính sách quyền riêng tư<\/a> để biết thêm chi tiết.", "priceKicker": "Miễn phí", "priceH2": "Giá đơn giản, công bằng", "price1H": "1 lượt gửi miễn phí mỗi ngày", "price1P": "Lượt gửi miễn phí được làm mới vào nửa đêm theo múi giờ trên điện thoại của bạn. Mỗi ngày cũng có một tin nhắn đến miễn phí.", "price2H": "Tín dụng để có thêm", "price2P": "Một tín dụng đổi được một lượt gửi thêm, hoặc một lượt tìm kiếm trong 24 giờ để nhận thêm một tin nhắn. Nếu không có tin nào đến trong 24 giờ, tín dụng sẽ được hoàn lại. Tín dụng không bao giờ hết hạn.", "price3H": "Nhận hoặc mua", "price3P": "Xem tối đa 3 quảng cáo có thưởng (không bắt buộc) mỗi ngày, mỗi lần được 1 tín dụng, hoặc mua gói 10 tín dụng. Mua một lần để xóa quảng cáo biểu ngữ.", "ctaH2": "Có câu hỏi trước khi viết?", "ctaP": "Cách tin nhắn được gửi đi, chúng tôi lưu những gì và cách giữ an toàn.", "ctaFaq": "Đọc câu hỏi thường gặp", "ctaCg": "Nguyên tắc cộng đồng", "langLabel": "Ngôn ngữ"}, "label": {"badges": "Tải ứng dụng 1Million Secrets", "play": "Google Play, sắp ra mắt", "apple": "App Store, sắp ra mắt"}}, "ja": {"lang": "ja", "title": "1Million Secrets | ひとつの想い、ひとりの見知らぬ誰か。", "text": {"tagline": "ひとつの想い、ひとりの見知らぬ誰か。", "lead": "短いメッセージを書くと、ランダムに選ばれた1人に届きます。相手は返信できず、お互いに相手が誰なのかはわかりません。そしていつか、誰かからのメッセージがあなたのもとに届きます。", "soon": "近日公開", "pill1": "18歳以上", "pill2": "1日1回無料で送信", "pill3": "返信なし、プロフィールなし", "pill4": "報告とブロック機能つき", "phoneLabel": "ライブプレビューを試す ✨ 鉛筆をタップして書く", "previewNote": "プレビューのみです。ここで入力した内容は送信も保存もされません。", "howKicker": "使い方", "howH2": "1通のメッセージを、1人に、1度だけ", "howLead": "スクロールするタイムラインも、続けなければならない会話もありません。ただひとつの想いを、二度と会うことのない1人に送るだけです。", "step1H": "書く", "step1P": "最大2,000文字。連絡先や有害な内容に見える言葉は強調表示されるので、送信前に削除します。", "step2H": "見知らぬ誰かに送る", "step2P": "メッセージはランダムに選ばれたただ1人に届きます。送信済みリストでは、届くまでは<em>送信済み<\/em>、届くと<em>受信済み<\/em>と表示されます。", "step3H": "誰かから受け取る", "step3P": "<em>自動受信<\/em>をオンにすると、誰かからのメッセージがあなたに届くことがあります。通知にメッセージの本文が表示されることはありません。", "safeKicker": "安全第一", "safeH2": "お互いに匿名、でも無法地帯ではありません", "safe1H": "送信前にフィルタリング", "safe1P": "メールアドレス、電話番号、リンク、SNSのアカウント名、有害な言葉は、スマートフォン上で検出され、サーバーでも再度チェックされます。", "safe2H": "報告、ブロック、非表示", "safe2P": "明確な理由でメッセージを報告したり、相手が誰か知ることなく送信者をブロックしたり、受信箱から非表示にしたりできます。", "safe3H": "報告には結果が伴います", "safe3P": "報告が集まったアカウントは自動的に利用停止になります。3日間、次に7日間、そして永久に。", "honest": "<strong>匿名性について正直に。<\/strong>他のユーザーがあなたの名前、メールアドレス、アカウントを見ることはありません。ただし、1Million Secrets自体は、サービスの運営、報告への対応、法的義務の履行のために、誰が何を送ったかを記録しています。また、メッセージを受け取った人はそれをコピーしたり共有したりできます。詳しくは<a href=\"privacy-policy.html\">プライバシーポリシー<\/a>をご覧ください。", "priceKicker": "無料で使える", "priceH2": "シンプルで公平な料金", "price1H": "1日1回無料で送信", "price1P": "無料送信はスマートフォンのタイムゾーンの午前0時にリセットされます。無料の受信メッセージも1日1通あります。", "price2H": "もっと使うならクレジット", "price2P": "1クレジットで、追加の送信が1回、または受信メッセージをもう1通探す24時間の検索が1回できます。24時間以内に何も届かなければ、クレジットは返却されます。クレジットに有効期限はありません。", "price3H": "獲得するか、購入するか", "price3P": "任意のリワード広告を1日最大3回見て、1回につき1クレジット獲得できます。または10クレジットのパックを購入できます。買い切りの購入でバナー広告を削除できます。", "ctaH2": "書く前に気になることは？", "ctaP": "メッセージの届き方、保存する情報、安全に使うための方法。", "ctaFaq": "よくある質問を読む", "ctaCg": "コミュニティガイドライン", "langLabel": "言語"}, "label": {"badges": "1Million Secrets モバイルアプリのダウンロード", "play": "Google Play、近日公開", "apple": "App Store、近日公開"}}, "de": {"lang": "de", "title": "1Million Secrets | Ein Gedanke. Ein fremder Mensch.", "text": {"tagline": "Ein Gedanke. Ein fremder Mensch.", "lead": "Schreib eine kurze Nachricht, und sie geht an eine zufällige Person. Sie kann nicht antworten, und keiner von euch sieht, wer der andere ist. Und eines Tages findet dich eine Nachricht von jemand anderem.", "soon": "DEMNÄCHST BEI", "pill1": "Ab 18", "pill2": "1 kostenloses Senden pro Tag", "pill3": "Keine Antworten, keine Profile", "pill4": "Melden &amp; Blockieren integriert", "phoneLabel": "Probier die Live-Vorschau aus ✨ Tippe auf den Stift, um zu schreiben", "previewNote": "Nur eine Vorschau. Nichts, was du hier eingibst, wird gesendet oder gespeichert.", "howKicker": "So funktioniert's", "howH2": "Eine Nachricht, eine Person, ein Mal", "howLead": "Kein Feed zum Scrollen und kein Gespräch, das du am Laufen halten musst. Nur ein Gedanke, gesendet an eine Person, die du nie treffen wirst.", "step1H": "Schreiben", "step1P": "Bis zu 2.000 Zeichen. Wörter, die wie Kontaktdaten oder schädliche Inhalte aussehen, werden markiert, und du entfernst sie vor dem Senden.", "step2H": "An einen fremden Menschen senden", "step2P": "Deine Nachricht geht an genau eine zufällig ausgewählte Person. In deiner Liste „Gesendet“ steht sie als <em>Gesendet<\/em>, solange sie unterwegs ist, und als <em>Empfangen<\/em>, sobald sie angekommen ist.", "step3H": "Eine zurückbekommen", "step3P": "Aktiviere <em>Automatisch empfangen<\/em>, und eine Nachricht von jemand anderem kann dich finden. Benachrichtigungen zeigen nie den Nachrichtentext.", "safeKicker": "Sicherheit zuerst", "safeH2": "Anonym füreinander, aber kein rechtsfreier Raum", "safe1H": "Vor dem Senden gefiltert", "safe1P": "E-Mail-Adressen, Telefonnummern, Links, Social-Media-Namen und schädliche Wörter werden auf deinem Telefon erkannt und auf unserem Server erneut geprüft.", "safe2H": "Melden, blockieren, ausblenden", "safe2P": "Melde eine Nachricht aus einem klaren Grund, blockiere den Absender, ohne zu erfahren, wer es ist, oder blende sie in deinem Posteingang aus.", "safe3H": "Meldungen haben Folgen", "safe3P": "Konten, die Meldungen sammeln, werden automatisch gesperrt: 3 Tage, dann 7 Tage, dann dauerhaft.", "honest": "<strong>Ehrlich in Sachen Anonymität.<\/strong> Andere Nutzer sehen nie deinen Namen, deine E-Mail-Adresse oder dein Konto. 1Million Secrets selbst speichert jedoch, wer was gesendet hat, damit wir den Dienst betreiben, Meldungen bearbeiten und gesetzliche Pflichten erfüllen können. Die Person, die deine Nachricht erhält, kann sie außerdem kopieren oder teilen. Details findest du in der <a href=\"privacy-policy.html\">Datenschutzerklärung<\/a>.", "priceKicker": "Kostenlos nutzbar", "priceH2": "Einfache, faire Preise", "price1H": "1 kostenloses Senden pro Tag", "price1P": "Dein kostenloses Senden wird um Mitternacht in der Zeitzone deines Telefons zurückgesetzt. Dazu gibt es eine kostenlose eingehende Nachricht pro Tag.", "price2H": "Credits für mehr", "price2P": "Ein Credit bringt dir ein zusätzliches Senden oder eine 24-stündige Suche nach einer weiteren eingehenden Nachricht. Kommt in 24 Stunden nichts an, bekommst du den Credit zurück. Credits verfallen nie.", "price3H": "Verdienen oder kaufen", "price3P": "Sieh dir bis zu 3 optionale Werbungen mit Belohnung pro Tag an, für je 1 Credit, oder kaufe ein Paket mit 10 Credits. Ein einmaliger Kauf entfernt Bannerwerbung.", "ctaH2": "Fragen, bevor du schreibst?", "ctaP": "Wie die Zustellung funktioniert, was wir speichern und wie du sicher bleibst.", "ctaFaq": "FAQ lesen", "ctaCg": "Community-Richtlinien", "langLabel": "Sprache"}, "label": {"badges": "Downloads der App 1Million Secrets", "play": "Google Play, demnächst verfügbar", "apple": "App Store, demnächst verfügbar"}}}</script>
+  <script>
+    (function () {
+      var data = JSON.parse(document.getElementById('page-i18n').textContent);
+      var select = document.getElementById('page-lang');
+      var nodes = document.querySelectorAll('[data-i18n]');
+      var labelled = document.querySelectorAll('[data-i18n-label]');
+      // English comes from the page as written.
+      var en = { lang: 'en', title: document.title, text: {}, label: {} };
+      nodes.forEach(function (n) { en.text[n.getAttribute('data-i18n')] = n.innerHTML; });
+      labelled.forEach(function (n) { en.label[n.getAttribute('data-i18n-label')] = n.getAttribute('aria-label'); });
+      data.en = en;
+      // Shares the saved choice with the FAQ and legal pages, so one pick carries across the site.
+      var KEY = 'oms-legal-lang';
+      var current = 'en';
+      function pick() {
+        var q = new URLSearchParams(location.search).get('lang');
+        if (q && data[q]) return q;
+        try { var s = localStorage.getItem(KEY); if (s && data[s]) return s; } catch (e) {}
+        var nav = (navigator.languages || [navigator.language || 'en']);
+        for (var i = 0; i < nav.length; i++) { var c = String(nav[i]).slice(0, 2).toLowerCase(); if (data[c]) return c; }
+        return 'en';
+      }
+      function show(code, save) {
+        var d = data[code] || en;
+        if (code !== current) {
+          nodes.forEach(function (n) { var t = d.text[n.getAttribute('data-i18n')]; n.innerHTML = t != null ? t : en.text[n.getAttribute('data-i18n')]; });
+          labelled.forEach(function (n) { var t = d.label[n.getAttribute('data-i18n-label')]; n.setAttribute('aria-label', t != null ? t : en.label[n.getAttribute('data-i18n-label')]); });
+          current = code;
+        }
+        document.documentElement.lang = d.lang;
+        document.title = d.title;
+        select.value = code;
+        if (save) {
+          try { localStorage.setItem(KEY, code); } catch (e) {}
+          var u = new URL(location.href);
+          if (code === 'en') u.searchParams.delete('lang'); else u.searchParams.set('lang', code);
+          history.replaceState(null, '', u);
+        }
+      }
+      select.addEventListener('change', function () { show(select.value, true); });
+      var start = pick();
+      if (start !== 'en') show(start, false);
+    })();
+  </script>
 </body>
 </html>
